@@ -3,15 +3,15 @@
 ## Database Configuration - PostgreSQL
 Update application properties for database properties `src/main/resources/application.properties`.
  
-- dbName : postgres_demo
+- dbName : postgres
 - username : postgres
 - password : postgres
 
 ## Project Setup Goal
-- [ ] Install Vagrant using Ubuntu 16 Distro.
-- [ ] Share project file with vagrant.
-- [ ] Install docker and docker compose.
-- [ ] Run postgres image and test application using it
+- [x] Install Vagrant using Ubuntu 16 Distro.
+- [x] Share project file with vagrant.
+- [x] Install docker and docker compose.
+- [x] Run postgres image and test application using it
 - [ ] Get maven image from '3-jdk-8'
 - [ ] Create docker file and add all necessary setup.
 - [ ] Run maven install command.
@@ -33,6 +33,13 @@ Update application properties for database properties `src/main/resources/applic
 - [ ] Use spring feign cloud service
 
 ## How to run
+- Development Environment
+```bash
+vagrant up // setup virtual os and install docker
+vagrant ssh
+docker pull postgres
+docker run -d --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v pgdata:/var/lib/postgresql/data postgres
+```
 - run following cmd
     - vagrant up
     - vagrant ssh
