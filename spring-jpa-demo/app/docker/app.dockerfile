@@ -2,8 +2,12 @@ FROM maven:3-jdk-8
 
 WORKDIR /opt/app
 
-COPY .. .
+EXPOSE 8080
 
-RUN 'mvn clean install'
+COPY app /opt/app
 
-CMD 'mvn spring-boot:run'
+COPY .m2/repository /root/.m2/repository
+
+RUN mvn clean install
+
+CMD ["mvn", "spring-boot:run"]

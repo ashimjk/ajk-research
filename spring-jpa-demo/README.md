@@ -12,12 +12,12 @@ Update application properties for database properties `src/main/resources/applic
 - [x] Share project file with vagrant.
 - [x] Install docker and docker compose.
 - [x] Run postgres image and test application using it
-- [ ] Get maven image from '3-jdk-8'
-- [ ] Create docker file and add all necessary setup.
-- [ ] Run maven install command.
-- [ ] Add cmd for spring boot run.
-- [ ] Create docker compose file
-- [ ] Build and run using docker compose file.
+- [x] Get maven image from '3-jdk-8'
+- [x] Create docker file and add all necessary setup.
+- [x] Run maven install command.
+- [x] Add cmd for spring boot run.
+- [x] Create docker compose file
+- [x] Build and run using docker compose file.
 
 ## Project Development
 - [ ] Add unit testing
@@ -32,6 +32,10 @@ Update application properties for database properties `src/main/resources/applic
 - [ ] Using wiremock for testing
 - [ ] Use spring feign cloud service
 
+## Prerequiste
+- Install Virtual Box
+- Install Vagrant
+
 ## How to run
 - Development Environment
 ```bash
@@ -40,16 +44,25 @@ vagrant ssh
 docker pull postgres
 docker run -d --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v pgdata:/var/lib/postgresql/data postgres
 ```
-- run following cmd
-    - vagrant up
-    - vagrant ssh
-    - create docker image
-    - run docker container
 
-## Note
-- Use same network
-- Use volume and bind mounts
-- Use three steps verification
-    - development
-    - staging
-    - production
+- Staging Environment
+```bash
+vagrant up
+vagrant ssh
+docker pull postgres
+docker pull maven:3-jdk-8
+docker image build -t spring-jpa-demo -f app/docker/app.dockerfile .
+docker container run -d --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v pgdata:/var/lib/postgresql/data postgres
+docker container run -d --name spring-jpa-demo -p 8080:8080 spring-jpa-demo
+```
+
+- Production Environment
+```bash
+vagrant up
+vagrant ssh
+docker pull postgres
+docker pull maven:3-jdk-8
+docker image build -t spring-jpa-demo -f app/docker/app.dockerfile .
+docker-compose -f app/docker/docker-compose.yml up -d
+docker-compose -f app/docker/docker-compose.yml down
+```
