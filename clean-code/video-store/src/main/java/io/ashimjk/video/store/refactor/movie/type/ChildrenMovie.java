@@ -3,21 +3,23 @@ package io.ashimjk.video.store.refactor.movie.type;
 import io.ashimjk.video.store.refactor.movie.Movie;
 
 public class ChildrenMovie extends Movie {
-	public ChildrenMovie(String title) {
-		super(title);
-	}
 
-	@Override
-	public double determineAmount(int daysRented) {
-		double rentalAmount = 1.5;
-		if (daysRented > 3)
-			rentalAmount += (daysRented - 3) * 1.5;
+    public ChildrenMovie(String title) {
+        super(title);
+    }
 
-		return rentalAmount;
-	}
+    @Override
+    public double determineAmount(int daysRented) {
+        double rentalAmount = 1.5;
+        if (daysRented > 3)
+            rentalAmount += (daysRented - 3) * 1.5;
 
-	@Override
-	public int determineFrequentRenterPoints(int daysRented) {
-		return 1;
-	}
+        return rentalAmount;
+    }
+
+    @Override
+    public int determineFrequentRenterPoints(int daysRented) {
+        return 1;
+    }
+
 }

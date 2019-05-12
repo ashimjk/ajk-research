@@ -1,18 +1,14 @@
 package io.ashimjk.testable.html.original;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
+import fitnesse.wiki.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import fitnesse.wiki.InMemoryPage;
-import fitnesse.wiki.PageCrawler;
-import fitnesse.wiki.PageData;
-import fitnesse.wiki.PathParser;
-import fitnesse.wiki.WikiPage;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class TestableHtmlTest {
+
     private PageData pageData;
     private PageCrawler crawler;
     private WikiPage root;
@@ -59,4 +55,5 @@ public class TestableHtmlTest {
         assertThat(removeMagicNumber(testableHtml),
                 is(removeMagicNumber(expectedResult)));
     }
+
 }
