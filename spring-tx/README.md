@@ -2,15 +2,15 @@
 
 ## Summary
 - Local Test : to check service level transactional
-- Propagation Test : check Propagation.REQUIRED and Propagation.REQUIRED_NEW 
+- Propagation Test : check Propagation.REQUIRED and Propagation.REQUIRED_NEW
 
-## Note 
+## Note
 - TransactionInterceptor intercept insert call and delegate request to TransactionAspectSupport.invokeWithinTransaction
 - TransactionAspectSupport.invokeWithinTransaction
 	- get PlatformTransactionManager and joinpointIdentification (UserDao.insert)
 	- get TransactionAttribute (PROPAGATION_REQUIRED,ISOLATION_DEFAULT)
 	- get TransactionInfo (PROPAGATION_REQUIRED,ISOLATION_DEFAULT)
-	
+
 	- createTransactionIfNecessary
 		// use JpaTransactionManager to get transaction
 		- AbstractPlatformTransactionManager.getTransaction
@@ -29,11 +29,11 @@
 	// now transaction is in new state
 	// now invoke dao method (UserDao.insert() method)
 	-  delegate request to TransactionInterceptor
-	
+
 	// if transaction failed
 	- JpaTransactionManager.rollback
 	- restore previous TransactionInfo into current thread transactionInfoHolder (ThreadLocal<TransactionAspectSupport.TransactionInfo>)
-	
+
 	// if transaction success
 	- restore previous TransactionInfo into current thread transactionInfoHolder (ThreadLocal<TransactionAspectSupport.TransactionInfo>)
 	- JpaTransactionManager.commit

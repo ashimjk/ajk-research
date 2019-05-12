@@ -15,7 +15,7 @@ to know if your functions are the right size?
 - Object Oriented Design involves the art of breaking applications into
 classes. But have you found all the classes in the design of your
 application? Is there a way to know?
-    > Refactoring the large function is the best way to know hidden classes. 
+    > Refactoring the large function is the best way to know hidden classes.
 
 - Functions are supposed to do "One Thing", do it well, and do it only.
 But what is "One Thing". Is there a way to tell if your functions are

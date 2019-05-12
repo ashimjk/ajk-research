@@ -2,7 +2,7 @@
 
 ## Database Configuration - PostgreSQL
 Update application properties for database properties `src/main/resources/application.properties`.
- 
+
 - dbName : postgres
 - username : postgres
 - password : postgres

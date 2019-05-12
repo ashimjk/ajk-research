@@ -42,13 +42,13 @@ in the right direction.
 
 ## Note
 
-- If your application is composed of independently deployable plugins, 
-and it should be, then all of those plugins should know about the central core 
-of the application. And the central core shouldn't know anything about 
+- If your application is composed of independently deployable plugins,
+and it should be, then all of those plugins should know about the central core
+of the application. And the central core shouldn't know anything about
 the plugins at all.
 
-- All the source code dependencies should put inwards 
-from the plugins towards the core. No software dependency should point outwards, 
+- All the source code dependencies should put inwards
+from the plugins towards the core. No software dependency should point outwards,
 away from the core, and towards the plugins.
 
 - Switch statements in plugins are harmless so long as the dependencies point
