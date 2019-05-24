@@ -24,6 +24,15 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<developers>
+		<developer>
+			<name>Ashim Jung Khadka</name>
+			<email>ashim.jung.khadka@gmail.com</email>
+			<organization>Self Workstation</organization>
+			<organizationUrl>https://ashimjk.github.io</organizationUrl>
+		</developer>
+	</developers>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
