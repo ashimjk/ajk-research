@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class CustomerController {
 
-	final JdbcTemplate jdbcTemplate;
+	private final JdbcTemplate jdbcTemplate;
 
 	public CustomerController(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 

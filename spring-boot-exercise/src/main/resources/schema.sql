@@ -1,3 +1,7 @@
+use exercise;
+
+drop table if exists customer;
+
 create table customer(
     id int,
     name varchar(50),
