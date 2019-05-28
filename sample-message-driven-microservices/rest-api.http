@@ -1,0 +1,19 @@
+POST http://localhost:8090/order-service
+Content-Type: application/json
+
+{
+  "id": 1,
+  "status": "ACCEPTED",
+  "price": 500,
+  "customerId": 1,
+  "accountId": 1,
+  "productIds": [
+    2
+  ]
+}
+
+<> 2019-05-28T070848.200.json
+
+
+###
+
