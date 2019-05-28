@@ -48,23 +48,23 @@ class BookingServiceTest {
 
     private Optional<Flight> flight() {
         return Optional.of(Flight.builder()
-                .flightNumber(FLIGHT_NUMBER)
-                .airline("Oceanic")
-                .build());
+            .flightNumber(FLIGHT_NUMBER)
+            .airline("Oceanic")
+            .build());
     }
 
     private Booking booking() {
         return Booking.builder()
-                .flightNumber(FLIGHT_NUMBER)
-                .customer(customer().orElse(new Customer()))
-                .build();
+            .flightNumber(FLIGHT_NUMBER)
+            .customer(customer().orElse(new Customer()))
+            .build();
     }
 
     private Optional<Customer> customer() {
         return Optional.of(Customer.builder()
-                .id(42L)
-                .name("Hurley")
-                .build());
+            .id(42L)
+            .name("Hurley")
+            .build());
     }
 
 }

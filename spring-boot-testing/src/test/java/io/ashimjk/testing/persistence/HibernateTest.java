@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.flyway.enabled=false"
+    "spring.jpa.hibernate.ddl-auto=create-drop",
+    "spring.flyway.enabled=false"
 })
 class HibernateTest {
 
@@ -53,8 +53,8 @@ class HibernateTest {
     @Test
     void whenSaved_thenFindsByName() {
         userRepository.save(new UserEntity(
-                "Zaphod Beeblebrox",
-                "zaphod@galaxy.net"));
+            "Zaphod Beeblebrox",
+            "zaphod@galaxy.net"));
         assertThat(userRepository.findByName("Zaphod Beeblebrox")).isNotNull();
     }
 

@@ -18,7 +18,7 @@ public class ControllerExceptionHandler {
         ErrorResult errorResult = new ErrorResult();
         for (FieldError fieldError : e.getBindingResult().getFieldErrors()) {
             errorResult.getFieldErrors()
-                    .add(new FieldValidationError(fieldError.getField(), fieldError.getDefaultMessage()));
+                .add(new FieldValidationError(fieldError.getField(), fieldError.getDefaultMessage()));
         }
         return errorResult;
     }

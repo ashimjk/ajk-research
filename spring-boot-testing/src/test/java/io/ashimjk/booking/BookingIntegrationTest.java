@@ -27,21 +27,21 @@ class BookingIntegrationTest {
     @BeforeEach
     void setup() {
         this.mockMvc = MockMvcBuilders
-                .webAppContextSetup(applicationContext)
-                .build();
+            .webAppContextSetup(applicationContext)
+            .build();
     }
 
     @Test
     void bookFlightReturnsHttpStatusOk() throws Exception {
         this.customerRepository.save(Customer.builder()
-                .name("Hurley")
-                .build());
+            .name("Hurley")
+            .build());
 
         this.mockMvc.perform(
-                post("/booking")
-                        .param("customerId", "1")
-                        .param("flightNumber", "Oceanic 815"))
-                .andExpect(status().isOk());
+            post("/booking")
+                .param("customerId", "1")
+                .param("flightNumber", "Oceanic 815"))
+            .andExpect(status().isOk());
     }
 
 }

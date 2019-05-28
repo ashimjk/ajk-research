@@ -18,9 +18,9 @@ public class BookingService {
     FlightService flightService;
 
     public BookingService(
-            BookingRepository bookingRepository,
-            CustomerRepository customerRepository,
-            FlightService flightService) {
+        BookingRepository bookingRepository,
+        CustomerRepository customerRepository,
+        FlightService flightService) {
         this.bookingRepository = bookingRepository;
         this.customerRepository = customerRepository;
         this.flightService = flightService;
@@ -42,9 +42,9 @@ public class BookingService {
         }
 
         Booking booking = Booking.builder()
-                .customer(customer.get())
-                .flightNumber(flight.get().getFlightNumber())
-                .build();
+            .customer(customer.get())
+            .flightNumber(flight.get().getFlightNumber())
+            .build();
 
         return this.bookingRepository.save(booking);
     }

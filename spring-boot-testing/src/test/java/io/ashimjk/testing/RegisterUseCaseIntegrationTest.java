@@ -15,9 +15,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(properties = {
-        "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.liquibase.enabled=false",
-        "spring.flyway.enabled=false"
+    "spring.jpa.hibernate.ddl-auto=create-drop",
+    "spring.liquibase.enabled=false",
+    "spring.flyway.enabled=false"
 })
 @AutoConfigureMockMvc
 public class RegisterUseCaseIntegrationTest {
@@ -36,10 +36,10 @@ public class RegisterUseCaseIntegrationTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk());
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk());
 
         UserEntity userEntity = userRepository.findByName("Zaphod");
         assertThat(userEntity.getEmail()).isEqualTo("zaphod@galaxy.net");

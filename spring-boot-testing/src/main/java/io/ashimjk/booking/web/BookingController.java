@@ -17,14 +17,14 @@ public class BookingController {
 
     @PostMapping("/booking")
     public ResponseEntity<BookingResultResource> bookFlight(
-            @RequestParam("customerId") Long customerId,
-            @RequestParam("flightNumber") String flightNumber) {
+        @RequestParam("customerId") Long customerId,
+        @RequestParam("flightNumber") String flightNumber) {
 
         bookingService.bookFlight(customerId, flightNumber);
 
         BookingResultResource bookingResult = BookingResultResource.builder()
-                .success(true)
-                .build();
+            .success(true)
+            .build();
         return ResponseEntity.ok(bookingResult);
     }
 

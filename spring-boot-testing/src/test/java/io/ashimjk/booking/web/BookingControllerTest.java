@@ -37,9 +37,9 @@ class BookingControllerTest {
     @BeforeEach
     void printApplicationContext() {
         Arrays.stream(applicationContext.getBeanDefinitionNames())
-                .map(name -> applicationContext.getBean(name).getClass().getName())
-                .sorted()
-                .forEach(log::info);
+            .map(name -> applicationContext.getBean(name).getClass().getName())
+            .sorted()
+            .forEach(log::info);
     }
 
     @Test
@@ -48,23 +48,23 @@ class BookingControllerTest {
         String flightNumber = "Oceanic 815";
 
         when(bookingService.bookFlight(eq(42L), eq(flightNumber)))
-                .thenReturn(expectedBooking());
+            .thenReturn(expectedBooking());
 
         mockMvc.perform(
-                post("/booking")
-                        .param("customerId", "42")
-                        .param("flightNumber", flightNumber))
-                .andExpect(status().isOk());
+            post("/booking")
+                .param("customerId", "42")
+                .param("flightNumber", flightNumber))
+            .andExpect(status().isOk());
     }
 
     private Booking expectedBooking() {
         return Booking.builder()
-                .customer(Customer.builder()
-                        .id(42L)
-                        .name("Zaphod")
-                        .build())
-                .flightNumber("Oceanic 815")
-                .build();
+            .customer(Customer.builder()
+                .id(42L)
+                .name("Zaphod")
+                .build())
+            .flightNumber("Oceanic 815")
+            .build();
     }
 
 }

@@ -35,10 +35,10 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/42/register")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user))
-                .contentType("application/json"))
-                .andExpect(status().isOk());
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user))
+            .contentType("application/json"))
+            .andExpect(status().isOk());
 
     }
 
@@ -48,10 +48,10 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk());
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk());
 
     }
 
@@ -61,10 +61,10 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk());
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk());
 
         ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
         verify(registerUseCase, times(1)).registerUser(userCaptor.capture(), eq(true));
@@ -79,16 +79,16 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         MvcResult mvcResult = mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk())
-                .andReturn();
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk())
+            .andReturn();
 
         UserResource expectedResponseBody = user;
         String actualResponseBody = mvcResult.getResponse().getContentAsString();
         assertThat(objectMapper.writeValueAsString(expectedResponseBody))
-                .isEqualToIgnoringWhitespace(actualResponseBody);
+            .isEqualToIgnoringWhitespace(actualResponseBody);
 
     }
 
@@ -99,11 +99,11 @@ class RegisterRestControllerTest {
         UserResource expectedResponseBody = user;
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk())
-                .andExpect(responseBody().containsObjectAsJson(expectedResponseBody, UserResource.class));
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk())
+            .andExpect(responseBody().containsObjectAsJson(expectedResponseBody, UserResource.class));
     }
 
     @Test
@@ -112,14 +112,15 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource("Zaphod", "zaphod@galaxy.net");
 
         MvcResult mvcResult = mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk())
-                .andReturn();
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isOk())
+            .andReturn();
 
         UserResource expected = user;
-        UserResource actualResponseBody = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), UserResource.class);
+        UserResource actualResponseBody = objectMapper.readValue(mvcResult.getResponse()
+            .getContentAsString(), UserResource.class);
         assertThat(expected.getName()).isEqualTo(actualResponseBody.getName());
         assertThat(expected.getEmail()).isEqualTo(actualResponseBody.getEmail());
 
@@ -131,10 +132,10 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource(null, "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isBadRequest());
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -143,11 +144,11 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource(null, "zaphod@galaxy.net");
 
         MvcResult mvcResult = mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isBadRequest())
-                .andReturn();
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isBadRequest())
+            .andReturn();
 
         ErrorResult expectedErrorResponse = new ErrorResult("name", "must not be null");
         String actualResponseBody = mvcResult.getResponse().getContentAsString();
@@ -161,11 +162,11 @@ class RegisterRestControllerTest {
         UserResource user = new UserResource(null, "zaphod@galaxy.net");
 
         mockMvc.perform(post("/forums/{forumId}/register", 42L)
-                .contentType("application/json")
-                .param("sendWelcomeMail", "true")
-                .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isBadRequest())
-                .andExpect(responseBody().containsError("name", "must not be null"));
+            .contentType("application/json")
+            .param("sendWelcomeMail", "true")
+            .content(objectMapper.writeValueAsString(user)))
+            .andExpect(status().isBadRequest())
+            .andExpect(responseBody().containsError("name", "must not be null"));
     }
 
 }

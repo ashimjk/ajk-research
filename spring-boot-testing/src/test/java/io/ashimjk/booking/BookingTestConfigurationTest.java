@@ -17,9 +17,9 @@ class BookingTestConfigurationTest {
     @BeforeEach
     void printApplicationContext() {
         Arrays.stream(applicationContext.getBeanDefinitionNames())
-                .map(name -> applicationContext.getBean(name).getClass().getName())
-                .sorted()
-                .forEach(System.out::println);
+            .map(name -> applicationContext.getBean(name).getClass().getName())
+            .sorted()
+            .forEach(System.out::println);
     }
 
     @Test

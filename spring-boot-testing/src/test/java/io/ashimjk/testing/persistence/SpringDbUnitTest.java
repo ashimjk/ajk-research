@@ -13,13 +13,13 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @DataJpaTest
 @TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.liquibase.enabled=false",
-        "spring.flyway.enabled=false"
+    "spring.jpa.hibernate.ddl-auto=create-drop",
+    "spring.liquibase.enabled=false",
+    "spring.flyway.enabled=false"
 })
 @TestExecutionListeners({
-        DependencyInjectionTestExecutionListener.class,
-        TransactionDbUnitTestExecutionListener.class
+    DependencyInjectionTestExecutionListener.class,
+    TransactionDbUnitTestExecutionListener.class
 })
 class SpringDbUnitTest {
 

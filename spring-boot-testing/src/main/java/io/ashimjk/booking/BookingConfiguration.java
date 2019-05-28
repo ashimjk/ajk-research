@@ -18,9 +18,9 @@ public class BookingConfiguration {
 
     @Bean
     public BookingService bookingService(
-            BookingRepository bookingRepository,
-            CustomerRepository customerRepository,
-            FlightService flightService) {
+        BookingRepository bookingRepository,
+        CustomerRepository customerRepository,
+        FlightService flightService) {
         return new BookingService(bookingRepository, customerRepository, flightService);
     }
 

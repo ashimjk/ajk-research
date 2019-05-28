@@ -18,8 +18,8 @@ class RegisterMvcController {
     ModelAndView register(@ModelAttribute("user") UserResource userResource) {
 
         User user = new User(
-                userResource.getName(),
-                userResource.getEmail());
+            userResource.getName(),
+            userResource.getEmail());
 
         registerUseCase.registerUser(user, false);
 

@@ -18,8 +18,8 @@ public class UserResource {
     private LocalDateTime registrationDate;
 
     public UserResource(
-            @JsonProperty("name") String name,
-            @JsonProperty("email") String email) {
+        @JsonProperty("name") String name,
+        @JsonProperty("email") String email) {
         this.name = name;
         this.email = email;
         this.registrationDate = null;

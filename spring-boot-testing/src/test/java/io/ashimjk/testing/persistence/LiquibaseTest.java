@@ -6,9 +6,9 @@ import org.springframework.test.context.TestPropertySource;
 
 @DataJpaTest
 @TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=validate",
-        "spring.liquibase.enabled=true",
-        "spring.flyway.enabled=false"
+    "spring.jpa.hibernate.ddl-auto=validate",
+    "spring.liquibase.enabled=true",
+    "spring.flyway.enabled=false"
 })
 class LiquibaseTest {
 
