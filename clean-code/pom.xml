@@ -15,6 +15,7 @@
         <module>prime-generator</module>
         <module>testable-html</module>
         <module>deeply-nested-code</module>
+        <module>switch-case</module>
     </modules>
 
     <properties>
