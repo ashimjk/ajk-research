@@ -10,8 +10,10 @@ import pl.piomin.services.order.messaging.OrderSender;
 import pl.piomin.services.order.repository.OrderRepository;
 
 import java.util.Collections;
+import java.util.List;
 
 @RestController
+@RequestMapping("/orders")
 public class OrderController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
@@ -37,6 +39,11 @@ public class OrderController {
         LOGGER.info("Order sent: {}", mapper.writeValueAsString(Collections.singletonMap("isSent", isSent)));
 
         return dbOrder;
+    }
+
+    @GetMapping
+    public List<Order> findAll() {
+        return repository.findAll();
     }
 
     @GetMapping("/{id}")

@@ -10,10 +10,10 @@ spring:
         output:
           destination: orders-in
         input:
-          consumer:
-            partitioned: true
+          #          consumer:
+          #            partitioned: true
           destination: orders-out
-          group: product
+      #          group: product
       rabbit:
         bindings:
           output:

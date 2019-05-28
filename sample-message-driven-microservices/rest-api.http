@@ -1,4 +1,4 @@
-POST http://localhost:8090/order-service
+POST http://localhost:8090/orders
 Content-Type: application/json
 
 {
@@ -12,8 +12,14 @@ Content-Type: application/json
   ]
 }
 
-<> 2019-05-28T070848.200.json
+###
 
+GET http://localhost:8090/orders
+Content-Type: application/json
 
 ###
 
+GET http://localhost:8090/orders/1
+Content-Type: application/json
+
+###

@@ -28,6 +28,10 @@ public class OrderRepository {
         return order.orElse(null);
     }
 
+    public List<Order> findAll() {
+        return orders;
+    }
+
     public void delete(Long id) {
         orders.remove(id.intValue());
     }
