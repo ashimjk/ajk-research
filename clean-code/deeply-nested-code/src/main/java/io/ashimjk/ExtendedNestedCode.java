@@ -9,6 +9,8 @@ public class ExtendedNestedCode {
 
     private final List<MappedField> persistenceFields;
 
+    ExtendedNestedCode(List<MappedField> persistenceFields) {this.persistenceFields = persistenceFields;}
+
     void testCode(StoredDto storedDto) {
         List<String> personal = Arrays.asList("firstName", "lastName");
         List<String> addresses = Arrays.asList("city", "country");
@@ -20,8 +22,6 @@ public class ExtendedNestedCode {
         getMappedField(m -> m.matchingAddress(storedDto.getStoredAddress()));
         getMappedField(m -> m.matchingContact(storedDto.getStoredContact()));
     }
-
-    ExtendedNestedCode(List<MappedField> persistenceFields) {this.persistenceFields = persistenceFields;}
 
     Optional<MappedField> getMappedField(Predicate<MappedField> isOk) {
 
@@ -48,14 +48,6 @@ public class ExtendedNestedCode {
             return matchingStoredParamInParams(names, s -> s.equals(storedName));
         }
 
-        boolean matchingAddress(String storedAddress) {
-            return matchingStoredParamInParams(addresses, a -> a.equals(storedAddress));
-        }
-
-        boolean matchingContact(String storedContact) {
-            return matchingStoredParamInParams(contacts, c -> c.equals(storedContact));
-        }
-
         boolean matchingStoredParamInParams(List<String> params, Predicate<String> predicate) {
             for (final String n : params) {
                 if (predicate.test(n)) {
@@ -63,6 +55,14 @@ public class ExtendedNestedCode {
                 }
             }
             return false;
+        }
+
+        boolean matchingAddress(String storedAddress) {
+            return matchingStoredParamInParams(addresses, a -> a.equals(storedAddress));
+        }
+
+        boolean matchingContact(String storedContact) {
+            return matchingStoredParamInParams(contacts, c -> c.equals(storedContact));
         }
 
     }

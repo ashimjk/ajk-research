@@ -4,13 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>clean-code</artifactId>
+        <artifactId>main-partition</artifactId>
         <groupId>io.ashimjk</groupId>
         <version>1.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>switch-case</artifactId>
+    <artifactId>main</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.ashimjk</groupId>
+            <artifactId>app</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 </project>

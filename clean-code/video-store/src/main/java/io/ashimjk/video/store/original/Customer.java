@@ -5,16 +5,15 @@ import java.util.Vector;
 
 public class Customer {
 
+    private String name;
+    private Vector rentals = new Vector();
+
     public Customer(String name) {
         this.name = name;
     }
 
     public void addRental(Rental rental) {
         rentals.addElement(rental);
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String statement() {
@@ -62,7 +61,8 @@ public class Customer {
         return result;
     }
 
-    private String name;
-    private Vector rentals = new Vector();
+    public String getName() {
+        return name;
+    }
 
 }

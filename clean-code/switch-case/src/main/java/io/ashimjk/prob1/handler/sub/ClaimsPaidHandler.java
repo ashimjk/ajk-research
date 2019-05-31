@@ -9,7 +9,7 @@ public class ClaimsPaidHandler extends BaseTransactionHandler {
 
     private FinancialAdviceRepository financialAdviceRepository;
 
-    ClaimsPaidHandler(FinancialAdviceRepository financialAdviceRepository) {
+    public ClaimsPaidHandler(FinancialAdviceRepository financialAdviceRepository) {
         this.financialAdviceRepository = financialAdviceRepository;
     }
 
