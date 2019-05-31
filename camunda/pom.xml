@@ -6,6 +6,7 @@
     <groupId>io.ashimjk.camunda</groupId>
     <artifactId>camunda</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <name>camunda</name>
     <description>Camunda Examples</description>

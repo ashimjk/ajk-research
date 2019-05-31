@@ -1,6 +1,6 @@
-package io.ashimjk.annotation.processor.ex.app;
+package io.ashimjk.annotation.processor.app;
 
-import io.ashimjk.annotation.processor.ex.factory.AutoElement;
+import io.ashimjk.annotation.processor.factory.AutoElement;
 
 @AutoElement(tag = AnimalTags.CAT)
 public class Cat implements Animal {

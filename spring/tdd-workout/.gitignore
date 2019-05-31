@@ -2,3 +2,5 @@
 .idea
 *.iml
 .DS_Store
+myLog.log
+logs

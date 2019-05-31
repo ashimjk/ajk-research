@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>annotation-processor-ex</artifactId>
-        <groupId>io.ashimjk.annotation.processor.ex</groupId>
+        <artifactId>annotation-processor</artifactId>
+        <groupId>io.ashimjk</groupId>
         <version>1.0</version>
     </parent>
 
@@ -16,7 +16,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>io.ashimjk.annotation.processor.ex</groupId>
+            <groupId>io.ashimjk</groupId>
             <artifactId>annotation-factory</artifactId>
             <version>1.0</version>
         </dependency>

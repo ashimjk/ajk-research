@@ -1,4 +1,4 @@
-package io.ashimjk.annotation.processor.ex.factory;
+package io.ashimjk.annotation.processor.factory;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

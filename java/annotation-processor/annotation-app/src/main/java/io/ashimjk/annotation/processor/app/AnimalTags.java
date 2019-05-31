@@ -1,4 +1,4 @@
-package io.ashimjk.annotation.processor.ex.app;
+package io.ashimjk.annotation.processor.app;
 
 public interface AnimalTags {
 

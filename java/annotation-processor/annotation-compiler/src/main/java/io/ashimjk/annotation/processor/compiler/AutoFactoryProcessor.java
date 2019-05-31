@@ -1,9 +1,9 @@
-package io.ashimjk.annotation.processor.ex.compiler;
+package io.ashimjk.annotation.processor.compiler;
 
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
-import io.ashimjk.annotation.processor.ex.factory.AutoElement;
-import io.ashimjk.annotation.processor.ex.factory.AutoFactory;
+import io.ashimjk.annotation.processor.factory.AutoElement;
+import io.ashimjk.annotation.processor.factory.AutoFactory;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;

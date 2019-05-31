@@ -1,4 +1,4 @@
-package io.ashimjk.annotation.processor.ex.compiler;
+package io.ashimjk.annotation.processor.compiler;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
