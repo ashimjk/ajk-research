@@ -26,3 +26,6 @@ obeying that rule?
 - Prime Generator
 - Testable Html
 - Video Store
+- Deeply Nested Code
+- Main Partition
+- Switch Case
