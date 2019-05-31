@@ -1,0 +1,25 @@
+POST http://localhost:8090/orders
+Content-Type: application/json
+
+{
+  "id": 1,
+  "status": "ACCEPTED",
+  "price": 500,
+  "customerId": 1,
+  "accountId": 1,
+  "productIds": [
+    2
+  ]
+}
+
+###
+
+GET http://localhost:8090/orders
+Content-Type: application/json
+
+###
+
+GET http://localhost:8090/orders/1
+Content-Type: application/json
+
+###

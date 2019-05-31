@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+
+  config.vm.define "spring-jpa-demo" do |ubuntu|
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.name = "Spring JPA Demo"
+        vb.memory = "4096"
+        vb.cpus = "4"
+    end
+
+    config.vm.network "private_network", ip: "192.168.33.10"
+
+    config.vm.synced_folder "./app", "/home/vagrant/app", :mount_options => ["dmode=751", "fmode=544"]
+
+    config.vm.synced_folder "/Users/ashimkhadka/.m2", "/home/vagrant/.m2", :mount_options => ["dmode=751", "fmode=544"]
+
+    config.vm.provision :shell, path: "bootstrap.sh"
+  end
+
+end

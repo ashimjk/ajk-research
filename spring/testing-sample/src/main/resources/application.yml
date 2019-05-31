@@ -1,0 +1,7 @@
+spring.main.allow-bean-definition-overriding: true
+spring.jpa.hibernate.ddl-auto: create-drop
+spring.liquibase.enabled: false
+spring.flyway.enabled: false
+io.ashimjk.scheduling.enabled: false
+logging.level.org.hibernate.SQL: DEBUG
+spring.integration.jdbc.initialize-schema: always
