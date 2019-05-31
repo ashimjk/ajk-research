@@ -1,7 +1,0 @@
-**/target/
-**/.DS_Store
-**/.idea
-**/*.iml
-
-ubuntu-xenial-16.04-cloudimg-console.log
-.vagrant

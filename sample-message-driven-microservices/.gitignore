@@ -1,8 +1,0 @@
-/.project
-**/target
-
-*.iml
-.idea
-
-**/*.iml
-**/.idea
