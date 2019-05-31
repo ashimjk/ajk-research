@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-class LgDraft {
+public class LgDraft {
 
     @Id
     private String reference;
