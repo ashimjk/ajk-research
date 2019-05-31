@@ -1,4 +1,4 @@
-package io.ashimjk.camunda;
+package io.ashimjk.order.process;
 
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
@@ -9,16 +9,16 @@ import org.springframework.context.event.EventListener;
 
 @SpringBootApplication
 @EnableProcessApplication
-public class CamundaApplication {
+public class OrderProcessApplication {
 
     private final RuntimeService runtimeService;
 
-    public CamundaApplication(RuntimeService runtimeService) {
+    public OrderProcessApplication(RuntimeService runtimeService) {
         this.runtimeService = runtimeService;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(CamundaApplication.class, args);
+        SpringApplication.run(OrderProcessApplication.class, args);
     }
 
     @EventListener

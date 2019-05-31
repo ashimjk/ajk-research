@@ -1,4 +1,4 @@
-package io.ashimjk.camunda;
+package io.ashimjk.order.process;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CamundaApplicationTests {
+public class OrderProcessApplicationTests {
 
     @Test
     public void contextLoads() {

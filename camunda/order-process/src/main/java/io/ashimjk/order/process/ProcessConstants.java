@@ -1,4 +1,4 @@
-package io.ashimjk.camunda;
+package io.ashimjk.order.process;
 
 public class ProcessConstants {
 

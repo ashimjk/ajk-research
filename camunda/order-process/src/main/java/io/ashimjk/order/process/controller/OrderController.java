@@ -1,4 +1,4 @@
-package io.ashimjk.camunda.controller;
+package io.ashimjk.order.process.controller;
 
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static io.ashimjk.camunda.ProcessConstants.*;
+import static io.ashimjk.order.process.ProcessConstants.*;
 
 @RestController
 @RequestMapping("/order")
@@ -19,7 +19,6 @@ public class OrderController {
 
     private RuntimeService runtimeService;
     private TaskService taskService;
-
 
     public OrderController(RuntimeService runtimeService, TaskService taskService) {
         this.runtimeService = runtimeService;
@@ -45,11 +44,6 @@ public class OrderController {
         System.out.println("amount = " + amount);
     }
 
-    @GetMapping("/complete")
-    public void completeTask(@RequestParam String taskId) {
-        taskService.complete(taskId);
-    }
-
     private void print(Task task) {
         System.out.println("Id : " + task.getId());
         System.out.println("Name : " + task.getName());
@@ -72,5 +66,9 @@ public class OrderController {
         System.out.println("TenantId : " + task.getTenantId());
     }
 
+    @GetMapping("/complete")
+    public void completeTask(@RequestParam String taskId) {
+        taskService.complete(taskId);
+    }
 
 }
