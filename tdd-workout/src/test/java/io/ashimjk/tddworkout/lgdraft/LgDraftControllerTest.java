@@ -33,9 +33,9 @@ public class LgDraftControllerTest {
         when(lgDraftService.getLgDraft(anyString())).thenReturn(new LgDraft("123", "lgdraft"));
 
         mockMvc.perform(get("/api/v1/lg-drafts/123"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("reference").value("123"))
-            .andExpect(jsonPath("data").value("lgdraft"));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("reference").value("123"))
+                .andExpect(jsonPath("data").value("lgdraft"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LgDraftControllerTest {
         when(lgDraftService.getLgDraft(anyString())).thenThrow(new LgDraftNotFound());
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/lg-drafts/123"))
-            .andExpect(MockMvcResultMatchers.status().isNotFound());
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
 }

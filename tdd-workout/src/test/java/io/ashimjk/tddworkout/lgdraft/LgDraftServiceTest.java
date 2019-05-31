@@ -24,7 +24,7 @@ public class LgDraftServiceTest {
 
     @Test
     public void getLgDraft_ShouldReturnLgDraft() {
-        when(lgDraftRepository.getLgDraftByRef(LG_DRAFT_REF)).thenReturn(Optional.of(new LgDraft(LG_DRAFT_REF, "lgdraft")));
+        when(lgDraftRepository.getLgDraftByReference(LG_DRAFT_REF)).thenReturn(Optional.of(new LgDraft(LG_DRAFT_REF, "lgdraft")));
 
         LgDraft lgDraft = lgDraftService.getLgDraft(LG_DRAFT_REF);
 
@@ -34,7 +34,7 @@ public class LgDraftServiceTest {
 
     @Test(expected = LgDraftNotFound.class)
     public void getLgDraft_ShouldThrowException() {
-        when(lgDraftRepository.getLgDraftByRef(LG_DRAFT_REF)).thenReturn(Optional.empty());
+        when(lgDraftRepository.getLgDraftByReference(LG_DRAFT_REF)).thenReturn(Optional.empty());
 
         lgDraftService.getLgDraft(LG_DRAFT_REF);
     }

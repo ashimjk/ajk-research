@@ -1,9 +1,13 @@
 package io.ashimjk.tddworkout.lgdraft;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
-public interface LgDraftRepository {
+@Repository
+public interface LgDraftRepository extends JpaRepository<LgDraft, String> {
 
-    Optional<LgDraft> getLgDraftByRef(String lgDraft);
+    Optional<LgDraft> getLgDraftByReference(String reference);
 
 }

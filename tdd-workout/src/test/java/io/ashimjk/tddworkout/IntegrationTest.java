@@ -33,4 +33,5 @@ public class IntegrationTest {
         assertThat(resource.getBody().getReference()).isEqualTo("123");
         assertThat(resource.getBody().getData()).isEqualTo("lgdraft");
     }
+
 }
