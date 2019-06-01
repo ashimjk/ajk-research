@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1ed0qsq" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.0.1">
+  <bpmn:process id="WeatherProcess" isExecutable="true">
+    <bpmn:startEvent id="process_started_start_event" name="Process Started">
+      <bpmn:outgoing>SequenceFlow_10mssbr</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_10mssbr" sourceRef="process_started_start_event" targetRef="check_weather_task" />
+    <bpmn:serviceTask id="check_weather_task" name="Check Weather" camunda:class="io.ashimjk.weather.delegate.CheckWeather">
+      <bpmn:incoming>SequenceFlow_10mssbr</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_106a97t</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_12m7pbr" name="Is the weather ok?">
+      <bpmn:incoming>SequenceFlow_106a97t</bpmn:incoming>
+      <bpmn:outgoing>weather_ok_sequence_flow</bpmn:outgoing>
+      <bpmn:outgoing>weather_not_ok_sequence_flow</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_106a97t" sourceRef="check_weather_task" targetRef="ExclusiveGateway_12m7pbr" />
+    <bpmn:endEvent id="happy_process_end_event" name="Process End">
+      <bpmn:incoming>weather_ok_sequence_flow</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="weather_ok_sequence_flow" name="Yes" sourceRef="ExclusiveGateway_12m7pbr" targetRef="happy_process_end_event">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{weatherOk}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="weather_not_ok_sequence_flow" name="No" sourceRef="ExclusiveGateway_12m7pbr" targetRef="complain_weather_task">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not weatherOk}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="unhappy_process_end_event" name="Process End">
+      <bpmn:incoming>SequenceFlow_068x9c3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_068x9c3" sourceRef="complain_weather_task" targetRef="unhappy_process_end_event" />
+    <bpmn:serviceTask id="complain_weather_task" name="Print complain about weather" camunda:class="io.ashimjk.weather.delegate.ComplainWeather">
+      <bpmn:incoming>weather_not_ok_sequence_flow</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_068x9c3</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="WeatherProcess">
+      <bpmndi:BPMNShape id="StartEvent_0wr064y_di" bpmnElement="process_started_start_event">
+        <dc:Bounds x="177" y="228" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="156" y="271" width="79" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_10mssbr_di" bpmnElement="SequenceFlow_10mssbr">
+        <di:waypoint x="213" y="246" />
+        <di:waypoint x="334" y="246" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_14wjyz5_di" bpmnElement="check_weather_task">
+        <dc:Bounds x="334" y="206" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_12m7pbr_di" bpmnElement="ExclusiveGateway_12m7pbr" isMarkerVisible="true">
+        <dc:Bounds x="484" y="221" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="464" y="278" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_106a97t_di" bpmnElement="SequenceFlow_106a97t">
+        <di:waypoint x="434" y="246" />
+        <di:waypoint x="484" y="246" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_053zo1d_di" bpmnElement="happy_process_end_event">
+        <dc:Bounds x="774" y="228" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="761" y="271" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ob36ih_di" bpmnElement="weather_ok_sequence_flow">
+        <di:waypoint x="534" y="246" />
+        <di:waypoint x="774" y="246" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="645" y="228" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_07qa51u_di" bpmnElement="weather_not_ok_sequence_flow">
+        <di:waypoint x="509" y="221" />
+        <di:waypoint x="509" y="118" />
+        <di:waypoint x="593" y="118" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="517" y="167" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_03kbmm7_di" bpmnElement="unhappy_process_end_event">
+        <dc:Bounds x="774" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="761" y="143" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_068x9c3_di" bpmnElement="SequenceFlow_068x9c3">
+        <di:waypoint x="693" y="118" />
+        <di:waypoint x="774" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1qxdj7o_di" bpmnElement="complain_weather_task">
+        <dc:Bounds x="593" y="78" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
