@@ -27,6 +27,8 @@
         <module>singleton</module>
         <module>transaction</module>
         <module>tdd-workout</module>
+        <module>actuator</module>
+        <module>actuator-admin</module>
     </modules>
 
 </project>
