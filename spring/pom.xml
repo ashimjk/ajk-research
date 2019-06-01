@@ -29,6 +29,7 @@
         <module>tdd-workout</module>
         <module>actuator</module>
         <module>actuator-admin</module>
+        <module>auto-configuration</module>
     </modules>
 
 </project>
