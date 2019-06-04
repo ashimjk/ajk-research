@@ -5,22 +5,22 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-GET http://localhost:8080/service
+GET http://localhost:8081/service
 Accept: application/json
 
 ###
 
-GET http://localhost:8080/shared
+GET http://localhost:8081/shared
 Accept: application/json
 
 ###
 
-GET http://localhost:8080/product/service-detail
+GET http://localhost:8081/product/service-detail
 Accept: application/json
 
 ###
 
-POST http://localhost:8080/actuator/bus-refresh
+POST http://localhost:8081/actuator/bus-refresh
 Accept: application/json
 
 ###
