@@ -1,4 +1,4 @@
 app:
   service:
-    name: product-service – Updated for Spring Cloud Bus Testing
-    detail: Product Service – Updated for Spring Cloud Bus Testing
+    name: product-service – Updated
+    detail: Product Service – Updated
