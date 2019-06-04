@@ -1,1 +1,4 @@
-spring.application.name: product-service
+app:
+  service:
+    name: product-service
+    detail: Product Service

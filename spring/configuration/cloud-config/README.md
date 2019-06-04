@@ -40,3 +40,8 @@ e.g. : http://localhost:8080/product-service/default
     - product-service default configuration details
     - application.properties (.yml) configuration if available
 
+## Product Service
+
+### Dependency
+- `Config Client`: for retrieving the properties from the Config Server.
+- `Actuator`: for invoking the `/actuator/refresh` endpoint for retrieving the latest property changes from Config Server.
