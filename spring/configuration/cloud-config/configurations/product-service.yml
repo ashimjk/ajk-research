@@ -1,4 +1,4 @@
 app:
   service:
-    name: product-service
-    detail: Product Service
+    name: product-service - updated
+    detail: Product Service - updated
