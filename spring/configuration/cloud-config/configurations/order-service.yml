@@ -1,0 +1,4 @@
+app:
+  service:
+    name: order-service
+    detail: order-service
