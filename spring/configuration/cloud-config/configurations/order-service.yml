@@ -1,4 +1,4 @@
 app:
   service:
-    name: order-service
-    detail: order-service
+    name: order-service – Updated for Spring Cloud Bus Testing
+    detail: order-service – Updated for Spring Cloud Bus Testing
