@@ -30,6 +30,7 @@
         <module>actuator</module>
         <module>actuator-admin</module>
         <module>auto-configuration</module>
+        <module>configuration</module>
     </modules>
 
 </project>

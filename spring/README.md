@@ -13,3 +13,4 @@
 - [Actuator](actuator/README.md)
 - [Actuator Admin](actuator-admin/README.md)
 - [Auto Configuration](auto-configuration/README.md)
+- [Configuration](configuration/README.md)
