@@ -1,5 +1,9 @@
 # Edge Services and Routing
 
+- Client Side Load Balancing (Ribbon) and Service Registration (Eureka)
+- Smart edge services (micro-proxies and api gateways)
+- Add resilience with circuit breakers
+    
 ## Edge Service
 - Sits at the edge of the architecture
 - It is client specific.
@@ -22,7 +26,7 @@ it is an ideal place or an enviable place to do following things
 - take care of error handling (using hystrix circuit breaker)
 - to do any kind of translations or transformations for payload that is
 going back and forth like transforming protocol to downstream services
-- can use adapter design pattern for any client specific requirement (can use openfiegn) 
+- can use adapter design pattern for any client specific requirement (can use open-feign) 
 - best place to handle cors by proxying the request
 
 
