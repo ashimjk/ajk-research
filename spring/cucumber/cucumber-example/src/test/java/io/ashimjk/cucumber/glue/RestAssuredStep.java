@@ -1,6 +1,7 @@
 package io.ashimjk.cucumber.glue;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
@@ -18,7 +19,7 @@ public class RestAssuredStep {
     private static final String CREATE_PATH = "/create";
     private static final String APPLICATION_JSON = "application/json; charset=UTF-8";
 
-    private final WireMockServer wireMockServer = new WireMockServer(8080);
+    private final WireMockServer wireMockServer = new WireMockServer(WireMockConfiguration.DYNAMIC_PORT);
     private ValidatableResponse response;
 
     @When("users upload data on a project")
@@ -38,7 +39,7 @@ public class RestAssuredStep {
                 .body(payload)
                 .contentType(ContentType.JSON)
                 .when()
-                .post("http://localhost:8080/create")
+                .post("http://localhost:" + wireMockServer.port() + "/create")
                 .then();
 
         wireMockServer.stop();
@@ -66,7 +67,7 @@ public class RestAssuredStep {
                 .all()
                 .accept(APPLICATION_JSON)
                 .when()
-                .get("http://localhost:8080/projects/cucumber")
+                .get("http://localhost:" + wireMockServer.port() + "/projects/cucumber")
                 .then()
                 .assertThat()
                 .statusCode(200);
