@@ -1,0 +1,38 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Model Composition
+paths:
+  /order:
+    get:
+      summary: List of orders
+      operationId: listOrders
+      responses:
+        '200':
+          description: A array of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sampleObjectResponse'
+components:
+  schemas:
+    sampleObjectResponse:
+      oneOf:
+        - $ref: '#/components/schemas/simpleObject'
+        - $ref: '#/components/schemas/complexObject'
+    simpleObject:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+    complexObject:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        protocol:
+          type: string

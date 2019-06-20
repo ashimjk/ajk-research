@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.ashimjk</groupId>
+    <artifactId>contracts</artifactId>
+    <version>1.0.0</version>
+
+    <name>contracts</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <root.package>io.ashimjk</root.package>
+        <subpackage>contact</subpackage>
+
+        <interfaceOnly>false</interfaceOnly>
+        <inputSpecFile>./discriminator.yaml</inputSpecFile>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.14</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>4.0.0-beta3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/discriminator.yaml</inputSpec>
+                            <generateAliasAsModel>false</generateAliasAsModel>
+                                        <generateApiDocumentation>false</generateApiDocumentation>
+                                        <generateApiTests>false</generateApiTests>
+                                        <generateApis>false</generateApis>
+                                        <generateModelDocumentation>false</generateModelDocumentation>
+                                        <generateModelTests>false</generateModelTests>
+                                        <generateSupportingFiles>false</generateSupportingFiles>
+                                        <output>${project.build.directory}/generated-sources</output>
+                                        <configOptions>
+                                            <sourceFolder>annotations</sourceFolder>
+                                            <java8>true</java8>
+                                            <dateLibrary>java8-localdatetime</dateLibrary>
+                                            <serializableModel>true</serializableModel>
+                                            <ensureUniqueParams>true</ensureUniqueParams>
+                                            <title>TfContract</title>
+                                            <basePackage>${root.package}.${subpackage}</basePackage>
+                                            <configPackage>${root.package}.${subpackage}.config</configPackage>
+                                            <modelPackage>${root.package}.${subpackage}.models</modelPackage>
+                                            <apiPackage>${root.package}.${subpackage}.api</apiPackage>
+                                            <useTags>true</useTags>
+                                        </configOptions>
+                                        <library>resttemplate</library>
+                                        <generatorName>java</generatorName>
+                                        <validateSpec>true</validateSpec>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
