@@ -8,7 +8,7 @@ build:
 
 clean:
 	sudo rm -rf out
-
+	rm -rf target
 help:
 	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli config-help -g spring
 
