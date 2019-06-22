@@ -1,6 +1,6 @@
 package io.ashimjk.product.service;
 
-import org.openapitools.api.ProductsApi;
+import io.ashimjk.product.contract.api.ProductApi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +12,7 @@ public class ProductServiceApplication {
     }
 
     public void test() {
-        ProductsApi productsApi;
+        ProductApi productsApi;
     }
+
 }

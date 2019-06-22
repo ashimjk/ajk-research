@@ -25,12 +25,8 @@ servers:
         default: 'http'
 
 tags:
-  - name: metadata
-    description: Find out about the data sets
-  - name: search
-    description: Search a data set
-  - name: create
-    description: Create data set
+  - name: product
+    description: Product Endpoint
 
 paths:
   /products:
@@ -38,7 +34,7 @@ paths:
     description: products api description
     get:
       tags:
-        - metadata
+        - product
       summary: list of products
       description: provides list of products
       operationId: getProducts
@@ -74,7 +70,7 @@ paths:
           description: No data found
     post:
       tags:
-        - create
+        - product
       summary: create product
       description: store product dataset
       operationId: createProduct
@@ -101,7 +97,7 @@ paths:
   /products/{id}:
     get:
       tags:
-        - search
+        - product
       summary: get product
       description: get product by id
       operationId: getProductById

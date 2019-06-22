@@ -1,6 +1,11 @@
 # Product Contract
 
 ## Run
+```
+mvn clean install
+```
+
+## How to run
 - Offline
 ```
 docker run --rm \
