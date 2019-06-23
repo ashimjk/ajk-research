@@ -31,7 +31,7 @@
         <module>actuator-admin</module>
         <module>auto-configuration</module>
         <module>configuration</module>
-        <module>producer-consumer</module>
+        <module>cucumber</module>
         <module>edge-services-routing</module>
     </modules>
 
