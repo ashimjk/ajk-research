@@ -17,6 +17,9 @@
     <modules>
         <module>annotation-processor</module>
         <module>practice</module>
+        <module>object-merge</module>
+        <module>object-clone</module>
+        <module>jackson</module>
     </modules>
 
 </project>
