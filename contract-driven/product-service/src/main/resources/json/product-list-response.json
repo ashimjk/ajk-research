@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "price": 20.2,
+      "status": "CREATED"
+    },
+    {
+      "id": 2,
+      "price": 3.5,
+      "status": "CREATED"
+    }
+  ],
+  "total": 23.7
+}
