@@ -14,7 +14,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 
 servers:
-  - url: '{scheme}://localhost:8080/products/api/v1'
+  - url: '{scheme}://localhost:8082/products/api/v1'
     description: 'Product Api V1'
     variables:
       scheme:
@@ -57,13 +57,29 @@ paths:
         '200':
           description: list of products
           content:
-            application/json:
+            application/json;charset=UTF-8:
+              example:
+                {
+                  "products": [
+                  {
+                    "id": 1,
+                    "price": 20.2,
+                    "status": "CREATED"
+                  },
+                  {
+                    "id": 2,
+                    "price": 3.5,
+                    "status": "CREATED"
+                  }
+                  ],
+                  "total": 23.7
+                }
               schema:
                 $ref: '#/components/schemas/ProductListResponse'
         '400':
           description: Invalid input data
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '404':
@@ -77,20 +93,20 @@ paths:
       requestBody:
         description: new product
         content:
-          application/json:
+          application/json;charset=UTF-8:
             schema:
               $ref: '#/components/schemas/ProductRequest'
       responses:
         '200':
           description: Product
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
         '400':
           description: Invalid input data
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
 
@@ -112,7 +128,7 @@ paths:
         '200':
           description: return product
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
 
@@ -149,14 +165,11 @@ components:
       type: object
       example:
         {
-          "id": 1,
           "price": 20.2
         }
       required:
         - price
       properties:
-        id:
-          type: integer
         price:
           type: number
     ProductResponse:

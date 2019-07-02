@@ -22,7 +22,7 @@
         <module>testing-sample</module>
         <module>dirty-context</module>
         <module>event-handling</module>
-        <module>jpa-demo/app</module>
+        <module>jpa-demo</module>
         <module>scheduler</module>
         <module>singleton</module>
         <module>transaction</module>
@@ -31,6 +31,8 @@
         <module>actuator-admin</module>
         <module>auto-configuration</module>
         <module>configuration</module>
+        <module>cucumber</module>
+        <module>edge-services-routing</module>
     </modules>
 
 </project>
