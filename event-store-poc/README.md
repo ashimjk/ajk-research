@@ -7,6 +7,14 @@ The stream database written from the ground up for event sourcing.
 - Delivery Service (Subscriber) -- Uses Http Based
 - Event Store Sample () -- Uses JVM Client
 
+## Findings
+- it uses Publish–subscribe pattern.
+- its a stream database and opensource.
+- provides client interface like Http Based and JVM Client.
+- supports event sourcing.
+- performance : 15,000 writes per second and 50,000 reads per second
+- provides efficent admin-ui where we can view all the streams with their payload in the same order that were triggered.
+
 ## Setup
 ```bash
 # runs eventstore server 
@@ -17,7 +25,7 @@ docker-compose up
 # credentials: admin and changeit
 ```
 ## Summary
-It uses publisher-subscriber pattern.
+It uses Publish–subscribe pattern.
 
 It provides two native support for Java Development, HTTP Based and JVM Client
 Although it provides JVM Client, but using it via Spring Boot is of no use until now.
