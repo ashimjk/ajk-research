@@ -3,22 +3,24 @@ package io.ashimjk.keycloak.controller;
 import io.ashimjk.keycloak.model.Book;
 import io.ashimjk.keycloak.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-public class ApplicationController {
+public class ApiBasedController {
 
     private final BookRepository bookRepository;
 
     @GetMapping(value = "/")
-    public String getHome() {
-        return "API - Based";
+    public Map<String, String> getHome() {
+        return Collections.singletonMap("resource", "API - Based");
     }
 
     @GetMapping(value = "/books")
