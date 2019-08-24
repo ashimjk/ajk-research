@@ -1,11 +1,11 @@
 {
-  "user-managed-access": {},
+  "lazy-load-paths": false,
   "enforcement-mode": "ENFORCING",
   "paths": [
     {
       "name": "Book Path Resource",
-      "path": "/*",
-      "type": "urn:api-based:resources:default",
+      "enforcement-mode": "ENFORCING",
+      "path": "/books",
       "methods": [
         {
           "method": "GET",
@@ -13,14 +13,12 @@
             "view-books"
           ]
         }
-      ],
-      "scopes": [
-        "view-books"
       ]
     },
     {
       "name": "Manage Path Resource",
       "path": "/manager",
+      "enforcement-mode": "ENFORCING",
       "methods": [
         {
           "method": "GET",

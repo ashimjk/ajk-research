@@ -1,5 +1,9 @@
 # Keycloak Example - API Based
 
+## Requirement
+- create default role called `user` for keycloak security context to be loaded.
+- this role should be assigned to every user who is going to access the protected resource.
+
 ## Access Control
 ### Resource
 - Book Resource (Scope Based Permission)
