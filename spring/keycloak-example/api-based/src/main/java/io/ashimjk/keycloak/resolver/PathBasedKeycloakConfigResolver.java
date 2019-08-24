@@ -41,7 +41,7 @@ public class PathBasedKeycloakConfigResolver {
         adapterConfig.setPolicyEnforcerConfig(policyEnforcerConfig);
 
         Map<String, Object> credentials = new HashMap<>();
-        credentials.put("secret", "a167cfcc-07fa-48be-905a-9e5087bf7ac3");
+        credentials.put("secret", "d84c44b6-52de-4c3a-a9d9-0fc50e2a5397");
         adapterConfig.setCredentials(credentials);
 
         return adapterConfig;

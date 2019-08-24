@@ -31,7 +31,7 @@ client_id=api-based&username=ashim&password=ashim&grant_type=password
 POST http://localhost:8180/auth/realms/demo/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-client_secret=a167cfcc-07fa-48be-905a-9e5087bf7ac3&client_id=api-based&username=ashim&password=ashim&grant_type=password
+client_secret=d84c44b6-52de-4c3a-a9d9-0fc50e2a5397&client_id=api-based&username=ashim&password=ashim&grant_type=password
 
 ###
 

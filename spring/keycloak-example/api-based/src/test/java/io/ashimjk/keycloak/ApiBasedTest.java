@@ -23,6 +23,7 @@ class ApiBasedTest {
     private static String token() {
         Map<String, String> data = new HashMap<>();
         data.put("client_id", "api-based");
+        data.put("client_secret", "d84c44b6-52de-4c3a-a9d9-0fc50e2a5397");
         data.put("username", "ashim");
         data.put("password", "ashim");
         data.put("grant_type", "password");
