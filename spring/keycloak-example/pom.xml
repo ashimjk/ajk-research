@@ -7,6 +7,7 @@
 
     <modules>
         <module>ui-based</module>
+        <module>api-based</module>
     </modules>
 
     <parent>

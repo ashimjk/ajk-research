@@ -1,8 +1,8 @@
 package io.ashimjk.keycloak.controller;
 
 import io.ashimjk.keycloak.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.keycloak.KeycloakSecurityContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,13 +11,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequiredArgsConstructor
 public class ApplicationController {
 
-    @Autowired
-    private HttpServletRequest request;
-
-    @Autowired
-    private BookRepository bookRepository;
+    private final HttpServletRequest request;
+    private final BookRepository bookRepository;
 
     @GetMapping(value = "/")
     public String getHome() {

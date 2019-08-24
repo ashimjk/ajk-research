@@ -1,0 +1,30 @@
+{
+  "user-managed-access": {},
+  "enforcement-mode": "ENFORCING",
+  "paths": [
+    {
+      "name": "Book Path Resource",
+      "path": "/*",
+      "methods": [
+        {
+          "method": "GET",
+          "scopes": [
+            "view-books"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manage Path Resource",
+      "path": "/manager",
+      "methods": [
+        {
+          "method": "GET",
+          "scopes": [
+            "view-manage"
+          ]
+        }
+      ]
+    }
+  ]
+}

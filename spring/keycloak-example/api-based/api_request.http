@@ -1,0 +1,33 @@
+GET http://localhost:8081/book
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ1Wm1BcUt4UkN1UWtXc2d5S1Jsa0Fxa3FnVTNWTWhHMktCWGJtSERYQU9RIn0.eyJqdGkiOiIyZjI3MGYwZC1lZmY2LTRlNTctOGZjMC1hZTE3MjlmNTQ3NTIiLCJleHAiOjE1NjY2NDQ4MzAsIm5iZiI6MCwiaWF0IjoxNTY2NjQ0NTMwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvZGVtbyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNjY5YTI1Ny05NzA0LTQwNjEtYTdjZi1mNTgxMTQzZjk0Y2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJrZXljbG9hay1leGFtcGxlIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiMWYyMzE5ZWMtNDM3MC00YTRiLTgxZGUtYmU1YTljZTM0MWZkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJrZXljbG9hay1leGFtcGxlIjp7InJvbGVzIjpbIm1hbmFnZXIiLCJtZW1iZXIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6ImFzaGltIGtoYWRrYSIsInByZWZlcnJlZF91c2VybmFtZSI6ImFzaGltIiwiZ2l2ZW5fbmFtZSI6ImFzaGltIiwiZmFtaWx5X25hbWUiOiJraGFka2EiLCJlbWFpbCI6ImFzaGltLmp1bmcua2hhZGthQGdtYWlsLmNvbSJ9.WHLUCG-ldB8qg5zufr8b1xmLV1l04JVKx-ClgiKNAP0iHVMjDxV93tBnPkSxermaGGMu0u-xDoKN-GdnzrWOwzKH9_rWT0dZHAeGjExMTZ2wmOnLed8OmEXdybHO25mh1Xav8-_6b3gm4ykZbmcl5lSpy3own9LD3Kfp-N6RMo8WvTICgfTud-h7jdfC0u6GNKC0FU1CPbSZmaUMt3dn_cNadltimuYA_jPovbhQxIfAM6y6rf_ffIIuSjiLBMotHXhr80aK5ATavVFTOfD1M8JsVIvfvigGpogd_6R2DUp6DuAfM78e9EpANkP6X_BPoMyEr94R1Ih6DeI0JJpSJA
+
+###
+
+POST http://localhost:8180/auth/realms/demo/protocol/openid-connect/token?grant_type=password
+Content-Type: application/json
+
+{
+  "client_id": "keycloak-example",
+  "client_secret": "a167cfcc-07fa-48be-905a-9e5087bf7ac3",
+  "username": "ashim",
+  "password": "ashim",
+  "grant_type": "password"
+}
+
+###
+
+# curl
+#  -d "client_id=keycloak-example"
+#  -d "client_secret=50b8dfea-3e4a-4d60-b722-51d85310227c"
+#  -d "username=ashim"
+#  -d "password=ashim"
+#  -d "grant_type=password"
+#  "http://localhost:8080/auth/realms/demo/protocol/openid-connect/token"
+POST http://localhost:8180/auth/realms/demo/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_secret=a167cfcc-07fa-48be-905a-9e5087bf7ac3&client_id=keycloak-example&username=ashim&password=ashim&grant_type=password
+
+###
+
