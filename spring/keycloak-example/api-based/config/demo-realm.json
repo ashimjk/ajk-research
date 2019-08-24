@@ -47,6 +47,14 @@
         "attributes": {}
       },
       {
+        "id": "7d8269d7-b195-497a-bede-03d1b7f89e48",
+        "name": "user",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "demo",
+        "attributes": {}
+      },
+      {
         "id": "dcd11405-b511-4a4a-ab0a-a8fdde3a4ae3",
         "name": "uma_authorization",
         "description": "${role_uma_authorization}",
@@ -488,6 +496,11 @@
             "_id": "778f7e9b-5a00-4551-80f5-f68e1ecfabeb",
             "uris": [
               "/books"
+            ],
+            "scopes": [
+              {
+                "name": "member_scope"
+              }
             ]
           },
           {
@@ -522,17 +535,6 @@
             }
           },
           {
-            "id": "e579acab-25a4-4beb-acb0-ca886bff3ce7",
-            "name": "Book Resource Permission",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "AFFIRMATIVE",
-            "config": {
-              "resources": "[\"Book Resource\"]",
-              "applyPolicies": "[\"Only Member Policy\"]"
-            }
-          },
-          {
             "id": "4b5947ab-7f3c-4b2e-b778-331daf7a5a3f",
             "name": "Manage Resource Permission",
             "type": "resource",
@@ -542,9 +544,25 @@
               "resources": "[\"Manage Resource\"]",
               "applyPolicies": "[\"Only Manager Policy\"]"
             }
+          },
+          {
+            "id": "ffb13d06-47a2-471c-a559-2726e0adfe71",
+            "name": "Member Scope Permission",
+            "type": "scope",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "scopes": "[\"member_scope\"]",
+              "applyPolicies": "[\"Only Member Policy\"]"
+            }
           }
         ],
-        "scopes": []
+        "scopes": [
+          {
+            "id": "dd35478b-865a-4bdb-81a6-e2c8f8e59d3a",
+            "name": "member_scope"
+          }
+        ]
       }
     },
     {
@@ -1197,11 +1215,11 @@
           "protocolMapper": "oidc-usermodel-realm-role-mapper",
           "consentRequired": false,
           "config": {
-            "multivalued": "true",
             "user.attribute": "foo",
             "access.token.claim": "true",
             "claim.name": "realm_access.roles",
-            "jsonType.label": "String"
+            "jsonType.label": "String",
+            "multivalued": "true"
           }
         },
         {
@@ -1211,11 +1229,11 @@
           "protocolMapper": "oidc-usermodel-client-role-mapper",
           "consentRequired": false,
           "config": {
-            "multivalued": "true",
             "user.attribute": "foo",
             "access.token.claim": "true",
             "claim.name": "resource_access.${client_id}.roles",
-            "jsonType.label": "String"
+            "jsonType.label": "String",
+            "multivalued": "true"
           }
         },
         {
@@ -1251,17 +1269,17 @@
     }
   ],
   "defaultDefaultClientScopes": [
+    "role_list",
+    "profile",
     "email",
     "roles",
-    "web-origins",
-    "role_list",
-    "profile"
+    "web-origins"
   ],
   "defaultOptionalClientScopes": [
     "offline_access",
-    "microprofile-jwt",
     "address",
-    "phone"
+    "phone",
+    "microprofile-jwt"
   ],
   "browserSecurityHeaders": {
     "contentSecurityPolicyReportOnly": "",
