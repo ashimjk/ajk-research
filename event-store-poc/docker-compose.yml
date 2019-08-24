@@ -1,0 +1,10 @@
+version: '3'
+services:
+  event-store:
+    container_name: event-store
+    image: eventstore/eventstore
+    ports:
+      - 2113:2113
+      - 1113:1113
+  # credentials: admin and changeit
+  # http://localhost:2113
