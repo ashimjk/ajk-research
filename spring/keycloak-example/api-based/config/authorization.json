@@ -1,0 +1,70 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "Book Resource",
+      "ownerManagedAccess": false,
+      "displayName": "Book Resource",
+      "attributes": {},
+      "_id": "778f7e9b-5a00-4551-80f5-f68e1ecfabeb",
+      "uris": [
+        "/books"
+      ]
+    },
+    {
+      "name": "Manage Resource",
+      "ownerManagedAccess": false,
+      "attributes": {},
+      "_id": "0d789add-48e3-4bea-a214-2ba0caf5836c",
+      "uris": [
+        "/manager"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "45ebda5d-e05e-4967-868b-2d62c4c1acd1",
+      "name": "Only Member Policy",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"member\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "28ec344f-ebc5-4dbf-9d9e-d0deea5a9d6c",
+      "name": "Only Manager Policy",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"manager\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "e579acab-25a4-4beb-acb0-ca886bff3ce7",
+      "name": "Book Resource Permission",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "resources": "[\"Book Resource\"]",
+        "applyPolicies": "[\"Only Member Policy\"]"
+      }
+    },
+    {
+      "id": "4b5947ab-7f3c-4b2e-b778-331daf7a5a3f",
+      "name": "Manage Resource Permission",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "resources": "[\"Manage Resource\"]",
+        "applyPolicies": "[\"Only Manager Policy\"]"
+      }
+    }
+  ],
+  "scopes": []
+}

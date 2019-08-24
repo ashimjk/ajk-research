@@ -5,6 +5,7 @@
     {
       "name": "Book Path Resource",
       "path": "/*",
+      "type": "urn:api-based:resources:default",
       "methods": [
         {
           "method": "GET",
@@ -12,6 +13,9 @@
             "view-books"
           ]
         }
+      ],
+      "scopes": [
+        "view-books"
       ]
     },
     {

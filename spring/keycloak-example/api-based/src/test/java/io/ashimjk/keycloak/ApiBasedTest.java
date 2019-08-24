@@ -74,6 +74,7 @@ class ApiBasedTest {
         String response = restAssured()
                 .get("/books")
                 .then()
+                .statusCode(200)
                 .extract()
                 .jsonPath()
                 .get("[0].id");
@@ -87,6 +88,7 @@ class ApiBasedTest {
         String response = restAssured()
                 .get("/manager")
                 .then()
+                .statusCode(200)
                 .extract()
                 .jsonPath()
                 .get("[0].id");
