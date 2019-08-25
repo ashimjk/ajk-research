@@ -11,7 +11,6 @@ import org.keycloak.adapters.KeycloakDeploymentBuilder;
 import org.keycloak.adapters.spi.HttpFacade;
 import org.keycloak.representations.adapters.config.AdapterConfig;
 import org.keycloak.representations.adapters.config.PolicyEnforcerConfig;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,10 +20,8 @@ import java.util.Map;
 import static org.apache.logging.log4j.util.Strings.EMPTY;
 
 @Slf4j
-@Component
 public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
 
-    @Override
     public KeycloakDeployment resolve(HttpFacade.Request request) {
 
         Cloner cloner = new Cloner();
@@ -39,6 +36,7 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
         adapterConfig.setRealm("demo");
         adapterConfig.setAuthServerUrl("http://localhost:8180/auth");
         adapterConfig.setResource("api-based");
+        adapterConfig.setUseResourceRoleMappings(false);
 
         PolicyEnforcerConfig policyEnforcerConfig = readPolicyConfig("policy.json");
         adapterConfig.setPolicyEnforcerConfig(policyEnforcerConfig);

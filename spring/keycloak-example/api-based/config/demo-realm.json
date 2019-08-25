@@ -499,7 +499,10 @@
             ],
             "scopes": [
               {
-                "name": "member_scope"
+                "name": "get_book"
+              },
+              {
+                "name": "post_book"
               }
             ]
           },
@@ -547,12 +550,12 @@
           },
           {
             "id": "ffb13d06-47a2-471c-a559-2726e0adfe71",
-            "name": "Member Scope Permission",
+            "name": "Post Book Permission",
             "type": "scope",
             "logic": "POSITIVE",
             "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"member_scope\"]",
+              "scopes": "[\"post_book\"]",
               "applyPolicies": "[\"Only Member Policy\"]"
             }
           }
@@ -560,7 +563,11 @@
         "scopes": [
           {
             "id": "dd35478b-865a-4bdb-81a6-e2c8f8e59d3a",
-            "name": "member_scope"
+            "name": "get_book"
+          },
+          {
+            "id": "501325d1-f705-45f7-8b5a-c5e90c1aaba0",
+            "name": "post_book"
           }
         ]
       }

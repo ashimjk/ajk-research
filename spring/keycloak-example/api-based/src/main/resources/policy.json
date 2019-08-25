@@ -3,20 +3,26 @@
   "enforcement-mode": "ENFORCING",
   "paths": [
     {
-      "name": "Book Path Resource",
+      "name": "Book Resource",
       "enforcement-mode": "ENFORCING",
       "path": "/books",
       "methods": [
         {
           "method": "GET",
           "scopes": [
-            "view-books"
+            "get_book"
+          ]
+        },
+        {
+          "method": "POST",
+          "scopes": [
+            "post_book"
           ]
         }
       ]
     },
     {
-      "name": "Manage Path Resource",
+      "name": "Manage Resource",
       "path": "/manager",
       "enforcement-mode": "ENFORCING",
       "methods": [

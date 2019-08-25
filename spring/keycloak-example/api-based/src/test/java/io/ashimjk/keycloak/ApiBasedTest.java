@@ -69,10 +69,24 @@ class ApiBasedTest {
     }
 
     @Test
-    @DisplayName("When /books api called should return list of books")
-    void testBookApi() {
+    @DisplayName("When get /books api called should return list of books")
+    void testGetBookApi() {
         String response = restAssured()
                 .get("/books")
+                .then()
+                .statusCode(200)
+                .extract()
+                .jsonPath()
+                .get("[0].id");
+
+        assertEquals("B01", response);
+    }
+
+    @Test
+    @DisplayName("When post /books api called should return list of books")
+    void testPostBookApi() {
+        String response = restAssured()
+                .post("/books")
                 .then()
                 .statusCode(200)
                 .extract()
