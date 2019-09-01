@@ -1,13 +1,13 @@
-package io.ashimjk.dddpractice;
+package io.ashimjk.part1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DddPracticeApplication {
+public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(DddPracticeApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 
 }
