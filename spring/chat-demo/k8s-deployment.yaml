@@ -18,9 +18,12 @@ spec:
         - name: chat-server
           image: ashimjk/chat-demo:latest
           imagePullPolicy: IfNotPresent
+          env:
+          - name: server.port
+            value: "8080"
           ports:
             - name: http
-              containerPort: 8081 # The port that the container exposes
+              containerPort: 8080 # The port that the container exposes
 ---
 apiVersion: v1                # API version
 kind: Service                 # Type of the kubernetes resource
