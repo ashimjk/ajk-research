@@ -1,0 +1,12 @@
+{
+  "currentProcess": "123",
+  "currentTask": "LC-CREATED",
+  "status": "ACTIVE",
+  "expiryDate": "2012/12/12",
+  "paymentSchedule": [
+    {
+      "paymentType": "SIGHT",
+      "percentage": 0
+    }
+  ]
+}

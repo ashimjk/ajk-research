@@ -1,4 +1,4 @@
-package io.ashimjk.jsondiff;
+package io.ashimjk.jsondiff.domain;
 
 import lombok.Data;
 import lombok.ToString;

@@ -1,4 +1,4 @@
-package io.ashimjk.jsondiff;
+package io.ashimjk.jsondiff.util;
 
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;

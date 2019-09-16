@@ -1,0 +1,32 @@
+[
+  {
+    "op": "add",
+    "path": "/userDecision",
+    "value": {
+      "approvalStatus": "PENDING",
+      "comment": "I love it",
+      "date": "2049/11/05",
+      "userId": "saurav"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/currentTask",
+    "value": "LC-UPDATED"
+  },
+  {
+    "op": "add",
+    "path": "/paymentSchedule/0/afterIncident",
+    "value": "Presentation of documents"
+  },
+  {
+    "op": "add",
+    "path": "/paymentSchedule/0/numberOfDays",
+    "value": 7
+  },
+  {
+    "op": "replace",
+    "path": "/paymentSchedule/0/percentage",
+    "value": 5
+  }
+]

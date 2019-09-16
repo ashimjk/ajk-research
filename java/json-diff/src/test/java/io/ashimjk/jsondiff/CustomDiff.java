@@ -6,6 +6,8 @@ import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import io.ashimjk.jsondiff.util.FileUtil;
+import io.ashimjk.jsondiff.util.FlatMapUtil;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 

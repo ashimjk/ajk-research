@@ -1,16 +1,21 @@
 package io.ashimjk.jsondiff;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.diff.JsonDiff;
+import io.ashimjk.jsondiff.domain.LcSummary;
+import io.ashimjk.jsondiff.util.FileUtil;
+import io.ashimjk.jsondiff.util.JsonUtil;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class JsonPatchDiff {
+import static io.ashimjk.jsondiff.util.JsonUtil.NEW_LC;
+import static io.ashimjk.jsondiff.util.JsonUtil.OLD_LC;
+import static io.ashimjk.jsondiff.util.JsonUtil.diff;
+import static io.ashimjk.jsondiff.util.JsonUtil.summary;
 
-    private ObjectMapper mapper = new ObjectMapper();
+class JsonPatchDiff {
 
     @Test
     void testJsonString() {
@@ -22,10 +27,7 @@ class JsonPatchDiff {
     @Test
     @SneakyThrows
     void testJsonDiff() {
-        JsonNode oldNode = mapper.readTree(FileUtil.readString("lc_old.json"));
-        JsonNode newNode = mapper.readTree(FileUtil.readString("lc_new.json"));
-
-        JsonNode jsonNode = JsonDiff.asJson(oldNode, newNode);
+        JsonNode jsonNode = JsonDiff.asJson(JsonUtil.OLD_LC, NEW_LC);
 
         Assertions.assertNotNull(jsonNode);
         System.out.println(jsonNode);
@@ -34,15 +36,26 @@ class JsonPatchDiff {
     @Test
     @SneakyThrows
     void testJsonRestore() {
-        JsonNode oldNode = mapper.readTree(FileUtil.readString("lc_old.json"));
-        JsonNode newNode = mapper.readTree(FileUtil.readString("lc_new.json"));
+        JsonPatch jsonPatch = JsonDiff.asJsonPatch(JsonUtil.OLD_LC, NEW_LC);
 
-        JsonPatch jsonPatch = JsonDiff.asJsonPatch(oldNode, newNode);
+        JsonNode updatedNode = jsonPatch.apply(JsonUtil.OLD_LC);
+        LcSummary updatedLc = summary(updatedNode);
 
-        JsonNode updatedNode = jsonPatch.apply(oldNode);
-        LcSummary updatedLc = mapper.convertValue(updatedNode, LcSummary.class);
+        LcSummary lcNew = summary(NEW_LC);
+        Assertions.assertEquals(lcNew, updatedLc);
 
-        LcSummary lcNew = mapper.convertValue(newNode, LcSummary.class);
+        System.out.println(updatedLc);
+    }
+
+    @Test
+    @SneakyThrows
+    void testJsonRestore2() {
+        JsonPatch jsonPatch = JsonPatch.fromJson(diff());
+
+        JsonNode updatedNode = jsonPatch.apply(OLD_LC);
+        LcSummary updatedLc = summary(updatedNode);
+
+        LcSummary lcNew = summary(NEW_LC);
         Assertions.assertEquals(lcNew, updatedLc);
 
         System.out.println(updatedLc);
