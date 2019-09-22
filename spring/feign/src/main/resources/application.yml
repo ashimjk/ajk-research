@@ -1,0 +1,16 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+        requestInterceptors:
+          - io.ashimjk.feign.support.JsonPlaceHolderInterceptor
+  hystrix:
+    enabled: true
+logging:
+  level:
+    io:
+      ashimjk:
+        feign: debug
