@@ -11,13 +11,10 @@ public class StreamHandler {
 
     @StreamListener(Streams.INPUT_CHANNEL)
     @SendTo(Streams.OUTPUT_CHANNEL)
-    public String process(String s) {
-        LOG.info("Inside StreamHandler.process()");
-        String s1 = s.toUpperCase();
+    public Person process(Person person) {
+        LOG.info("Inside StreamHandler.process() : [{}]", person);
 
-        LOG.info(s1);
-
-        return s1;
+        return person;
     }
 
 }

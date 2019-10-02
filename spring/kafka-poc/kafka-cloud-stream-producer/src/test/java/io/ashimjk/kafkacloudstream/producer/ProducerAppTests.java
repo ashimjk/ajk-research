@@ -24,7 +24,9 @@ public class ProducerAppTests {
                 .log()
                 .all()
                 .when()
-                .get("?value=Hello World")
+                .contentType("application/json")
+                .body(Person.create("ashim", "dhapasi"))
+                .post()
                 .then()
                 .statusCode(200);
     }
