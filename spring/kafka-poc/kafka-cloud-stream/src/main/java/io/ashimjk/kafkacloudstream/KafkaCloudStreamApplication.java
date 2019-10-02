@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.cloud.stream.messaging.Sink.INPUT;
+import static org.springframework.cloud.stream.messaging.Source.OUTPUT;
+
 @EnableBinding(Processor.class)
 @SpringBootApplication
 @Slf4j
@@ -24,8 +27,8 @@ public class KafkaCloudStreamApplication {
         SpringApplication.run(KafkaCloudStreamApplication.class, args);
     }
 
-    @StreamListener(Processor.INPUT)
-    @SendTo(Processor.OUTPUT)
+    @StreamListener(INPUT)
+    @SendTo(OUTPUT)
     public String process(String s) {
         LOG.info("Inside process()");
         String s1 = s.toUpperCase();

@@ -7,9 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @RunWith(SpringRunner.class)
@@ -20,11 +17,7 @@ public class KafkaCloudStreamApplicationTests {
     private int port;
 
     @Test
-    public void testKafkaMessage() {
-
-        Map<String, String> value = new HashMap<>();
-        value.put("value", "Hello!");
-
+    public void sendKafkaMessageToOutput() {
         RestAssured
                 .given()
                 .baseUri("http://localhost:" + port)
