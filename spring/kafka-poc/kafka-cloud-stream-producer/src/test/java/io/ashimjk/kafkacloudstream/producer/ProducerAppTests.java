@@ -1,4 +1,4 @@
-package io.ashimjk.kafkacloudstream;
+package io.ashimjk.kafkacloudstream.producer;
 
 import io.restassured.RestAssured;
 import org.junit.Test;
@@ -11,13 +11,13 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-public class KafkaCloudStreamApplicationTests {
+public class ProducerAppTests {
 
     @LocalServerPort
     private int port;
 
     @Test
-    public void sendKafkaMessageToOutput() {
+    public void sendMessageToKafkaTopic() {
         RestAssured
                 .given()
                 .baseUri("http://localhost:" + port)

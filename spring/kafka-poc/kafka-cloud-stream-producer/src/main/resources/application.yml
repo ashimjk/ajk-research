@@ -5,6 +5,5 @@ spring:
         binder:
           brokers: localhost:9092
       bindings:
-        output:
-          destination:
-            kafka-input
+        input-channel:
+          destination: kafka-input
