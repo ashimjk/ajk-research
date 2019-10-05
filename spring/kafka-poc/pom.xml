@@ -5,7 +5,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>kafka-stream</module>
+        <module>kafka-cloud-stream</module>
         <module>kafka-cloud-stream-producer</module>
+        <module>kafka-plain-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
