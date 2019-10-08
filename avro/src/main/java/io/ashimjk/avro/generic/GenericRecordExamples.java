@@ -45,16 +45,16 @@ public class GenericRecordExamples {
         GenericRecord customer = customerBuilder.build();
         System.out.println(customer);
 
-        final File file = new File("customer-generic.avsc");
-
         // step 2: write that generic record to a file
+        final File file = new File("customer-generic.avro");
+
         // write to a file
         final DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>(schema);
         try (DataFileWriter<GenericRecord> dataFileWriter = new DataFileWriter<>(datumWriter)) {
             dataFileWriter.create(customer.getSchema(), file);
             dataFileWriter.append(customer);
 
-            System.out.println("Written customer-generic.avsc");
+            System.out.println("Written customer-generic.avro");
         } catch (IOException e) {
             System.out.println("Couldn't write to a file");
             e.printStackTrace();
