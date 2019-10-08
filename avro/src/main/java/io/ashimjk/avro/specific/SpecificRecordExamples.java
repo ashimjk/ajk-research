@@ -1,7 +1,5 @@
 package io.ashimjk.avro.specific;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.ashimjk.avro.model.Customer;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.file.DataFileWriter;
@@ -37,6 +35,7 @@ public class SpecificRecordExamples {
             dataFileWriter.append(customer);
 
             System.out.println("Written customer-specific.avro");
+            System.out.println();
         } catch (IOException e) {
             System.out.println("Couldn't write to a file");
             e.printStackTrace();

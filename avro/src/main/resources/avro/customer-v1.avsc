@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "namespace": "io.ashimjk.avro.model",
+  "name": "CustomerV1",
+  "doc": "Avro Schema for our Customer",
+  "fields": [
+    {
+      "name": "first_name",
+      "type": "string",
+      "doc": "First name of a customer"
+    },
+    {
+      "name": "last_name",
+      "type": "string",
+      "doc": "Last name of a customer"
+    },
+    {
+      "name": "age",
+      "type": "int",
+      "doc": "Age at the time of registration"
+    },
+    {
+      "name": "height",
+      "type": "float",
+      "doc": "Height at the time of registration in inches"
+    },
+    {
+      "name": "weight",
+      "type": "float",
+      "doc": "Weight at the time of registration in kgs"
+    },
+    {
+      "name": "automated_email",
+      "type": "boolean",
+      "default": true,
+      "doc": "Field indicating if the notification emails should be sent"
+    }
+  ]
+}

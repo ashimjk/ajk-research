@@ -55,6 +55,7 @@ public class GenericRecordExamples {
             dataFileWriter.append(customer);
 
             System.out.println("Written customer-generic.avro");
+            System.out.println();
         } catch (IOException e) {
             System.out.println("Couldn't write to a file");
             e.printStackTrace();
