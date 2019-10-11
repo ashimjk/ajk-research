@@ -11,6 +11,7 @@
     <modules>
         <module>kafka-avro-v1</module>
         <module>samples</module>
+        <module>kafka-avro-v2</module>
     </modules>
 
 
