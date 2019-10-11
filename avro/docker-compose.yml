@@ -8,6 +8,7 @@ services:
       RUNTESTS: 0                     # Disable Running tests so the cluster starts faster
       FORWARDLOGS: 0                  # Disable running 5 file source connectors that bring application logs
       SAMPLEDATA: 0                   # Do no create sea_vessel_position_reports, nyc_yellow_taxi_trip_data
+      SCHEMA_REGISTRY_AVRO_COMPATIBILITY_LEVEL: full_transitive
     ports:
       - 2181:2181                     # Zookeeper
       - 3030:3030                     # Landoop UI

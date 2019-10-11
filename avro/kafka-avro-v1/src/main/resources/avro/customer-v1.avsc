@@ -3,6 +3,7 @@
   "namespace": "io.ashimjk.avro.model",
   "name": "Customer",
   "doc": "Avro Schema for our Customer",
+  "version": "1",
   "fields": [
     {
       "name": "first_name",
