@@ -20,6 +20,7 @@
         <module>object-merge</module>
         <module>object-clone</module>
         <module>jackson</module>
+        <module>json-diff</module>
     </modules>
 
 </project>
