@@ -1,0 +1,44 @@
+POST http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
+Content-Type: application/json
+
+{
+  "variables": {
+    "amount": {
+      "value": 555,
+      "type": "long"
+    },
+    "item": {
+      "value": "item-xyz"
+    }
+  }
+}
+
+### Response
+
+#POST http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Sat, 12 Oct 2019 16:43:53 GMT
+#
+#{
+#  "links": [
+#    {
+#      "method": "GET",
+#      "href": "http://localhost:8080/engine-rest/process-instance/7a0daebb-ed0f-11e9-a0d1-0242ac110002",
+#      "rel": "self"
+#    }
+#  ],
+#  "id": "7a0daebb-ed0f-11e9-a0d1-0242ac110002",
+#  "definitionId": "payment-retrieval:1:f18968ea-ed0e-11e9-a0d1-0242ac110002",
+#  "businessKey": null,
+#  "caseInstanceId": null,
+#  "ended": false,
+#  "suspended": false,
+#  "tenantId": null
+#}
+#
+#Response code: 200; Time: 65ms; Content length: 345 bytes
+
+###
+
