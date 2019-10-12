@@ -12,7 +12,7 @@
     <description>Camunda Examples</description>
 
     <modules>
-<!--        <module>order-process</module>-->
+        <module>order-process</module>
         <module>startup</module>
     </modules>
 
