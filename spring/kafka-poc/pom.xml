@@ -3,18 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+
     <modules>
         <module>kafka-stream</module>
         <module>kafka-cloud-stream</module>
         <module>kafka-cloud-stream-producer</module>
         <module>kafka-plain-client</module>
+        <module>kafka-twitter</module>
     </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
+    
     <groupId>io.ashimjk</groupId>
     <artifactId>kafka-poc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
