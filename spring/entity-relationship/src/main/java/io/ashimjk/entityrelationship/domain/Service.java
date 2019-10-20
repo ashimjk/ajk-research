@@ -2,16 +2,18 @@ package io.ashimjk.entityrelationship.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Service extends BaseEntity {
+class Service extends BaseEntity {
 
     private String name;
 

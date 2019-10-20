@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class ContractDetail implements Serializable {
+class ContractDetail implements Serializable {
 
     private Integer number;
 

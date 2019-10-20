@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @Embeddable
-public class CorporateId implements Serializable {
+class CorporateId implements Serializable {
 
     @Column(name = "corpay_id")
     private String id;

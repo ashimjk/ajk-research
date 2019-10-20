@@ -1,23 +1,18 @@
 package io.ashimjk.entityrelationship.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Getter
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CorrespondentBank extends BaseEntity {
+class CorrespondentBank extends BaseEntity {
 
     private String name;
     private String bicCode;
@@ -28,7 +23,7 @@ public class CorrespondentBank extends BaseEntity {
     @ElementCollection
     private List<String> services;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Account> accounts;
 
 }

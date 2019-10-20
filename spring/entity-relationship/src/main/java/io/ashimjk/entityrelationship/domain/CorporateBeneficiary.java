@@ -2,28 +2,32 @@ package io.ashimjk.entityrelationship.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class CorporateBeneficiary extends BaseEntity{
+class CorporateBeneficiary extends BaseEntity {
 
     @Embedded
     private CorporateId corporateId;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<KeyManagement> keyManagements;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ShareHolder> shareHolders;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ContactPerson> contactPersons;
 
 }

@@ -17,24 +17,25 @@ import java.util.List;
 public class Beneficiary implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Address> addresses;
 
     @Enumerated(EnumType.STRING)
     private BeneficiaryType beneficiaryType;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<AuthorizedSignature> authorizedSignatories;
 
     @Embedded
     private ContractDetail contractDetail;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private CorporateBeneficiary corporateBeneficiary;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CorrespondentBank> correspondentBanks;
 
     private String currentProcess;
@@ -45,7 +46,7 @@ public class Beneficiary implements Serializable {
 
     private String fullName;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<IdType> idTypes;
 
     private String nationalNumber;
@@ -61,10 +62,10 @@ public class Beneficiary implements Serializable {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<TypeOfDealing> typeOfDealings;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<UserDecisionLog> userDecisions;
 
     enum Status {

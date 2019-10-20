@@ -2,15 +2,17 @@ package io.ashimjk.entityrelationship.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Account extends BaseEntity {
+class Account extends BaseEntity {
 
     private String iban;
     private String currencyOfIban;

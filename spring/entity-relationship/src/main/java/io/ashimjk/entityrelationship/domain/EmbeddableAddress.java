@@ -1,10 +1,13 @@
 package io.ashimjk.entityrelationship.domain;
 
+import lombok.Data;
+
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
+@Data
 @Embeddable
-public class EmbeddableAddress implements Serializable {
+class EmbeddableAddress implements Serializable {
 
     private String addressName;
     private String addressLine1;

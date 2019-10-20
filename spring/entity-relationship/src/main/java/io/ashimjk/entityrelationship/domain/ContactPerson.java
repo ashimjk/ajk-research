@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class ContactPerson extends BaseEntity {
+class ContactPerson extends BaseEntity {
 
     private String title;
     private String fullName;

@@ -3,14 +3,15 @@ package io.ashimjk.entityrelationship.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@EqualsAndHashCode
 @Entity
-public class DelegatedPerson extends BaseEntity {
+class DelegatedPerson extends BaseEntity {
 
     private String fullName;
     private String nationalNumber;
@@ -18,7 +19,7 @@ public class DelegatedPerson extends BaseEntity {
     private String signature;
     private String document;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Service> services;
 
 }
