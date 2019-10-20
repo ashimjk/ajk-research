@@ -15,12 +15,12 @@ import java.util.Collections;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-@SpringBootTest(webEnvironment = RANDOM_PORT)
-@ExtendWith(SpringExtension.class)
+//@SpringBootTest(webEnvironment = RANDOM_PORT)
+//@ExtendWith(SpringExtension.class)
 class BeneficiaryControllerTest {
 
-    @LocalServerPort
-    private int port;
+//    @LocalServerPort
+    private int port = 8080;
 
     @Test
     void givenBeneficiary_whenCreate_ThenSaveBeneficiary() {
@@ -30,6 +30,7 @@ class BeneficiaryControllerTest {
 
         String response = RestAssured
                 .given()
+                .baseUri("http://localhost")
                 .port(port)
                 .contentType("application/json")
                 .when()
@@ -41,6 +42,30 @@ class BeneficiaryControllerTest {
                 .jsonPath()
                 .prettify();
 
+
+        assertThat(response)
+                .isNotNull()
+                .isNotEmpty();
+    }
+
+
+    @Test
+    void givenBeneficiaryId_whenGet_ThenReturnBeneficiary() {
+        String response = RestAssured
+                .given()
+                .baseUri("http://localhost")
+                .port(port)
+                .contentType("application/json")
+                .when()
+//                .pathParam("id", 1)
+                .get("/1")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .extract()
+                .jsonPath()
+                .prettify();
+
+        System.out.println(response);
 
         assertThat(response)
                 .isNotNull()

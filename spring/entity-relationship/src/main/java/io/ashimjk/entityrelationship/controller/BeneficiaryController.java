@@ -5,9 +5,7 @@ import io.ashimjk.entityrelationship.repository.BeneficiaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,4 +18,8 @@ public class BeneficiaryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(beneficiary));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Beneficiary> getBeneficiary(@PathVariable Long id) {
+        return ResponseEntity.ok(repository.getOne(id));
+    }
 }

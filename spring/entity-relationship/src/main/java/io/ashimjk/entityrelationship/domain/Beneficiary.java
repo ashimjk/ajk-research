@@ -17,10 +17,11 @@ import java.util.List;
 public class Beneficiary implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @GeneratedValue
+    private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="beneficiary_id")
     private List<Address> addresses;
 
     @Enumerated(EnumType.STRING)
