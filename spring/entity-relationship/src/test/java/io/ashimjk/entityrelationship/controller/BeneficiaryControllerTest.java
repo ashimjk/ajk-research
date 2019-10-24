@@ -4,22 +4,17 @@ import io.ashimjk.entityrelationship.domain.Address;
 import io.ashimjk.entityrelationship.domain.Beneficiary;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 //@SpringBootTest(webEnvironment = RANDOM_PORT)
 //@ExtendWith(SpringExtension.class)
 class BeneficiaryControllerTest {
 
-//    @LocalServerPort
+    //    @LocalServerPort
     private int port = 8080;
 
     @Test

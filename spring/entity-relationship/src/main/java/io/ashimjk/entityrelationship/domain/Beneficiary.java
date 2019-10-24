@@ -21,7 +21,7 @@ public class Beneficiary implements Serializable {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="beneficiary_id")
+    @JoinColumn(name = "beneficiary_id")
     private List<Address> addresses;
 
     @Enumerated(EnumType.STRING)
