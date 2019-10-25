@@ -13,7 +13,7 @@ public class ProductOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderKey;
     private String orderNbr;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "productorder_id")
     private List<OrderItem> orderItems = new ArrayList<>();
 

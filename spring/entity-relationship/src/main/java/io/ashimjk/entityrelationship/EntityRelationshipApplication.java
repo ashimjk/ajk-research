@@ -51,9 +51,11 @@ public class EntityRelationshipApplication implements CommandLineRunner {
         ProductOrder productOrder = repository.findAll().get(0);
         productOrder.setOrderNbr("456");
 
-        OrderItem orderItem = productOrder.getOrderItems().get(0);
+        OrderItem orderItem = new OrderItem();
         orderItem.setOrderItemQty(34L);
         orderItem.setOrderItemDesc("desc12");
+
+        productOrder.setOrderItems(Collections.singletonList(orderItem));
 
         repository.save(productOrder);
         repository.findAll().forEach(System.out::println);
