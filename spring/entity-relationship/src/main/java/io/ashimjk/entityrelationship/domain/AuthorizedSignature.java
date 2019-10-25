@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-class AuthorizedSignature extends BaseEntity {
+public class AuthorizedSignature extends BaseEntity {
 
     private String fullName;
     private String nationalNumber;
