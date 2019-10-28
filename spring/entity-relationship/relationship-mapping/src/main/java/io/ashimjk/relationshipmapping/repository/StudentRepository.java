@@ -20,14 +20,26 @@ public class StudentRepository {
         entityManager.persist(passport);
 
         Student student = new Student("ashim", passport);
+        passport.setStudent(student);
 
         entityManager.persist(student);
+        throw new RuntimeException("fail transaction");
+    }
 
+    @Transactional
+    public void save2() {
+        Passport passport = new Passport("E123");
+        entityManager.persist(passport);
+
+        Student student = new Student("ashim", passport);
+        passport.setStudent(student);
+
+        entityManager.persist(student);
     }
 
     @Transactional
     public void find() {
-        final Student student = entityManager.find(Student.class, 2L);
+        final Student student = entityManager.find(Student.class, 4L);
 
         System.out.println(student);
         System.out.println(student.getPassport());

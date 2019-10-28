@@ -18,7 +18,13 @@ public class RelationshipMappingApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        studentRepository.save();
+        try {
+            studentRepository.save();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        studentRepository.save2();
         studentRepository.find();
     }
 
