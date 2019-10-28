@@ -2,6 +2,7 @@ package io.ashimjk.relationshipmapping;
 
 import io.ashimjk.relationshipmapping.model.Passport;
 import io.ashimjk.relationshipmapping.model.Student;
+import io.ashimjk.relationshipmapping.repository.CourseRepository;
 import io.ashimjk.relationshipmapping.repository.JpaPassportRepository;
 import io.ashimjk.relationshipmapping.repository.JpaStudentRepository;
 import io.ashimjk.relationshipmapping.repository.StudentRepository;
@@ -17,6 +18,7 @@ public class RelationshipMappingApp implements CommandLineRunner {
 //    private final StudentRepository studentRepository;
     private final JpaStudentRepository jpaStudentRepository;
     private final JpaPassportRepository jpaPassportRepository;
+    private final CourseRepository courseRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(RelationshipMappingApp.class, args);
@@ -34,6 +36,8 @@ public class RelationshipMappingApp implements CommandLineRunner {
 //        studentRepository.find();
 
 //        jpaTest();
+
+        courseRepository.save();
     }
 
     private void jpaTest() {

@@ -4,16 +4,19 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
+@NamedQueries(
+        value = {
+                @NamedQuery(name = "findAll", query = "Select c From Course c"),
+                @NamedQuery(name = "findSelected", query = "select c from Course c where courseName like '%Jpa%'")
+        }
+)
 public class Course {
 
     @Id
@@ -27,7 +30,8 @@ public class Course {
     @UpdateTimestamp
     private LocalDateTime modifiedDate;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany
+    @JoinColumn(name = "course_id")
     private List<Review> reviews = new ArrayList<>();
 
     public void addReview(Review review) {
