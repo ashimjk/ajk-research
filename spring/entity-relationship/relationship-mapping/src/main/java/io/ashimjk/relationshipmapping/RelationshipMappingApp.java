@@ -1,5 +1,9 @@
 package io.ashimjk.relationshipmapping;
 
+import io.ashimjk.relationshipmapping.model.Passport;
+import io.ashimjk.relationshipmapping.model.Student;
+import io.ashimjk.relationshipmapping.repository.JpaPassportRepository;
+import io.ashimjk.relationshipmapping.repository.JpaStudentRepository;
 import io.ashimjk.relationshipmapping.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @RequiredArgsConstructor
 public class RelationshipMappingApp implements CommandLineRunner {
 
-    private final StudentRepository studentRepository;
+//    private final StudentRepository studentRepository;
+    private final JpaStudentRepository jpaStudentRepository;
+    private final JpaPassportRepository jpaPassportRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(RelationshipMappingApp.class, args);
@@ -18,14 +24,34 @@ public class RelationshipMappingApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        try {
-            studentRepository.save();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+//        try {
+//            studentRepository.save();
+//        } catch (Exception ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//
+//        studentRepository.save2();
+//        studentRepository.find();
 
-        studentRepository.save2();
-        studentRepository.find();
+//        jpaTest();
+    }
+
+    private void jpaTest() {
+        Passport passport = new Passport("Z789");
+        jpaPassportRepository.save(passport);
+
+        Student student = new Student("ashim", passport);
+        passport.setStudent(student);
+
+        jpaStudentRepository.save(student);
+    }
+
+    // Fails because of transaction is closed as soon as findById is called
+    // @Transactional
+    public void jpaLazyFind() {
+        final Student student = jpaStudentRepository.findById(6L).get();
+        System.out.println(student);
+        System.out.println(student.getPassport());
     }
 
 }

@@ -1,6 +1,7 @@
 package io.ashimjk.relationshipmapping.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -14,6 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude = "student")
 @ToString(exclude = "student")
 @NoArgsConstructor(access = PROTECTED)
 public class Passport {

@@ -6,7 +6,8 @@
 - Transaction
 
 ## Summary
-- When any method which is creating or updating an entity needs to be inside transaction.
+- When any changes that are going to be made on the database then that particular method should be inside transaction.
+    - Like create, update, delete
 - But find or get method are already inside a transaction, so its not necessary for them.
     - It opens when request and close transaction immediately
 - At the startup of transaction, PersistenceContext gets created.
