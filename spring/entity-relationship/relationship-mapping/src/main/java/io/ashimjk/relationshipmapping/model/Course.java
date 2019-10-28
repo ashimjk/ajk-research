@@ -30,9 +30,12 @@ public class Course {
     @UpdateTimestamp
     private LocalDateTime modifiedDate;
 
-    @OneToMany
-    @JoinColumn(name = "course_id")
+    @OneToMany(mappedBy = "course")
+//    @JoinColumn(name = "course_id")
     private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
 
     public void addReview(Review review) {
         System.out.println("Course.addReview");

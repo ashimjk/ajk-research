@@ -5,7 +5,6 @@ import io.ashimjk.relationshipmapping.model.Student;
 import io.ashimjk.relationshipmapping.repository.CourseRepository;
 import io.ashimjk.relationshipmapping.repository.JpaPassportRepository;
 import io.ashimjk.relationshipmapping.repository.JpaStudentRepository;
-import io.ashimjk.relationshipmapping.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @RequiredArgsConstructor
 public class RelationshipMappingApp implements CommandLineRunner {
 
-//    private final StudentRepository studentRepository;
+    //    private final StudentRepository studentRepository;
     private final JpaStudentRepository jpaStudentRepository;
     private final JpaPassportRepository jpaPassportRepository;
     private final CourseRepository courseRepository;
