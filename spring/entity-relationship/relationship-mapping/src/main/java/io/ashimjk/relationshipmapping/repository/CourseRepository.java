@@ -3,14 +3,22 @@ package io.ashimjk.relationshipmapping.repository;
 import io.ashimjk.relationshipmapping.model.Course;
 import io.ashimjk.relationshipmapping.model.Review;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 @Repository
 @RequiredArgsConstructor
 public class CourseRepository {
+
+    private static final Logger logger = LoggerFactory.getLogger(CourseRepository.class);
 
     private final EntityManager entityManager;
 
@@ -34,7 +42,8 @@ public class CourseRepository {
 
         entityManager.persist(course);
 
-        System.out.println(course);
+        logger.info("Result -> {}", course);
     }
+
 
 }

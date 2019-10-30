@@ -14,7 +14,9 @@ import java.util.List;
 @NamedQueries(
         value = {
                 @NamedQuery(name = "findAll", query = "Select c From Course c"),
-                @NamedQuery(name = "findSelected", query = "select c from Course c where courseName like '%Jpa%'")
+                @NamedQuery(name = "findSelected", query = "select c from Course c where courseName like '%Jpa%'"),
+                @NamedQuery(name = "courseWithoutStudents", query = "select c from Course c where c.students is empty"),
+                @NamedQuery(name = "courseWithStudentsMoreThan2", query = "select c from Course c where size(c.students) >= 2")
         }
 )
 public class Course {

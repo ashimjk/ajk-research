@@ -1,7 +1,9 @@
 package io.ashimjk.relationshipmapping.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Data
 @Entity
+@ToString(exclude = "courses")
+@EqualsAndHashCode(exclude = "courses")
 @NoArgsConstructor(access = PROTECTED)
 public class Student {
 
