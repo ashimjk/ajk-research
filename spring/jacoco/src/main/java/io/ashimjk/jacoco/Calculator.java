@@ -1,4 +1,7 @@
 package io.ashimjk.jacoco;
 
-public class Calculator {
+public interface Calculator {
+
+    double process(String expression);
+
 }
