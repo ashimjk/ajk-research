@@ -24,7 +24,7 @@ public class Student {
     private Long id;
     private String name;
 
-    @OneToOne(fetch = LAZY)
+    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Passport passport;
 
     @ManyToMany
