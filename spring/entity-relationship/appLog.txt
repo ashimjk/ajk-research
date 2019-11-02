@@ -1,0 +1,78 @@
+2416 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
+2420 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
+2426 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.ehcache.internal.EhcacheRegionFactory
+2862 [restartedMain] DEBUG o.h.c.s.s.DomainDataRegionTemplate - Generating entity cache access [read-write] : NavigableRole[io.ashimjk.caching.model.Course]
+3131 [restartedMain] DEBUG org.hibernate.SQL - drop table course if exists
+3133 [restartedMain] DEBUG org.hibernate.SQL - drop table review if exists
+3133 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3135 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start with 1 increment by 1
+3137 [restartedMain] DEBUG org.hibernate.SQL - create table course (id bigint not null, course_name varchar(255), created_date timestamp, is_deleted boolean not null, modified_date timestamp, primary key (id))
+3142 [restartedMain] DEBUG org.hibernate.SQL - create table review (id bigint not null, description varchar(255), rating varchar(255), course_id bigint, primary key (id))
+3143 [restartedMain] DEBUG org.hibernate.SQL - alter table review add constraint FKprox8elgnr8u5wrq1983degk foreign key (course_id) references course
+3437 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+64213 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table course if exists
+64215 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table review if exists
+64215 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2477 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
+2477 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
+2483 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.ehcache.internal.EhcacheRegionFactory
+2935 [restartedMain] DEBUG o.h.c.s.s.DomainDataRegionTemplate - Generating entity cache access [read-write] : NavigableRole[io.ashimjk.caching.model.Course]
+3224 [restartedMain] DEBUG org.hibernate.SQL - drop table course if exists
+3226 [restartedMain] DEBUG org.hibernate.SQL - drop table review if exists
+3227 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3229 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start with 1 increment by 1
+3230 [restartedMain] DEBUG org.hibernate.SQL - create table course (id bigint not null, course_name varchar(255), created_date timestamp, is_deleted boolean not null, modified_date timestamp, primary key (id))
+3250 [restartedMain] DEBUG org.hibernate.SQL - create table review (id bigint not null, description varchar(255), rating varchar(255), course_id bigint, primary key (id))
+3251 [restartedMain] DEBUG org.hibernate.SQL - alter table review add constraint FKprox8elgnr8u5wrq1983degk foreign key (course_id) references course
+3524 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3530 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3531 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3575 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3601 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+18117 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table course if exists
+18119 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table review if exists
+18119 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
