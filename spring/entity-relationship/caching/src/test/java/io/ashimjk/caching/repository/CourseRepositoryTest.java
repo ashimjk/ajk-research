@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.transaction.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @Slf4j
 @SpringBootApplication(scanBasePackageClasses = CachingApp.class)
@@ -47,6 +49,17 @@ class CourseRepositoryTest {
 
         assertNotNull(firstCourse.getCourseName());
         assertNotNull(secondCourse.getCourseName());
+    }
+
+    @Test
+    @DirtiesContext
+    @DisplayName("Hibernate specific soft delete")
+    void testSoftDelete() {
+        courseRepository.deleteById(10001L);
+
+        final Course course = courseRepository.findById(10001L).orElse(null);
+
+        assertNull(course);
     }
 
 }

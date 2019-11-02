@@ -1,9 +1,9 @@
-insert into course(id, course_name, created_date, modified_date)
-values(10001,'JPA Hibernate', sysdate(), sysdate());
-insert into course(id, course_name, created_date, modified_date)
-values(10002,'Spring Boot', sysdate(), sysdate());
-insert into course(id, course_name, created_date, modified_date)
-values(10003,'Angular', sysdate(), sysdate());
+insert into course(id, course_name, created_date, modified_date, is_deleted)
+values(10001,'JPA Hibernate', sysdate(), sysdate(), false);
+insert into course(id, course_name, created_date, modified_date, is_deleted)
+values(10002,'Spring Boot', sysdate(), sysdate(), false);
+insert into course(id, course_name, created_date, modified_date, is_deleted)
+values(10003,'Angular', sysdate(), sysdate(), false);
 
 insert into review(id,rating,description,course_id)
 values(50001,'FIVE', 'Great Course',10001);
