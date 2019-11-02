@@ -8,6 +8,7 @@
     <modules>
         <module>relationship-mapping</module>
         <module>generic-impl</module>
+        <module>caching</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

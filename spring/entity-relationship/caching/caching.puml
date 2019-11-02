@@ -1,0 +1,22 @@
+@startuml
+
+package "Transaction1" {
+  [PersistenceContext1 (FLC)]
+}
+
+package "Transaction2" {
+  [PersistenceContext2 (FLC)]
+}
+ 
+[PersistenceContext1 (FLC)] -down--> [Second Level Cache]
+[PersistenceContext2 (FLC)] -down--> [Second Level Cache]
+
+database "RDBMS" {
+  rectangle Table1
+  rectangle Table2
+}
+
+[Second Level Cache] -down--> Table1
+[Second Level Cache] -down--> Table2
+
+@enduml
