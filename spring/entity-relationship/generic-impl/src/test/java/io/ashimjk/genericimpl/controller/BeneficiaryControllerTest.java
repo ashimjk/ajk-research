@@ -1,8 +1,8 @@
 package io.ashimjk.genericimpl.controller;
 
 import io.ashimjk.genericimpl.domain.Address;
-import io.ashimjk.genericimpl.domain.AuthorizedSignature;
 import io.ashimjk.genericimpl.domain.Beneficiary;
+import io.ashimjk.genericimpl.domain.authorizedsignature.AuthorizedSignature;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;

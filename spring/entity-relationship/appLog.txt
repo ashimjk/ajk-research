@@ -1,31 +1,83 @@
-2416 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
-2420 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
-2426 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.ehcache.internal.EhcacheRegionFactory
-2862 [restartedMain] DEBUG o.h.c.s.s.DomainDataRegionTemplate - Generating entity cache access [read-write] : NavigableRole[io.ashimjk.caching.model.Course]
-3131 [restartedMain] DEBUG org.hibernate.SQL - drop table course if exists
-3133 [restartedMain] DEBUG org.hibernate.SQL - drop table review if exists
-3133 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
-3135 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start with 1 increment by 1
-3137 [restartedMain] DEBUG org.hibernate.SQL - create table course (id bigint not null, course_name varchar(255), created_date timestamp, is_deleted boolean not null, modified_date timestamp, primary key (id))
-3142 [restartedMain] DEBUG org.hibernate.SQL - create table review (id bigint not null, description varchar(255), rating varchar(255), course_id bigint, primary key (id))
-3143 [restartedMain] DEBUG org.hibernate.SQL - alter table review add constraint FKprox8elgnr8u5wrq1983degk foreign key (course_id) references course
-3437 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
-64213 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table course if exists
-64215 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table review if exists
-64215 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
-2477 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
-2477 [restartedMain] DEBUG o.h.c.i.StrategyCreatorRegionFactoryImpl - RegionFactory impl [org.hibernate.cache.ehcache.internal.EhcacheRegionFactory] did not provide constructor accepting Properties
-2483 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.ehcache.internal.EhcacheRegionFactory
-2935 [restartedMain] DEBUG o.h.c.s.s.DomainDataRegionTemplate - Generating entity cache access [read-write] : NavigableRole[io.ashimjk.caching.model.Course]
-3224 [restartedMain] DEBUG org.hibernate.SQL - drop table course if exists
-3226 [restartedMain] DEBUG org.hibernate.SQL - drop table review if exists
-3227 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
-3229 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start with 1 increment by 1
-3230 [restartedMain] DEBUG org.hibernate.SQL - create table course (id bigint not null, course_name varchar(255), created_date timestamp, is_deleted boolean not null, modified_date timestamp, primary key (id))
-3250 [restartedMain] DEBUG org.hibernate.SQL - create table review (id bigint not null, description varchar(255), rating varchar(255), course_id bigint, primary key (id))
-3251 [restartedMain] DEBUG org.hibernate.SQL - alter table review add constraint FKprox8elgnr8u5wrq1983degk foreign key (course_id) references course
-3524 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
-3530 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+2205 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2206 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2877 [restartedMain] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+2885 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKj2bqx1mxvkot9r60g8j8yo5nt
+2889 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+2892 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+2897 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+2901 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+2905 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+2908 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+2912 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+2916 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+2921 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+2925 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+2930 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+2935 [restartedMain] DEBUG org.hibernate.SQL - alter table service drop constraint FK8sph7qfbhe4e2e37hx77rdoci
+2939 [restartedMain] DEBUG org.hibernate.SQL - alter table service drop constraint FKtj2467fgm4qdk4soa9bbs1s1e
+2944 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+2948 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+2953 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+2957 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists account cascade
+2963 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+2968 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+2974 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+2979 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+2984 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+2990 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+2994 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+2999 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+3005 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+3010 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+3015 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+3020 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+3025 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+3030 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+3035 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists service cascade
+3040 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+3044 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+3049 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+3054 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3063 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start 1 increment 1
+3068 [restartedMain] DEBUG org.hibernate.SQL - create table account (id int8 not null, currency_of_iban varchar(255), iban varchar(255), correspondent_bank int8, primary key (id))
+3113 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), delegate_signature_id int8, beneficiary_id int8, primary key (id))
+3145 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary (id int8 not null, beneficiary_type varchar(255), amount varchar(255), balance numeric(19, 2), details varchar(255), fees_and_charges numeric(19, 2), contract_from date, number int4, terms_of_payment varchar(255), contract_to date, created_date timestamp, current_process varchar(255), current_task varchar(255), is_deleted boolean, ending_date date, full_name varchar(255), national_number varchar(255), process_instance_id varchar(255), reference varchar(255), review_date date, starting_date date, status varchar(255), corporate_beneficiary_id int8, primary key (id))
+3391 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_addresses (beneficiary_id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255))
+3408 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_id_types (beneficiary_id int8 not null, document varchar(255), expiry_date date, name varchar(255), number varchar(255))
+3432 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), email varchar(255), full_name varchar(255), national_number varchar(255), phone_no varchar(255), title varchar(255), corporate_beneficiary_id int8, primary key (id))
+3465 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person_services (contact_person_id int8 not null, services varchar(255))
+3471 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary (id int8 not null, corpay_id varchar(255), primary key (id))
+3484 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_key_managements (corporate_beneficiary_id int8 not null, full_name varchar(255), national_number varchar(255), title varchar(255))
+3498 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_share_holders (corporate_beneficiary_id int8 not null, full_name varchar(255), national_id varchar(255))
+3514 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), bic_code varchar(255), name varchar(255), beneficiary_id int8, primary key (id))
+3538 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank_services (correspondent_bank_id int8 not null, services varchar(255))
+3544 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), primary key (id))
+3571 [restartedMain] DEBUG org.hibernate.SQL - create table order_item (order_item_key int8 not null, order_item_desc varchar(255), order_item_qty int8, productorder_id int8, primary key (order_item_key))
+3586 [restartedMain] DEBUG org.hibernate.SQL - create table product_order (order_key int8 not null, order_nbr varchar(255), primary key (order_key))
+3603 [restartedMain] DEBUG org.hibernate.SQL - create table service (id int8 not null, name varchar(255), tier_from numeric(19, 2), tier_to numeric(19, 2), delegated_person_id int8, authorized_signature_id int8, primary key (id))
+3617 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing (id int8 not null, deal_type varchar(255), beneficiary_id int8, primary key (id))
+3632 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing_services (type_of_dealing_id int8 not null, services varchar(255))
+3637 [restartedMain] DEBUG org.hibernate.SQL - create table user_decision_log (id int8 not null, action varchar(255), approval_status varchar(255), comment varchar(255), date timestamp, user_id varchar(255), beneficiary_id int8, primary key (id))
+3664 [restartedMain] DEBUG org.hibernate.SQL - alter table account add constraint FKaqmwhra80oi4w7qllpljhve4i foreign key (correspondent_bank) references correspondent_bank
+3671 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FKj2bqx1mxvkot9r60g8j8yo5nt foreign key (delegate_signature_id) references delegated_person
+3678 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FK6j8xa61m2otcc2p4ddk00b5q0 foreign key (beneficiary_id) references beneficiary
+3685 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary add constraint FK5tf3smuji3bpgn6jmkgph55cy foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3692 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses add constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v foreign key (beneficiary_id) references beneficiary
+3698 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types add constraint FKisgde4g5wgmsc8rdp3oogqmsg foreign key (beneficiary_id) references beneficiary
+3704 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person add constraint FKntetkk42ig8fpg32dumyjn5db foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3710 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services add constraint FKk4onrfj3smwki34cj0tggfcgs foreign key (contact_person_id) references contact_person
+3716 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements add constraint FKcmqt0gu8uc75y3a7assr0qvsv foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3720 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders add constraint FKhc5jenowy4vvl9oea8j8actw foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3725 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank add constraint FK3b5s1ap68oqd1e2hd2roi26f3 foreign key (beneficiary_id) references beneficiary
+3730 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services add constraint FK32iqxbbb8h2ermluk3h2jsdhj foreign key (correspondent_bank_id) references correspondent_bank
+3734 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item add constraint FKmlwv71ldlx0texojnvi0rfo3u foreign key (productorder_id) references product_order
+3739 [restartedMain] DEBUG org.hibernate.SQL - alter table service add constraint FK8sph7qfbhe4e2e37hx77rdoci foreign key (delegated_person_id) references delegated_person
+3744 [restartedMain] DEBUG org.hibernate.SQL - alter table service add constraint FKtj2467fgm4qdk4soa9bbs1s1e foreign key (authorized_signature_id) references authorized_signature
+3749 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing add constraint FKspjps9am6lfa6ftuyij1opdan foreign key (beneficiary_id) references beneficiary
+3753 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services add constraint FKny6vo9hfo038yq2ae6ahisus8 foreign key (type_of_dealing_id) references type_of_dealing
+3758 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log add constraint FK8mhs8avt0qfwyo72uqvwh7kkn foreign key (beneficiary_id) references beneficiary
+3902 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3907 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
     0 nanoseconds spent acquiring 0 JDBC connections;
     0 nanoseconds spent releasing 0 JDBC connections;
     0 nanoseconds spent preparing 0 JDBC statements;
@@ -37,7 +89,7 @@
     0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
     0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
 }
-3531 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+3908 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
     0 nanoseconds spent acquiring 0 JDBC connections;
     0 nanoseconds spent releasing 0 JDBC connections;
     0 nanoseconds spent preparing 0 JDBC statements;
@@ -49,7 +101,7 @@
     0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
     0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
 }
-3575 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+3957 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
     0 nanoseconds spent acquiring 0 JDBC connections;
     0 nanoseconds spent releasing 0 JDBC connections;
     0 nanoseconds spent preparing 0 JDBC statements;
@@ -61,7 +113,7 @@
     0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
     0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
 }
-3601 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+4008 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
     0 nanoseconds spent acquiring 0 JDBC connections;
     0 nanoseconds spent releasing 0 JDBC connections;
     0 nanoseconds spent preparing 0 JDBC statements;
@@ -73,6 +125,930 @@
     0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
     0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
 }
-18117 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table course if exists
-18119 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table review if exists
-18119 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+4028 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+4149 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+4168 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+65109 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+65115 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKj2bqx1mxvkot9r60g8j8yo5nt
+65118 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+65122 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+65127 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+65133 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+65138 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+65144 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+65150 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+65155 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+65160 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+65165 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+65171 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+65176 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table service drop constraint FK8sph7qfbhe4e2e37hx77rdoci
+65181 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table service drop constraint FKtj2467fgm4qdk4soa9bbs1s1e
+65187 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+65192 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+65197 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+65202 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists account cascade
+65209 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+65216 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+65223 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+65229 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+65234 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+65241 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+65246 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+65251 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+65257 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+65263 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+65269 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+65274 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+65280 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+65286 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+65291 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists service cascade
+65297 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+65302 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+65308 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+65314 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2253 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2253 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2906 [restartedMain] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+2909 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+2910 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+2911 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+2912 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+2913 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+2914 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+2915 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+2916 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+2917 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+2918 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+2919 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+2921 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+2922 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+2923 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+2924 [restartedMain] DEBUG org.hibernate.SQL - alter table service drop constraint FK8sph7qfbhe4e2e37hx77rdoci
+2925 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+2925 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+2926 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+2927 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists account cascade
+2928 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+2928 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+2929 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+2929 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+2929 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+2929 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+2930 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+2930 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+2930 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+2931 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+2931 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+2931 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+2931 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+2932 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+2932 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+2932 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists service cascade
+2933 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+2933 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+2933 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+2933 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2935 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start 1 increment 1
+2939 [restartedMain] DEBUG org.hibernate.SQL - create table account (id int8 not null, currency_of_iban varchar(255), iban varchar(255), correspondent_bank int8, primary key (id))
+2961 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), delegated_person_id int8, beneficiary_id int8, primary key (id))
+2987 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature_services (authorized_signature_id int8 not null, services_id int8 not null)
+2993 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary (id int8 not null, beneficiary_type varchar(255), amount varchar(255), balance numeric(19, 2), details varchar(255), fees_and_charges numeric(19, 2), contract_from date, number int4, terms_of_payment varchar(255), contract_to date, created_date timestamp, current_process varchar(255), current_task varchar(255), is_deleted boolean, ending_date date, full_name varchar(255), national_number varchar(255), process_instance_id varchar(255), reference varchar(255), review_date date, starting_date date, status varchar(255), corporate_beneficiary_id int8, primary key (id))
+3018 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_addresses (beneficiary_id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255))
+3034 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_id_types (beneficiary_id int8 not null, document varchar(255), expiry_date date, name varchar(255), number varchar(255))
+3050 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), email varchar(255), full_name varchar(255), national_number varchar(255), phone_no varchar(255), title varchar(255), corporate_beneficiary_id int8, primary key (id))
+3078 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person_services (contact_person_id int8 not null, services varchar(255))
+3084 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary (id int8 not null, corpay_id varchar(255), primary key (id))
+3098 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_key_managements (corporate_beneficiary_id int8 not null, full_name varchar(255), national_number varchar(255), title varchar(255))
+3114 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_share_holders (corporate_beneficiary_id int8 not null, full_name varchar(255), national_id varchar(255))
+3128 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), bic_code varchar(255), name varchar(255), beneficiary_id int8, primary key (id))
+3152 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank_services (correspondent_bank_id int8 not null, services varchar(255))
+3156 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), primary key (id))
+3179 [restartedMain] DEBUG org.hibernate.SQL - create table order_item (order_item_key int8 not null, order_item_desc varchar(255), order_item_qty int8, productorder_id int8, primary key (order_item_key))
+3192 [restartedMain] DEBUG org.hibernate.SQL - create table product_order (order_key int8 not null, order_nbr varchar(255), primary key (order_key))
+3204 [restartedMain] DEBUG org.hibernate.SQL - create table service (id int8 not null, name varchar(255), tier_from numeric(19, 2), tier_to numeric(19, 2), delegated_person_id int8, primary key (id))
+3217 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing (id int8 not null, deal_type varchar(255), beneficiary_id int8, primary key (id))
+3229 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing_services (type_of_dealing_id int8 not null, services varchar(255))
+3232 [restartedMain] DEBUG org.hibernate.SQL - create table user_decision_log (id int8 not null, action varchar(255), approval_status varchar(255), comment varchar(255), date timestamp, user_id varchar(255), beneficiary_id int8, primary key (id))
+3253 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint UK_anmyhdlkbycca7h2dq6pwrcyt unique (services_id)
+3267 [restartedMain] DEBUG org.hibernate.SQL - alter table account add constraint FKaqmwhra80oi4w7qllpljhve4i foreign key (correspondent_bank) references correspondent_bank
+3273 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FKdyifr1u79owj1wplc9opj5o7e foreign key (delegated_person_id) references delegated_person
+3279 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FK6j8xa61m2otcc2p4ddk00b5q0 foreign key (beneficiary_id) references beneficiary
+3285 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKbokkmmntapr9hb3b289ro8959 foreign key (services_id) references service
+3289 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKcuy4gmvx2p75c0qy8o441u5ck foreign key (authorized_signature_id) references authorized_signature
+3293 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary add constraint FK5tf3smuji3bpgn6jmkgph55cy foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3298 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses add constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v foreign key (beneficiary_id) references beneficiary
+3302 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types add constraint FKisgde4g5wgmsc8rdp3oogqmsg foreign key (beneficiary_id) references beneficiary
+3306 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person add constraint FKntetkk42ig8fpg32dumyjn5db foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3310 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services add constraint FKk4onrfj3smwki34cj0tggfcgs foreign key (contact_person_id) references contact_person
+3314 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements add constraint FKcmqt0gu8uc75y3a7assr0qvsv foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3318 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders add constraint FKhc5jenowy4vvl9oea8j8actw foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3322 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank add constraint FK3b5s1ap68oqd1e2hd2roi26f3 foreign key (beneficiary_id) references beneficiary
+3326 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services add constraint FK32iqxbbb8h2ermluk3h2jsdhj foreign key (correspondent_bank_id) references correspondent_bank
+3330 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item add constraint FKmlwv71ldlx0texojnvi0rfo3u foreign key (productorder_id) references product_order
+3334 [restartedMain] DEBUG org.hibernate.SQL - alter table service add constraint FK8sph7qfbhe4e2e37hx77rdoci foreign key (delegated_person_id) references delegated_person
+3339 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing add constraint FKspjps9am6lfa6ftuyij1opdan foreign key (beneficiary_id) references beneficiary
+3344 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services add constraint FKny6vo9hfo038yq2ae6ahisus8 foreign key (type_of_dealing_id) references type_of_dealing
+3349 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log add constraint FK8mhs8avt0qfwyo72uqvwh7kkn foreign key (beneficiary_id) references beneficiary
+3514 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3518 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3519 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3563 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3610 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3627 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3710 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3729 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+252841 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+252847 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+252850 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+252853 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+252856 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+252859 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+252862 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+252866 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+252869 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+252872 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+252875 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+252878 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+252881 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+252884 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+252887 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+252890 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table service drop constraint FK8sph7qfbhe4e2e37hx77rdoci
+252894 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+252897 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+252900 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+252903 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists account cascade
+252908 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+252914 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+252920 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+252926 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+252932 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+252938 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+252946 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+252951 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+252957 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+252962 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+252967 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+252971 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+252975 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+252979 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+252982 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+252986 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists service cascade
+252989 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+252992 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+252996 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+252999 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2310 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2310 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+3024 [restartedMain] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+3027 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+3028 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+3029 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+3029 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+3030 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+3031 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+3032 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+3035 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+3036 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+3037 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+3038 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+3039 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+3040 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+3041 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+3042 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+3043 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+3044 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+3045 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+3047 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+3048 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists account cascade
+3049 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+3049 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+3050 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+3050 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+3051 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+3051 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+3051 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+3052 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+3052 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+3053 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+3053 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+3054 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+3054 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+3054 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+3055 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+3055 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+3056 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists service cascade
+3056 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+3056 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+3056 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+3057 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3058 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start 1 increment 1
+3067 [restartedMain] DEBUG org.hibernate.SQL - create table account (id int8 not null, currency_of_iban varchar(255), iban varchar(255), correspondent_bank int8, primary key (id))
+3088 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), delegated_person_id int8, beneficiary_id int8, primary key (id))
+3109 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature_services (authorized_signature_id int8 not null, services_id int8 not null)
+3113 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary (id int8 not null, beneficiary_type varchar(255), amount varchar(255), balance numeric(19, 2), details varchar(255), fees_and_charges numeric(19, 2), contract_from date, number int4, terms_of_payment varchar(255), contract_to date, created_date timestamp, current_process varchar(255), current_task varchar(255), is_deleted boolean, ending_date date, full_name varchar(255), national_number varchar(255), process_instance_id varchar(255), reference varchar(255), review_date date, starting_date date, status varchar(255), corporate_beneficiary_id int8, primary key (id))
+3137 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_addresses (beneficiary_id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255))
+3152 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_id_types (beneficiary_id int8 not null, document varchar(255), expiry_date date, name varchar(255), number varchar(255))
+3168 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), email varchar(255), full_name varchar(255), national_number varchar(255), phone_no varchar(255), title varchar(255), corporate_beneficiary_id int8, primary key (id))
+3192 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person_services (contact_person_id int8 not null, services varchar(255))
+3197 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary (id int8 not null, corpay_id varchar(255), primary key (id))
+3212 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_key_managements (corporate_beneficiary_id int8 not null, full_name varchar(255), national_number varchar(255), title varchar(255))
+3227 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_share_holders (corporate_beneficiary_id int8 not null, full_name varchar(255), national_id varchar(255))
+3242 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), bic_code varchar(255), name varchar(255), beneficiary_id int8, primary key (id))
+3265 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank_services (correspondent_bank_id int8 not null, services varchar(255))
+3270 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), primary key (id))
+3292 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person_services (delegated_person_id int8 not null, services_id int8 not null)
+3295 [restartedMain] DEBUG org.hibernate.SQL - create table order_item (order_item_key int8 not null, order_item_desc varchar(255), order_item_qty int8, productorder_id int8, primary key (order_item_key))
+3308 [restartedMain] DEBUG org.hibernate.SQL - create table product_order (order_key int8 not null, order_nbr varchar(255), primary key (order_key))
+3320 [restartedMain] DEBUG org.hibernate.SQL - create table service (id int8 not null, name varchar(255), tier_from numeric(19, 2), tier_to numeric(19, 2), primary key (id))
+3332 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing (id int8 not null, deal_type varchar(255), beneficiary_id int8, primary key (id))
+3345 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing_services (type_of_dealing_id int8 not null, services varchar(255))
+3349 [restartedMain] DEBUG org.hibernate.SQL - create table user_decision_log (id int8 not null, action varchar(255), approval_status varchar(255), comment varchar(255), date timestamp, user_id varchar(255), beneficiary_id int8, primary key (id))
+3371 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint UK_anmyhdlkbycca7h2dq6pwrcyt unique (services_id)
+3383 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint UK_s65eo57mudbg7afwnxcxvnevf unique (services_id)
+3395 [restartedMain] DEBUG org.hibernate.SQL - alter table account add constraint FKaqmwhra80oi4w7qllpljhve4i foreign key (correspondent_bank) references correspondent_bank
+3398 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FKdyifr1u79owj1wplc9opj5o7e foreign key (delegated_person_id) references delegated_person
+3402 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FK6j8xa61m2otcc2p4ddk00b5q0 foreign key (beneficiary_id) references beneficiary
+3405 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKbokkmmntapr9hb3b289ro8959 foreign key (services_id) references service
+3409 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKcuy4gmvx2p75c0qy8o441u5ck foreign key (authorized_signature_id) references authorized_signature
+3412 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary add constraint FK5tf3smuji3bpgn6jmkgph55cy foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3416 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses add constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v foreign key (beneficiary_id) references beneficiary
+3419 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types add constraint FKisgde4g5wgmsc8rdp3oogqmsg foreign key (beneficiary_id) references beneficiary
+3422 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person add constraint FKntetkk42ig8fpg32dumyjn5db foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3426 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services add constraint FKk4onrfj3smwki34cj0tggfcgs foreign key (contact_person_id) references contact_person
+3429 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements add constraint FKcmqt0gu8uc75y3a7assr0qvsv foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3433 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders add constraint FKhc5jenowy4vvl9oea8j8actw foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3437 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank add constraint FK3b5s1ap68oqd1e2hd2roi26f3 foreign key (beneficiary_id) references beneficiary
+3441 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services add constraint FK32iqxbbb8h2ermluk3h2jsdhj foreign key (correspondent_bank_id) references correspondent_bank
+3445 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKgkkfs3haqg0fk82niv2u0yb33 foreign key (services_id) references service
+3449 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKang2ngo89eus9idfb5jds1hsl foreign key (delegated_person_id) references delegated_person
+3453 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item add constraint FKmlwv71ldlx0texojnvi0rfo3u foreign key (productorder_id) references product_order
+3458 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing add constraint FKspjps9am6lfa6ftuyij1opdan foreign key (beneficiary_id) references beneficiary
+3464 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services add constraint FKny6vo9hfo038yq2ae6ahisus8 foreign key (type_of_dealing_id) references type_of_dealing
+3471 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log add constraint FK8mhs8avt0qfwyo72uqvwh7kkn foreign key (beneficiary_id) references beneficiary
+3618 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3622 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3623 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3667 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3705 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3721 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3812 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3830 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+222853 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+222858 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+222863 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+222868 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+222873 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+222878 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+222883 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+222889 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+222894 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+222899 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+222904 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+222909 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+222915 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+222920 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+222925 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+222930 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+222935 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+222941 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+222946 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+222951 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+222955 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists account cascade
+222962 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+222968 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+222973 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+222979 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+222985 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+222991 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+222997 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+223001 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+223007 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+223012 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+223018 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+223024 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+223029 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+223035 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+223040 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+223046 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+223052 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists service cascade
+223057 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+223063 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+223068 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+223075 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2290 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2290 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2976 [restartedMain] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+2980 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+2981 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+2982 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+2983 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+2983 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+2984 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+2987 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+2988 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+2989 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+2990 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+2990 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+2991 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+2992 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+2993 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+2994 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+2995 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+2995 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+2996 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+2997 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+2998 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists account cascade
+2999 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+2999 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+2999 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+3000 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+3000 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+3000 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+3000 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+3001 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+3001 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+3001 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+3002 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+3002 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+3002 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+3003 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+3003 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+3003 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+3003 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists service cascade
+3004 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+3004 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+3004 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+3005 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3006 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start 1 increment 1
+3011 [restartedMain] DEBUG org.hibernate.SQL - create table account (id int8 not null, currency_of_iban varchar(255), iban varchar(255), correspondent_bank int8, primary key (id))
+3033 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), delegated_person_id int8, beneficiary_id int8, primary key (id))
+3056 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature_services (authorized_signature_id int8 not null, services_id int8 not null)
+3062 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary (id int8 not null, beneficiary_type varchar(255), amount varchar(255), balance numeric(19, 2), details varchar(255), fees_and_charges numeric(19, 2), contract_from date, number int4, terms_of_payment varchar(255), contract_to date, created_date timestamp, current_process varchar(255), current_task varchar(255), is_deleted boolean, ending_date date, full_name varchar(255), national_number varchar(255), process_instance_id varchar(255), reference varchar(255), review_date date, starting_date date, status varchar(255), corporate_beneficiary_id int8, primary key (id))
+3086 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_addresses (beneficiary_id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255))
+3101 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_id_types (beneficiary_id int8 not null, document varchar(255), expiry_date date, name varchar(255), number varchar(255))
+3116 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), email varchar(255), full_name varchar(255), national_number varchar(255), phone_no varchar(255), title varchar(255), corporate_beneficiary_id int8, primary key (id))
+3140 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person_services (contact_person_id int8 not null, services varchar(255))
+3145 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary (id int8 not null, corpay_id varchar(255), primary key (id))
+3162 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_key_managements (corporate_beneficiary_id int8 not null, full_name varchar(255), national_number varchar(255), title varchar(255))
+3177 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_share_holders (corporate_beneficiary_id int8 not null, full_name varchar(255), national_id varchar(255))
+3192 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), bic_code varchar(255), name varchar(255), beneficiary_id int8, primary key (id))
+3216 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank_services (correspondent_bank_id int8 not null, services varchar(255))
+3220 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), primary key (id))
+3242 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person_services (delegated_person_id int8 not null, services_id int8 not null)
+3245 [restartedMain] DEBUG org.hibernate.SQL - create table order_item (order_item_key int8 not null, order_item_desc varchar(255), order_item_qty int8, productorder_id int8, primary key (order_item_key))
+3258 [restartedMain] DEBUG org.hibernate.SQL - create table product_order (order_key int8 not null, order_nbr varchar(255), primary key (order_key))
+3270 [restartedMain] DEBUG org.hibernate.SQL - create table service (id int8 not null, name varchar(255), tier_from numeric(19, 2), tier_to numeric(19, 2), primary key (id))
+3282 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing (id int8 not null, deal_type varchar(255), beneficiary_id int8, primary key (id))
+3294 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing_services (type_of_dealing_id int8 not null, services varchar(255))
+3298 [restartedMain] DEBUG org.hibernate.SQL - create table user_decision_log (id int8 not null, action varchar(255), approval_status varchar(255), comment varchar(255), date timestamp, user_id varchar(255), beneficiary_id int8, primary key (id))
+3319 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint UK_anmyhdlkbycca7h2dq6pwrcyt unique (services_id)
+3331 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint UK_s65eo57mudbg7afwnxcxvnevf unique (services_id)
+3343 [restartedMain] DEBUG org.hibernate.SQL - alter table account add constraint FKaqmwhra80oi4w7qllpljhve4i foreign key (correspondent_bank) references correspondent_bank
+3347 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FKdyifr1u79owj1wplc9opj5o7e foreign key (delegated_person_id) references delegated_person
+3351 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FK6j8xa61m2otcc2p4ddk00b5q0 foreign key (beneficiary_id) references beneficiary
+3354 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKbokkmmntapr9hb3b289ro8959 foreign key (services_id) references service
+3358 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKcuy4gmvx2p75c0qy8o441u5ck foreign key (authorized_signature_id) references authorized_signature
+3365 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary add constraint FK5tf3smuji3bpgn6jmkgph55cy foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3368 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses add constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v foreign key (beneficiary_id) references beneficiary
+3372 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types add constraint FKisgde4g5wgmsc8rdp3oogqmsg foreign key (beneficiary_id) references beneficiary
+3378 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person add constraint FKntetkk42ig8fpg32dumyjn5db foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3382 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services add constraint FKk4onrfj3smwki34cj0tggfcgs foreign key (contact_person_id) references contact_person
+3387 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements add constraint FKcmqt0gu8uc75y3a7assr0qvsv foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3392 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders add constraint FKhc5jenowy4vvl9oea8j8actw foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3396 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank add constraint FK3b5s1ap68oqd1e2hd2roi26f3 foreign key (beneficiary_id) references beneficiary
+3401 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services add constraint FK32iqxbbb8h2ermluk3h2jsdhj foreign key (correspondent_bank_id) references correspondent_bank
+3406 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKgkkfs3haqg0fk82niv2u0yb33 foreign key (services_id) references service
+3411 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKang2ngo89eus9idfb5jds1hsl foreign key (delegated_person_id) references delegated_person
+3417 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item add constraint FKmlwv71ldlx0texojnvi0rfo3u foreign key (productorder_id) references product_order
+3423 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing add constraint FKspjps9am6lfa6ftuyij1opdan foreign key (beneficiary_id) references beneficiary
+3429 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services add constraint FKny6vo9hfo038yq2ae6ahisus8 foreign key (type_of_dealing_id) references type_of_dealing
+3435 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log add constraint FK8mhs8avt0qfwyo72uqvwh7kkn foreign key (beneficiary_id) references beneficiary
+3577 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3581 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3582 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3625 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3666 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3681 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3761 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3780 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+232431 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table account drop constraint FKaqmwhra80oi4w7qllpljhve4i
+232437 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+232441 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+232444 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+232450 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+232455 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+232460 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+232465 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+232470 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+232476 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+232481 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+232486 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+232491 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+232496 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+232502 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+232507 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+232512 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+232518 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+232524 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+232529 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+232534 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists account cascade
+232539 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+232545 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+232550 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+232555 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+232559 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+232564 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+232571 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+232575 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+232581 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+232587 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+232592 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+232598 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+232603 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+232608 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+232614 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+232619 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+232624 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists service cascade
+232629 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+232634 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+232639 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+232646 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2354 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2355 [restartedMain] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+3052 [restartedMain] DEBUG org.hibernate.SQL - alter table account drop constraint FK1knwjih1n9nrto0hdwvsvbe2d
+3056 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+3057 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+3058 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+3060 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+3061 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+3062 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+3063 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+3065 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+3066 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+3069 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+3070 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+3071 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+3072 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+3073 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+3074 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+3074 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+3075 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+3076 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+3077 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+3077 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists account cascade
+3078 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+3078 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+3079 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+3079 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+3079 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+3080 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+3080 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+3080 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+3081 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+3081 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+3082 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+3082 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+3083 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+3083 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+3084 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+3084 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+3084 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists service cascade
+3085 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+3085 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+3085 [restartedMain] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+3086 [restartedMain] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+3088 [restartedMain] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start 1 increment 1
+3092 [restartedMain] DEBUG org.hibernate.SQL - create table account (id int8 not null, currency_of_iban varchar(255), iban varchar(255), correspondent_bank_id int8, primary key (id))
+3114 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), delegated_person_id int8, beneficiary_id int8, primary key (id))
+3138 [restartedMain] DEBUG org.hibernate.SQL - create table authorized_signature_services (authorized_signature_id int8 not null, services_id int8 not null)
+3143 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary (id int8 not null, beneficiary_type varchar(255), amount varchar(255), balance numeric(19, 2), details varchar(255), fees_and_charges numeric(19, 2), contract_from date, number int4, terms_of_payment varchar(255), contract_to date, created_date timestamp, current_process varchar(255), current_task varchar(255), is_deleted boolean, ending_date date, full_name varchar(255), national_number varchar(255), process_instance_id varchar(255), reference varchar(255), review_date date, starting_date date, status varchar(255), corporate_beneficiary_id int8, primary key (id))
+3165 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_addresses (beneficiary_id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255))
+3178 [restartedMain] DEBUG org.hibernate.SQL - create table beneficiary_id_types (beneficiary_id int8 not null, document varchar(255), expiry_date date, name varchar(255), number varchar(255))
+3190 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), email varchar(255), full_name varchar(255), national_number varchar(255), phone_no varchar(255), title varchar(255), corporate_beneficiary_id int8, primary key (id))
+3211 [restartedMain] DEBUG org.hibernate.SQL - create table contact_person_services (contact_person_id int8 not null, services varchar(255))
+3215 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary (id int8 not null, corpay_id varchar(255), primary key (id))
+3227 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_key_managements (corporate_beneficiary_id int8 not null, full_name varchar(255), national_number varchar(255), title varchar(255))
+3243 [restartedMain] DEBUG org.hibernate.SQL - create table corporate_beneficiary_share_holders (corporate_beneficiary_id int8 not null, full_name varchar(255), national_id varchar(255))
+3258 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank (id int8 not null, address_line1 varchar(255), address_line2 varchar(255), address_name varchar(255), city varchar(255), country varchar(255), po_box varchar(255), bic_code varchar(255), name varchar(255), beneficiary_id int8, primary key (id))
+3281 [restartedMain] DEBUG org.hibernate.SQL - create table correspondent_bank_services (correspondent_bank_id int8 not null, services varchar(255))
+3285 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person (id int8 not null, document varchar(255), full_name varchar(255), national_number varchar(255), signature varchar(255), title varchar(255), primary key (id))
+3309 [restartedMain] DEBUG org.hibernate.SQL - create table delegated_person_services (delegated_person_id int8 not null, services_id int8 not null)
+3313 [restartedMain] DEBUG org.hibernate.SQL - create table order_item (order_item_key int8 not null, order_item_desc varchar(255), order_item_qty int8, productorder_id int8, primary key (order_item_key))
+3326 [restartedMain] DEBUG org.hibernate.SQL - create table product_order (order_key int8 not null, order_nbr varchar(255), primary key (order_key))
+3338 [restartedMain] DEBUG org.hibernate.SQL - create table service (id int8 not null, name varchar(255), tier_from numeric(19, 2), tier_to numeric(19, 2), primary key (id))
+3350 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing (id int8 not null, deal_type varchar(255), beneficiary_id int8, primary key (id))
+3362 [restartedMain] DEBUG org.hibernate.SQL - create table type_of_dealing_services (type_of_dealing_id int8 not null, services varchar(255))
+3366 [restartedMain] DEBUG org.hibernate.SQL - create table user_decision_log (id int8 not null, action varchar(255), approval_status varchar(255), comment varchar(255), date timestamp, user_id varchar(255), beneficiary_id int8, primary key (id))
+3388 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint UK_anmyhdlkbycca7h2dq6pwrcyt unique (services_id)
+3402 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint UK_s65eo57mudbg7afwnxcxvnevf unique (services_id)
+3416 [restartedMain] DEBUG org.hibernate.SQL - alter table account add constraint FK1knwjih1n9nrto0hdwvsvbe2d foreign key (correspondent_bank_id) references correspondent_bank
+3423 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FKdyifr1u79owj1wplc9opj5o7e foreign key (delegated_person_id) references delegated_person
+3429 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature add constraint FK6j8xa61m2otcc2p4ddk00b5q0 foreign key (beneficiary_id) references beneficiary
+3434 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKbokkmmntapr9hb3b289ro8959 foreign key (services_id) references service
+3440 [restartedMain] DEBUG org.hibernate.SQL - alter table authorized_signature_services add constraint FKcuy4gmvx2p75c0qy8o441u5ck foreign key (authorized_signature_id) references authorized_signature
+3446 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary add constraint FK5tf3smuji3bpgn6jmkgph55cy foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3452 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_addresses add constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v foreign key (beneficiary_id) references beneficiary
+3457 [restartedMain] DEBUG org.hibernate.SQL - alter table beneficiary_id_types add constraint FKisgde4g5wgmsc8rdp3oogqmsg foreign key (beneficiary_id) references beneficiary
+3463 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person add constraint FKntetkk42ig8fpg32dumyjn5db foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3469 [restartedMain] DEBUG org.hibernate.SQL - alter table contact_person_services add constraint FKk4onrfj3smwki34cj0tggfcgs foreign key (contact_person_id) references contact_person
+3475 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements add constraint FKcmqt0gu8uc75y3a7assr0qvsv foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3481 [restartedMain] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders add constraint FKhc5jenowy4vvl9oea8j8actw foreign key (corporate_beneficiary_id) references corporate_beneficiary
+3486 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank add constraint FK3b5s1ap68oqd1e2hd2roi26f3 foreign key (beneficiary_id) references beneficiary
+3492 [restartedMain] DEBUG org.hibernate.SQL - alter table correspondent_bank_services add constraint FK32iqxbbb8h2ermluk3h2jsdhj foreign key (correspondent_bank_id) references correspondent_bank
+3498 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKgkkfs3haqg0fk82niv2u0yb33 foreign key (services_id) references service
+3504 [restartedMain] DEBUG org.hibernate.SQL - alter table delegated_person_services add constraint FKang2ngo89eus9idfb5jds1hsl foreign key (delegated_person_id) references delegated_person
+3510 [restartedMain] DEBUG org.hibernate.SQL - alter table order_item add constraint FKmlwv71ldlx0texojnvi0rfo3u foreign key (productorder_id) references product_order
+3516 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing add constraint FKspjps9am6lfa6ftuyij1opdan foreign key (beneficiary_id) references beneficiary
+3522 [restartedMain] DEBUG org.hibernate.SQL - alter table type_of_dealing_services add constraint FKny6vo9hfo038yq2ae6ahisus8 foreign key (type_of_dealing_id) references type_of_dealing
+3528 [restartedMain] DEBUG org.hibernate.SQL - alter table user_decision_log add constraint FK8mhs8avt0qfwyo72uqvwh7kkn foreign key (beneficiary_id) references beneficiary
+3688 [restartedMain] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+3693 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3694 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3739 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3787 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3807 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3891 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+3908 [restartedMain] INFO  o.h.e.i.StatisticalLoggingSessionEventListener - Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+29988 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table account drop constraint FK1knwjih1n9nrto0hdwvsvbe2d
+29994 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FKdyifr1u79owj1wplc9opj5o7e
+29997 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature drop constraint FK6j8xa61m2otcc2p4ddk00b5q0
+30001 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKbokkmmntapr9hb3b289ro8959
+30004 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table authorized_signature_services drop constraint FKcuy4gmvx2p75c0qy8o441u5ck
+30007 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary drop constraint FK5tf3smuji3bpgn6jmkgph55cy
+30010 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_addresses drop constraint FK5yk8qkyfhnyv8ejgqr4bc9k7v
+30014 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table beneficiary_id_types drop constraint FKisgde4g5wgmsc8rdp3oogqmsg
+30017 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person drop constraint FKntetkk42ig8fpg32dumyjn5db
+30020 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table contact_person_services drop constraint FKk4onrfj3smwki34cj0tggfcgs
+30024 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_key_managements drop constraint FKcmqt0gu8uc75y3a7assr0qvsv
+30027 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table corporate_beneficiary_share_holders drop constraint FKhc5jenowy4vvl9oea8j8actw
+30030 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank drop constraint FK3b5s1ap68oqd1e2hd2roi26f3
+30034 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table correspondent_bank_services drop constraint FK32iqxbbb8h2ermluk3h2jsdhj
+30037 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKgkkfs3haqg0fk82niv2u0yb33
+30040 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table delegated_person_services drop constraint FKang2ngo89eus9idfb5jds1hsl
+30044 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table order_item drop constraint FKmlwv71ldlx0texojnvi0rfo3u
+30051 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing drop constraint FKspjps9am6lfa6ftuyij1opdan
+30055 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table type_of_dealing_services drop constraint FKny6vo9hfo038yq2ae6ahisus8
+30060 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - alter table user_decision_log drop constraint FK8mhs8avt0qfwyo72uqvwh7kkn
+30064 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists account cascade
+30070 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature cascade
+30074 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists authorized_signature_services cascade
+30078 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary cascade
+30082 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_addresses cascade
+30086 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists beneficiary_id_types cascade
+30090 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person cascade
+30094 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists contact_person_services cascade
+30097 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary cascade
+30101 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_key_managements cascade
+30104 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists corporate_beneficiary_share_holders cascade
+30108 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank cascade
+30111 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists correspondent_bank_services cascade
+30115 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person cascade
+30119 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists delegated_person_services cascade
+30122 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists order_item cascade
+30126 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists product_order cascade
+30129 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists service cascade
+30133 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing cascade
+30137 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists type_of_dealing_services cascade
+30140 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop table if exists user_decision_log cascade
+30145 [SpringContextShutdownHook] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence

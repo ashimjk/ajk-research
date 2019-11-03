@@ -22,23 +22,23 @@ public class GenericImplApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        ProductOrder productOrder = new ProductOrder();
-        productOrder.setOrderNbr("123");
-//        productOrder.addOrderItem("desc", 12L);
-
-        OrderItem orderItem = new OrderItem();
-        orderItem.setOrderItemQty(12L);
-        orderItem.setOrderItemDesc("desc");
-
-        productOrder.setOrderItems(Collections.singletonList(orderItem));
-
-        repository.save(productOrder);
-
-        repository.findAll().forEach(System.out::println);
-
-        update();
-
-        delete();
+//        ProductOrder productOrder = new ProductOrder();
+//        productOrder.setOrderNbr("123");
+////        productOrder.addOrderItem("desc", 12L);
+//
+//        OrderItem orderItem = new OrderItem();
+//        orderItem.setOrderItemQty(12L);
+//        orderItem.setOrderItemDesc("desc");
+//
+//        productOrder.setOrderItems(Collections.singletonList(orderItem));
+//
+//        repository.save(productOrder);
+//
+//        repository.findAll().forEach(System.out::println);
+//
+//        update();
+//
+//        delete();
     }
 
     private void delete() {

@@ -1,25 +1,29 @@
 package io.ashimjk.genericimpl.domain.userdecision;
 
-import io.ashimjk.genericimpl.domain.BaseEntity;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+import static javax.persistence.GenerationType.AUTO;
+
+@Getter
 @Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class UserDecisionLog extends BaseEntity {
+@EqualsAndHashCode(exclude = "id")
+public class UserDecisionLog implements Serializable {
 
-    private static final long serialVersionUID = 130615889992020097L;
+    private static final long serialVersionUID = -53101308098653620L;
+
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    private Long id;
 
     private String userId;
-    private String tenantId;
+    private String action;
     private String comment;
     private LocalDateTime date;
 
