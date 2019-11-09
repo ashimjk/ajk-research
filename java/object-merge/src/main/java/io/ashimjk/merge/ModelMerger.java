@@ -10,7 +10,9 @@ import org.modelmapper.module.jsr310.Jsr310Module;
 import org.modelmapper.module.jsr310.Jsr310ModuleConfig;
 
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.Currency;
+import java.util.List;
 import java.util.Objects;
 
 @UtilityClass
@@ -23,15 +25,18 @@ public class ModelMerger {
         MODEL_MAPPER = new ModelMapper();
         MODEL_MAPPER.registerModule(new Jsr310Module(Jsr310ModuleConfig.builder().zoneId(ZoneOffset.UTC).build()));
         MODEL_MAPPER.getConfiguration()
-            .setMatchingStrategy(MatchingStrategies.STRICT)
-            .setPropertyCondition(Conditions.isNotNull())
-            .setDeepCopyEnabled(true);
+                .setMatchingStrategy(MatchingStrategies.STRICT)
+                .setPropertyCondition(Conditions.isNotNull())
+                .setDeepCopyEnabled(true);
 
         MODEL_MAPPER.createTypeMap(Currency.class, Currency.class)
-            .setConverter(ctx -> Currency.getInstance(ctx.getSource().getCurrencyCode()));
+                .setConverter(ctx -> Currency.getInstance(ctx.getSource().getCurrencyCode()));
 
         MODEL_MAPPER.createTypeMap(Money.class, Money.class)
-            .setConverter(ctx -> Money.parse(ctx.getSource().toString()));
+                .setConverter(ctx -> Money.parse(ctx.getSource().toString()));
+
+        MODEL_MAPPER.typeMap(List.class, List.class)
+                .addMappings(mapper -> mapper.with(provisionRequest -> new ArrayList<>()));
     }
 
     public static <S, D> D merge(S source, D destination) {

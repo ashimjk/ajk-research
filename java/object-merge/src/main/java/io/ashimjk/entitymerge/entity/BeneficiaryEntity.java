@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,6 @@ public class BeneficiaryEntity {
     private LocalDate startingDate;
     private LocalDate reviewDate;
     private LocalDate endingDate;
-    private LocalDateTime createdDate;
 
     @ElementCollection
     private List<AddressEntity> addressEntities = new ArrayList<>();
@@ -38,6 +36,5 @@ public class BeneficiaryEntity {
     @OneToMany(cascade = ALL, orphanRemoval = true)
     @JoinColumn(name = "beneficiary_id", nullable = false)
     private List<CorrespondentBankEntity> correspondentBankEntities = new ArrayList<>();
-
 
 }

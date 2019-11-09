@@ -1,0 +1,83 @@
+{
+  "fullName": "Clusus",
+  "nationalNumber": "Clusus1234",
+  "startingDate": "2019-10-01",
+  "reviewDate": "2020-11-01",
+  "endingDate": "2023-12-01",
+  "correspondentBanks": [
+    {
+      "services": [
+        "trade-finance",
+        "checks"
+      ],
+      "name": "Nepal-Investment-Bank",
+      "bicCode": "2130",
+      "address": {
+        "addressName": "NewRoad",
+        "addressLine1": "JuddaSumsherRoad",
+        "addressLine2": "Basantapur-street",
+        "city": "Kathmandu",
+        "country": "Nepal",
+        "poBox": "46000"
+      },
+      "accounts": [
+        {
+          "iban": "2140",
+          "currencyOfIban": "Nrs"
+        }
+      ]
+    }
+  ],
+  "addresses": [
+    {
+      "addressName": "Jhamsikhel",
+      "addressLine1": "addressLine1",
+      "addressLine2": "addressLine2",
+      "city": "Lalitpur",
+      "country": "Nepal",
+      "poBox": "283472"
+    },
+    {
+      "addressName": "Jawalkhel",
+      "addressLine1": "addressLine1",
+      "addressLine2": "addressLine2",
+      "city": "Lalitpur",
+      "country": "Nepal",
+      "poBox": "9273492"
+    }
+  ],
+  "authorizedSignatories": [
+    {
+      "fullName": "Ram Shrestha",
+      "title": "CTO",
+      "nationalNumber": "834297",
+      "signature": "signature",
+      "document": "document",
+      "services": [
+        {
+          "name": "trade-finance",
+          "tier": {
+            "from": "70000",
+            "to": "70000000"
+          }
+        }
+      ],
+      "delegatedPerson": {
+        "services": [
+          {
+            "name": "trade-finance",
+            "tier": {
+              "from": "50000",
+              "to": "50000000"
+            }
+          }
+        ],
+        "fullName": "Hari Pradhan",
+        "title": "Developer",
+        "nationalNumber": "834297",
+        "signature": "signature",
+        "document": "document"
+      }
+    }
+  ]
+}

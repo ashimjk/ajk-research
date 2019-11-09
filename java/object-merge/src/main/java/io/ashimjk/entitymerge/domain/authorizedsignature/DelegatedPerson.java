@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+public
 class DelegatedPerson implements Serializable {
 
     private static final long serialVersionUID = 7923179030032461293L;

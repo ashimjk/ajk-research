@@ -16,8 +16,8 @@ public class BeneficiaryRequest implements Serializable {
     private String fullName;
     private String nationalNumber;
     private String startingDate;
-    private String endingDate;
     private String reviewDate;
+    private String endingDate;
 
     private List<AddressRequest> addresses = new ArrayList<>();
     private List<AuthorizedSignatureRequest> authorizedSignatories = new ArrayList<>();

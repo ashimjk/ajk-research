@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
+public
 class Tier implements Serializable {
 
     private static final long serialVersionUID = 6426747227225855251L;
