@@ -2,12 +2,14 @@ package io.ashimjk.genericimpl.controller;
 
 import io.ashimjk.genericimpl.domain.Address;
 import io.ashimjk.genericimpl.domain.Beneficiary;
+import io.ashimjk.genericimpl.domain.IdType;
 import io.ashimjk.genericimpl.domain.authorizedsignature.AuthorizedSignature;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
+import java.time.LocalDate;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -84,6 +86,54 @@ class BeneficiaryControllerTest {
         assertThat(response)
                 .isNotNull()
                 .isNotEmpty();
+    }
+
+
+    @Test
+    void filterDate() {
+        createBeneficiary(LocalDate.now());
+        createBeneficiary(LocalDate.now());
+        createBeneficiary(LocalDate.now());
+        createBeneficiary(LocalDate.now().minusMonths(2));
+
+        String response = rest()
+                .get("/filter")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .extract()
+                .jsonPath()
+                .prettify();
+
+        System.out.println(response);
+
+        assertThat(response)
+                .isNotNull()
+                .isNotEmpty();
+    }
+
+    void createBeneficiary(LocalDate localDate) {
+        IdType idType = new IdType();
+        idType.setName("NATIONAL_NUMBER");
+        idType.setName("REGISTRATION_CERTIFICATE");
+        idType.setName("MINISTRY_OF_INDUSTRY_CERTIFICATE");
+
+        idType.setExpiryDate(localDate);
+
+        Beneficiary beneficiary = new Beneficiary();
+        beneficiary.addIdType(idType);
+        beneficiary.setAddresses(Collections.singletonList(buildAddress()));
+        beneficiary.setAuthorizedSignatories(Collections.singletonList(buildAuthorizedSignature()));
+
+        String response = rest()
+                .body(beneficiary)
+                .post()
+                .then()
+                .statusCode(HttpStatus.CREATED.value())
+                .extract()
+                .jsonPath()
+                .prettify();
+
+        assertThat(response).isNotNull().isNotEmpty();
     }
 
     private Address buildAddress() {

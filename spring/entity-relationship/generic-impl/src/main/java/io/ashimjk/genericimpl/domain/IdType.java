@@ -3,6 +3,7 @@ package io.ashimjk.genericimpl.domain;
 import io.ashimjk.genericimpl.exception.DomainAsserts;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import static io.ashimjk.genericimpl.exception.DomainViolationConstants.*;
 
 @Getter
+@Setter
 @Embeddable
 @EqualsAndHashCode
 public class IdType implements Serializable {

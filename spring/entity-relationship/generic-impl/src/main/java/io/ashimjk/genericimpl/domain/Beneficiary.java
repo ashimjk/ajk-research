@@ -190,6 +190,10 @@ public class Beneficiary implements Serializable {
         this.currentTask = null;
     }
 
+    public void addIdType(IdType idType) {
+        this.idTypes.add(idType);
+    }
+
     public void addUserDecision(UserDecisionLog userDecisionLog) {
         this.userDecisions.add(userDecisionLog);
     }
