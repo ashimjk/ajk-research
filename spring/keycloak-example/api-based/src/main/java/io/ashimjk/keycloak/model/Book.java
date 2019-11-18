@@ -9,7 +9,8 @@ public class Book {
     private String title;
     private String author;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String id, String title, String author) {
         this.id = id;

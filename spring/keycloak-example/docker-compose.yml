@@ -2,9 +2,14 @@ version: '3'
 services:
   keycloak:
     container_name: keycloak
-    image: jboss/keycloak:latest
+    image: jboss/keycloak:8.0.0
     ports:
       - 8180:8080
     environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_USER: ashim
+      KEYCLOAK_PASSWORD: ashim
+    command:
+      - "-b 0.0.0.0"
+      - "-Dkeycloak.import=/opt/jboss/keycloak/scope-based-realm.json"
+    volumes:
+      - ./api-based/config/scope-based-realm.json:/opt/jboss/keycloak/scope-based-realm.json

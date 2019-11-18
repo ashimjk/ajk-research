@@ -1,0 +1,324 @@
+{
+  "realm": "scope-based",
+  "notBefore": 0,
+  "revokeRefreshToken": false,
+  "refreshTokenMaxReuse": 0,
+  "accessTokenLifespan": 900,
+  "accessTokenLifespanForImplicitFlow": 900,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "offlineSessionIdleTimeout": 2592000,
+  "offlineSessionMaxLifespanEnabled": false,
+  "offlineSessionMaxLifespan": 5184000,
+  "accessCodeLifespan": 60,
+  "accessCodeLifespanUserAction": 300,
+  "accessCodeLifespanLogin": 1800,
+  "actionTokenGeneratedByAdminLifespan": 43200,
+  "actionTokenGeneratedByUserLifespan": 300,
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": false,
+  "rememberMe": false,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": false,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": false,
+  "permanentLockout": false,
+  "maxFailureWaitSeconds": 900,
+  "minimumQuickLoginWaitSeconds": 60,
+  "waitIncrementSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxDeltaTimeSeconds": 43200,
+  "failureFactor": 30,
+  "requiredCredentials": [
+    "password"
+  ],
+  "enabledEventTypes": [
+  ],
+  "adminEventsEnabled": true,
+  "adminEventsDetailsEnabled": false,
+  "users": [
+    {
+      "username": "ashim",
+      "enabled": true,
+      "email": "ashim@gmail.com",
+      "firstName": "Ashim",
+      "lastName": "Khadka",
+      "attributes": {
+        "userType": "Self"
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "ashim"
+        }
+      ],
+      "realmRoles": [
+        "user",
+        "offline_access"
+      ],
+      "clientRoles": {
+        "api-based": [
+          "api-based-view-role",
+          "api-based-data-entry-role",
+          "api-based-manage-role"
+        ]
+      }
+    },
+    {
+      "username": "viewer",
+      "enabled": true,
+      "email": "viewer@gmail.com",
+      "firstName": "viewer",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "viewer"
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ],
+      "clientRoles": {
+        "api-based": [
+          "api-based-view-role"
+        ]
+      }
+    },
+    {
+      "username": "dataentry",
+      "enabled": true,
+      "email": "dataentry@gmail.com",
+      "firstName": "data entry",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "dataentry"
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ],
+      "clientRoles": {
+        "api-based": [
+          "api-based-view-role",
+          "api-based-data-entry-role"
+        ]
+      }
+    },
+    {
+      "username": "manage",
+      "enabled": true,
+      "email": "manage@gmail.com",
+      "firstName": "manage",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "manage"
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ],
+      "clientRoles": {
+        "api-based": [
+          "api-based-manage-role"
+        ]
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "User privileges"
+      }
+    ],
+    "client": {
+      "api-based": [
+        {
+          "name": "api-based-view-role",
+          "composite": false,
+          "clientRole": true,
+          "attributes": {}
+        },
+        {
+          "name": "api-based-data-entry-role",
+          "composite": false,
+          "clientRole": true,
+          "attributes": {}
+        },
+        {
+          "name": "api-based-manage-role",
+          "composite": false,
+          "clientRole": true,
+          "attributes": {}
+        }
+      ]
+    }
+  },
+  "clients": [
+    {
+      "clientId": "admin-client",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true
+    },
+    {
+      "clientId": "api-based",
+      "enabled": true,
+      "surrogateAuthRequired": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "d84c44b6-52de-4c3a-a9d9-0fc50e2a5397",
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": true,
+      "publicClient": false,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "authorizationSettings": {
+        "allowRemoteResourceManagement": true,
+        "policyEnforcementMode": "ENFORCING",
+        "decisionStrategy": "AFFIRMATIVE",
+        "resources": [
+          {
+            "name": "Book Resource",
+            "displayName": "Book Resource",
+            "uris": [
+              "/books"
+            ],
+            "scopes": [
+              {
+                "name": "get_book_action"
+              },
+              {
+                "name": "post_book_action"
+              },
+              {
+                "name": "view_book_action"
+              }
+            ]
+          },
+          {
+            "name": "Manage Resource",
+            "ownerManagedAccess": false,
+            "uris": [
+              "/manage"
+            ],
+            "scopes": [
+              {
+                "name": "manage_book_action"
+              }
+            ]
+          }
+        ],
+        "policies": [
+          {
+            "name": "Only View Policy",
+            "type": "role",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "roles": "[{\"id\":\"api-based-view-role\",\"required\":false}]"
+            }
+          },
+          {
+            "name": "Only Data Entry Policy",
+            "type": "role",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "roles": "[{\"id\":\"api-based-data-entry-role\",\"required\":false}]"
+            }
+          },
+          {
+            "name": "Only Manage Policy",
+            "type": "role",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "roles": "[{\"id\":\"api-based-manage-role\",\"required\":false}]"
+            }
+          },
+          {
+            "name": "View Resource Permission",
+            "type": "scope",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "scopes": [
+              "get_book_action",
+              "view_book_action"
+            ],
+            "config": {
+              "resources": "[\"Book Resource\"]",
+              "applyPolicies": "[\"Only View Policy\"]"
+            }
+          },
+          {
+            "name": "Data Entry Resource Permission",
+            "type": "scope",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "scopes": [
+              "get_book_action",
+              "post_book_action"
+            ],
+            "config": {
+              "resources": "[\"Book Resource\"]",
+              "applyPolicies": "[\"Only Data Entry Policy\"]"
+            }
+          },
+          {
+            "name": "Manage Resource Permission",
+            "type": "scope",
+            "logic": "POSITIVE",
+            "decisionStrategy": "AFFIRMATIVE",
+            "scopes": [
+              "manage_book_action"
+            ],
+            "config": {
+              "resources": "[\"Manage Resource\"]",
+              "applyPolicies": "[\"Only Manage Policy\"]"
+            }
+          }
+        ],
+        "scopes": [
+          {
+            "name": "get_book_action"
+          },
+          {
+            "name": "post_book_action"
+          },
+          {
+            "name": "view_book_action"
+          },
+          {
+            "name": "manage_book_action"
+          }
+        ]
+      }
+    }
+  ],
+  "clientScopeMappings": {
+    "realm-management": [
+      {
+        "client": "admin-client",
+        "roles": [
+          "realm-admin"
+        ]
+      }
+    ]
+  }
+}

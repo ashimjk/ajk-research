@@ -10,26 +10,26 @@
         {
           "method": "GET",
           "scopes": [
-            "get_book"
+            "get_book_action"
           ]
         },
         {
           "method": "POST",
           "scopes": [
-            "post_book"
+            "post_book_action"
           ]
         }
       ]
     },
     {
       "name": "Manage Resource",
-      "path": "/manager",
+      "path": "/manage",
       "enforcement-mode": "ENFORCING",
       "methods": [
         {
           "method": "GET",
           "scopes": [
-            "view-manage"
+            "manage_book_action"
           ]
         }
       ]

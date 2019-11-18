@@ -4,84 +4,109 @@
   "resources": [
     {
       "name": "Book Resource",
-      "ownerManagedAccess": false,
       "displayName": "Book Resource",
-      "attributes": {},
-      "_id": "778f7e9b-5a00-4551-80f5-f68e1ecfabeb",
       "uris": [
         "/books"
       ],
       "scopes": [
         {
-          "name": "get_book"
+          "name": "post_book_action"
         },
         {
-          "name": "post_book"
+          "name": "get_book_action"
+        },
+        {
+          "name": "view_book_action"
         }
       ]
     },
     {
       "name": "Manage Resource",
-      "ownerManagedAccess": false,
-      "attributes": {},
-      "_id": "0d789add-48e3-4bea-a214-2ba0caf5836c",
       "uris": [
-        "/manager"
+        "/manage"
+      ],
+      "scopes": [
+        {
+          "name": "manage_book_action"
+        }
       ]
     }
   ],
   "policies": [
     {
-      "id": "45ebda5d-e05e-4967-868b-2d62c4c1acd1",
-      "name": "Only Member Policy",
+      "name": "Only View Policy",
       "type": "role",
-      "logic": "POSITIVE",
-      "decisionStrategy": "UNANIMOUS",
-      "config": {
-        "roles": "[{\"id\":\"member\",\"required\":false}]"
-      }
-    },
-    {
-      "id": "28ec344f-ebc5-4dbf-9d9e-d0deea5a9d6c",
-      "name": "Only Manager Policy",
-      "type": "role",
-      "logic": "POSITIVE",
-      "decisionStrategy": "UNANIMOUS",
-      "config": {
-        "roles": "[{\"id\":\"manager\",\"required\":false}]"
-      }
-    },
-    {
-      "id": "4b5947ab-7f3c-4b2e-b778-331daf7a5a3f",
-      "name": "Manage Resource Permission",
-      "type": "resource",
       "logic": "POSITIVE",
       "decisionStrategy": "AFFIRMATIVE",
       "config": {
-        "resources": "[\"Manage Resource\"]",
-        "applyPolicies": "[\"Only Manager Policy\"]"
+        "roles": "[{\"id\":\"api-based/api-based-view-role\",\"required\":false}]"
       }
     },
     {
-      "id": "ffb13d06-47a2-471c-a559-2726e0adfe71",
-      "name": "Post Book Permission",
+      "name": "Only Data Entry Policy",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "roles": "[{\"id\":\"api-based/api-based-data-entry-role\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "Only Manage Policy",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "roles": "[{\"id\":\"api-based/api-based-manage-role\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "View Resource Permission",
       "type": "scope",
       "logic": "POSITIVE",
       "decisionStrategy": "AFFIRMATIVE",
       "config": {
-        "scopes": "[\"post_book\"]",
-        "applyPolicies": "[\"Only Member Policy\"]"
+        "resources": "[\"Book Resource\"]",
+        "scopes": "[\"get_book_action\",\"view_book_action\"]",
+        "applyPolicies": "[\"Only View Policy\"]"
+      }
+    },
+    {
+      "name": "Data Entry Resource Permission",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "resources": "[\"Book Resource\"]",
+        "scopes": "[\"get_book_action\",\"post_book_action\"]",
+        "applyPolicies": "[\"Only Data Entry Policy\"]"
+      }
+    },
+    {
+      "name": "Manage Resource Permission",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "resources": "[\"Manage Resource\"]",
+        "scopes": "[\"manage_book_action\"]",
+        "applyPolicies": "[\"Only Manage Policy\"]"
       }
     }
   ],
   "scopes": [
     {
-      "id": "dd35478b-865a-4bdb-81a6-e2c8f8e59d3a",
-      "name": "get_book"
+      "name": "get_book_action"
     },
     {
-      "id": "501325d1-f705-45f7-8b5a-c5e90c1aaba0",
-      "name": "post_book"
+      "name": "post_book_action"
+    },
+    {
+      "name": "view_book_action"
+    },
+    {
+      "name": "manage_book_action"
     }
-  ]
+  ],
+  "decisionStrategy": "AFFIRMATIVE"
 }

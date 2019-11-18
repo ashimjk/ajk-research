@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -34,14 +32,9 @@ public class ApiBasedController {
         return bookRepository.readAll();
     }
 
-    @GetMapping(value = "/manager")
+    @GetMapping(value = "/manage")
     public List<Book> getManager() {
         return bookRepository.readAll();
-    }
-
-    @GetMapping(value = "/logout")
-    public void logout(HttpServletRequest request) throws ServletException {
-        request.logout();
     }
 
 }

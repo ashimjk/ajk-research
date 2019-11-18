@@ -34,7 +34,7 @@ class ApiBasedTest {
                 .port(8180)
                 .when()
                 .formParams(data)
-                .post("/auth/realms/demo/protocol/openid-connect/token")
+                .post("/auth/realms/scope-based/protocol/openid-connect/token")
                 .then()
                 .extract()
                 .jsonPath()
