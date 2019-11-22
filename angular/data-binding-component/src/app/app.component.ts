@@ -25,4 +25,12 @@ export class AppComponent {
     });
   }
 
+  updateServer() {
+    this.serverElements[0].name = 'Changed Server';
+  }
+
+  destroyServer() {
+    this.serverElements.splice(0, 1);
+  }
+
 }
