@@ -15,6 +15,7 @@
         </div>
 
         <div *ngIf="!onlyOdd">
+          <p>structural directive</p>
           <li
             class="list-group-item"
             *ngFor="let even of evenNumbers"
@@ -23,7 +24,55 @@
           >{{ even }}
           </li>
         </div>
+
+        <ng-template [ngIf]="!onlyOdd">
+          <p>structural directive behind scene</p>
+          <div>
+            <li
+              class="list-group-item"
+              *ngFor="let even of evenNumbers"
+              [ngClass]="{even: even % 2 === 0}"
+              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+            >{{ even }}
+            </li>
+          </div>
+        </ng-template>
+
+        <div *appUnless="onlyOdd">
+          <p>custom structural directive</p>
+          <li
+            class="list-group-item"
+            *ngFor="let even of evenNumbers"
+            [ngClass]="{even: even % 2 === 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ even }}
+          </li>
+        </div>
+
+        <ng-template [appUnless]="onlyOdd">
+          <p>custom structural directive behind scene</p>
+          <div>
+            <li
+              class="list-group-item"
+              *ngFor="let even of evenNumbers"
+              [ngClass]="{even: even % 2 === 0}"
+              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+            >{{ even }}
+            </li>
+          </div>
+        </ng-template>
       </ul>
+
+      <p appBasicHighlight>This is a basic directive</p>
+
+      <p [appBetterHighlight]="'green'" defaultColor="red">This is a better directive</p>
+
+      <div [ngSwitch]="switchCaseValue">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="15">Value is 15</p>
+        <p *ngSwitchDefault>Value is default</p>
+      </div>
     </div>
   </div>
 </div>

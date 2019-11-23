@@ -1,12 +1,11 @@
 # Directive
 
-## Todo
-- [X] ngFor and ngIf
-- [X] ngClass and ngStyle
-- [ ] basic directive
-- [ ] renderer directive
-- [ ] host listener
-- [ ] host binding
-- [ ] binding to directive properties
-- [ ] structural directives
-- [ ] ngSwitch
+- [x] ngFor and ngIf
+- [x] ngClass and ngStyle
+- [x] basic directive
+- [x] renderer directive
+- [x] host listener
+- [x] host binding
+- [x] binding to directive properties
+- [x] structural directives
+- [x] ngSwitch
