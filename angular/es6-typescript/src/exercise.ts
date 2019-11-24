@@ -71,7 +71,7 @@ function destructuringArray() {
     console.log(firstTraditional);
 
     // ... in here is the rest operator
-    const [firstName = 'Kripa', secondName, ...more] = names || [];
+    const [firstName = 'Kripa', secondName = 'Abhisekh', ...more] = names || [];
 
     console.log(firstName);
     console.log(secondName);
