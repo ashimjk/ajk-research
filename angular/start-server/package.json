@@ -1,0 +1,24 @@
+{
+  "name": "start-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "babel src -d public",
+    "bundle": "browserify lib/*.js -o public/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "start-server"
+  ],
+  "author": "Ashim Jung Khadka",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "browserify": "^16.5.0",
+    "typescript": "^3.7.2"
+  }
+}
