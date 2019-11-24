@@ -1,1 +1,5 @@
-export const Greeter = (name: string) => `Hello ${name}`;
+import {wowify} from "./wowify";
+
+const names = ['suraj', 'shekar', 'ashim'];
+
+console.log(wowify(...names));
