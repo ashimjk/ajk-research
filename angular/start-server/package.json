@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server ./public",
     "tsc": "tsc",
-    "build": "babel src -d public",
     "bundle": "browserify lib/*.js -o public/bundle.js",
+    "build": "npm run tsc && npm run bundle",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,10 +16,8 @@
   "author": "Ashim Jung Khadka",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
     "browserify": "^16.5.0",
+    "http-server": "^0.11.1",
     "typescript": "^3.7.2"
   }
 }
