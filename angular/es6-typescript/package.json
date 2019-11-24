@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server ./",
+    "start": "http-server ./public",
     "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "browserify lib/*.js -o public/bundle.js",
+    "build": "npm run tsc && npm run bundle",
+    "webpack": "webpack"
   },
-  "author": "",
+  "author": "Ashim Jung Khadka",
   "license": "ISC",
-  "dependencies": {
-    "typescript": "^3.7.2"
-  },
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "browserify": "^16.5.0",
+    "http-server": "^0.11.1",
+    "typescript": "^3.7.2"
   }
 }

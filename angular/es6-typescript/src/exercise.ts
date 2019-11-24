@@ -1,9 +1,18 @@
+// access the wowify as a module
+// import * as wowify from './wowify';
+
+// access exported function only
+import {wowify} from './wowify';
+
 // destructuringObject();
 // deepDestructuringObject();
 // destructuringArray();
 // restOperator();
 // processTaggedTemplate();
-enhancedLoop();
+// enhancedLoop();
+
+const names: string[] = ['Ashim', 'Suraj', 'Shekhar', 'Bhuwan', 'Ganesh'];
+console.log(wowify(...names));
 
 function destructuringObject() {
     const addresses = {
