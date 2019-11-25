@@ -10,4 +10,4 @@ function mehify(...items: string[]) {
     return result;
 }
 
-export {wowify, mehify};
+export {wowify as default, wowify, mehify};
