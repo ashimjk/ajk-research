@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-const num = 0;
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +7,4 @@ const num = 0;
 })
 export class AppComponent {
   title = 'playground';
-
-  sayhello() {
-    const x = 10;
-  }
 }
