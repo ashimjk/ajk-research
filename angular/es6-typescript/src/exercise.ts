@@ -3,6 +3,8 @@
 
 // access exported function only
 import {wowify} from './wowify';
+// import {default as wowify} from './wowify';
+// import wowify from './wowify';
 
 // destructuringObject();
 // deepDestructuringObject();
