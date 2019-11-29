@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,44 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'form';
+  @ViewChild('form', {static: false}) ngForm: NgForm;
+  defaultGenders = ['male', 'female'];
+
+  defaultQuestion = 'pet';
+  defaultGender = this.defaultGenders[0];
+
+  username: string;
+  mail: string;
+  question: string;
+  answer: string;
+  gender: string;
+
+  isSubmitted = false;
+
+  onSubmit() {
+    this.isSubmitted = true;
+    this.username = this.ngForm.form.value.userData.username;
+    this.mail = this.ngForm.form.value.userData.email;
+    this.question = this.ngForm.form.value.secret;
+    this.answer = this.ngForm.form.value.answer;
+    this.gender = this.ngForm.form.value.gender;
+  }
+
+  onSuggestUsername() {
+    // this.ngForm.setValue({
+    //   userData: {
+    //     username: 'Super User',
+    //     email: ''
+    //   },
+    //   gender: '',
+    //   secret: '',
+    //   answer: ''
+    // });
+
+    this.ngForm.form.patchValue({
+      userData: {
+        username: 'Super User'
+      }
+    });
+  }
 }
