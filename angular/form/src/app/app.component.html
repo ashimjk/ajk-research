@@ -7,6 +7,9 @@
 
         <li role="presentation" [class]="selectedFeature === 'reactive-driven' ? 'active': ''" style="cursor: pointer">
           <a (click)="onSelectFeature('reactive-driven')">Reactive Driven</a></li>
+
+        <li role="presentation" [class]="selectedFeature === 'dynamic-form' ? 'active': ''" style="cursor: pointer">
+          <a (click)="onSelectFeature('dynamic-form')">Dynamic Form</a></li>
       </ul>
     </div>
   </div>
@@ -18,6 +21,8 @@
       <app-template-driven *ngIf="selectedFeature === 'template-driven'"></app-template-driven>
 
       <app-reactive-driven *ngIf="selectedFeature === 'reactive-driven'"></app-reactive-driven>
+
+      <app-question-shell *ngIf="selectedFeature === 'dynamic-form'"></app-question-shell>
     </div>
   </div>
 </div>
