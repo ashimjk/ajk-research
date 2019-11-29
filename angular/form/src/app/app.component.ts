@@ -28,6 +28,17 @@ export class AppComponent {
     this.question = this.ngForm.form.value.secret;
     this.answer = this.ngForm.form.value.answer;
     this.gender = this.ngForm.form.value.gender;
+
+    // this.ngForm.reset();
+    this.ngForm.reset({
+        userData: {
+          username: '',
+          email: ''
+        },
+        gender: this.defaultGenders[0],
+        secret: this.defaultQuestion,
+        answer: ''
+      });
   }
 
   onSuggestUsername() {
