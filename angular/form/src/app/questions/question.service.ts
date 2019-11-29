@@ -13,8 +13,9 @@ export class QuestionService {
     const questions: Array<QuestionBase> = [
 
       new DropdownQuestion({
-        key: 'brave',
-        label: 'Bravery Rating',
+        id: 'brave',
+        labelName: 'Bravery Rating',
+        value: 'solid',
         options: [
           {key: 'solid', value: 'Solid'},
           {key: 'great', value: 'Great'},
@@ -25,8 +26,8 @@ export class QuestionService {
       }),
 
       new TextboxQuestion({
-        key: 'firstName',
-        label: 'First name',
+        id: 'firstName',
+        labelName: 'First name',
         value: 'Bombasto',
         required: true,
         order: 1,
@@ -34,9 +35,11 @@ export class QuestionService {
       }),
 
       new TextboxQuestion({
-        key: 'emailAddress',
-        label: 'Email',
+        id: 'emailAddress',
+        labelName: 'Email',
         type: 'email',
+        required: true,
+        validators: ['email'],
         order: 2
       })
     ];

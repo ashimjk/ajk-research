@@ -4,33 +4,36 @@ export class Options {
 }
 
 export class QuestionBase {
-  value: string;
-  key: string;
-  label: string;
-  required: boolean;
-  order: number;
   controlType: string;
+  id: string;
+  value: string;
   type: string;
-  options: Options[];
+  labelName: string;
+  required: boolean;
+  options: Array<Options>;
+  validators: Array<string>;
+  order: number;
 
   constructor(questionProperty: {
-    value?: string,
-    key?: string,
-    label?: string,
-    required?: boolean,
-    order?: number,
     controlType?: string,
+    id?: string,
+    value?: string,
     type?: string,
-    options?: Options[]
+    labelName?: string,
+    required?: boolean,
+    options?: Array<Options>,
+    validators?: Array<string>,
+    order?: number,
   } = {}) {
 
-    this.value = questionProperty.value;
-    this.key = questionProperty.key || '';
-    this.label = questionProperty.label || '';
-    this.required = !!questionProperty.required;
-    this.order = questionProperty.order || 1;
     this.controlType = questionProperty.controlType || '';
+    this.id = questionProperty.id || '';
+    this.value = questionProperty.value;
     this.type = questionProperty.type || '';
+    this.labelName = questionProperty.labelName || '';
+    this.required = !!questionProperty.required;
     this.options = questionProperty.options || [];
+    this.validators = questionProperty.validators || [];
+    this.order = questionProperty.order || 1;
   }
 }
