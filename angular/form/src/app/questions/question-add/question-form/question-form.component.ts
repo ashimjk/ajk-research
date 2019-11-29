@@ -12,7 +12,8 @@ export class QuestionFormComponent {
   @Input() question: QuestionBase;
 
   get isValid() {
-    return this.questionForm.controls[this.question.key].valid;
+    return !this.questionForm.controls[this.question.id].valid
+      && this.questionForm.controls[this.question.id].touched;
   }
 
 }
