@@ -4,6 +4,9 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ComponentOutletModule} from './component-outlet/component-outlet.module';
+import {TemplateOutletModule} from './template-outlet/template-outlet.module';
+import {DirectiveAttributeModule} from './directive-attribute/directive-attribute.module';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import {ComponentOutletModule} from './component-outlet/component-outlet.module'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentOutletModule
+    ComponentOutletModule,
+    TemplateOutletModule,
+    DirectiveAttributeModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

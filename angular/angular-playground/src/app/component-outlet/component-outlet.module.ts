@@ -14,7 +14,7 @@ import {CompleteOutletComponent} from './sample2/complete-outlet.component';
   exports: [
     ShellComponent
   ],
-  entryComponents: [HelloWorldComponent, CompleteComponent]
+  entryComponents: [CompleteComponent]
 })
 export class ComponentOutletModule {
 }
