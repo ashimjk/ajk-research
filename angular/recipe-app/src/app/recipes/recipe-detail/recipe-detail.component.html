@@ -15,19 +15,20 @@
     <div class="btn-group" appDropdown>
       <button
         type="button"
-        class="btn btn-primary dropdown-toggle">
+        class="btn btn-primary dropdown-toggle"
+        style="margin: 10px 0">
         Manage Recipe <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
         <li><a routerLink="edit" style="cursor: pointer">Edit Recipe</a></li>
-        <li><a style="cursor: pointer">Delete Recipe</a></li>
+        <li><a style="cursor: pointer" (click)="onDelete()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-bottom: 10px;">
   <div class="col-xs-12">
     {{ recipe.description }}
   </div>
