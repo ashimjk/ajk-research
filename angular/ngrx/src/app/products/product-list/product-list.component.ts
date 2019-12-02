@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import {Product} from '../product';
-import {ProductService} from '../product.service';
 import {select, Store} from '@ngrx/store';
-import {AppState, currentProductSelector, showProductCodeSelector} from '../state/product-reducer';
-import {InitializeCurrentProduct, SetCurrentProduct, ToggleProductCode} from '../state/product.actions';
+import {AppState, currentProductSelector, errorSelector, productsSelector, showProductCodeSelector} from '../state/product-reducer';
+import {InitializeCurrentProduct, Load, SetCurrentProduct, ToggleProductCode} from '../state/product.actions';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -13,15 +13,14 @@ import {InitializeCurrentProduct, SetCurrentProduct, ToggleProductCode} from '..
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle = 'Products';
-  errorMessage: string;
   displayCode: boolean;
-  products: Product[];
 
   // Used to highlight the selected product in the list
   selectedProduct: Product | null;
+  products$: Observable<Product[]>;
+  errorMessage$: Observable<string>;
 
-  constructor(private store: Store<AppState>,
-              private productService: ProductService) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -30,11 +29,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
       selectedProduct => this.selectedProduct = selectedProduct
     );
 
-    // TODO : Unsubscribe
-    this.productService.getProducts().subscribe({
-      next: (products: Product[]) => this.products = products,
-      error: (err: any) => this.errorMessage = err.error
-    });
+    // this.productService.getProducts().subscribe({
+    //   next: (products: Product[]) => this.products = products,
+    //   error: (err: any) => this.errorMessage = err.error
+    // });
+
+    this.store.dispatch(Load.create());
+    this.products$ = this.store.pipe(select(productsSelector));
+    this.errorMessage$ = this.store.pipe(select(errorSelector));
 
     // TODO : Unsubscribe
     this.store.pipe(select(showProductCodeSelector))
