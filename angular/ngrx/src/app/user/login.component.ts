@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 import {AuthService} from './auth.service';
 import {select, Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
+import {maskUserNameSelector} from './state/user-reducer';
+import {AppState} from '../state/app.state';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   pageTitle = 'Log In';
   errorMessage: string;
 
@@ -19,17 +21,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router,
-              private store: Store<any>) {
+              private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
-    this.storeSubscription = this.store.pipe(select('users')).subscribe(
-      users => {
-        if (users) {
-          this.maskUserName = users.maskUserName;
-        }
-      }
-    );
+    // this.storeSubscription = this.store.pipe(select('users')).subscribe(
+    //   users => this.maskUserName = users.maskUserName
+    // );
+
+    this.storeSubscription = this.store.pipe(select(maskUserNameSelector))
+      .subscribe(maskUserName => this.maskUserName = maskUserName);
   }
 
   cancel(): void {
@@ -59,5 +60,9 @@ export class LoginComponent implements OnInit {
     } else {
       this.errorMessage = 'Please enter a user name and password.';
     }
+  }
+
+  ngOnDestroy(): void {
+    this.storeSubscription.unsubscribe();
   }
 }

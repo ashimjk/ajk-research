@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs';
 import {Product} from '../product';
 import {ProductService} from '../product.service';
 import {select, Store} from '@ngrx/store';
+import {AppState, showProductCodeSelector} from '../state/product-reducer';
 
 @Component({
   selector: 'app-product-list',
@@ -14,9 +15,7 @@ import {select, Store} from '@ngrx/store';
 export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle = 'Products';
   errorMessage: string;
-
   displayCode: boolean;
-
   products: Product[];
 
   // Used to highlight the selected product in the list
@@ -24,7 +23,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   sub: Subscription;
   stateSubscription: Subscription;
 
-  constructor(private store: Store<any>,
+  constructor(private store: Store<AppState>,
               private productService: ProductService) {
   }
 
@@ -38,18 +37,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
       error: (err: any) => this.errorMessage = err.error
     });
 
-    // TODO : Unsubscribe
-    this.stateSubscription = this.store.pipe(select('products')).subscribe(
-      products => {
-        if (products) {
-          this.displayCode = products.showProductCode;
-        }
-      }
-    );
+    // this.stateSubscription = this.store.pipe(select('products')).subscribe(
+    //   products => this.displayCode = products.showProductCode
+    // );
+
+    this.stateSubscription = this.store.pipe(select(showProductCodeSelector))
+      .subscribe(showProductCode => this.displayCode = showProductCode);
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.stateSubscription.unsubscribe();
   }
 
   checkChanged(value: boolean): void {
