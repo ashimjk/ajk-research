@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 
-import {Subscription} from 'rxjs';
-
 import {Product} from '../product';
 import {ProductService} from '../product.service';
 import {select, Store} from '@ngrx/store';
-import {AppState, showProductCodeSelector} from '../state/product-reducer';
+import {AppState, currentProductSelector, showProductCodeSelector} from '../state/product-reducer';
+import {InitializeCurrentProduct, SetCurrentProduct, ToggleProductCode} from '../state/product.actions';
 
 @Component({
   selector: 'app-product-list',
@@ -20,51 +19,41 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   // Used to highlight the selected product in the list
   selectedProduct: Product | null;
-  sub: Subscription;
-  stateSubscription: Subscription;
 
   constructor(private store: Store<AppState>,
               private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.sub = this.productService.selectedProductChanges$.subscribe(
+    // TODO : Unsubscribe
+    this.store.pipe(select(currentProductSelector)).subscribe(
       selectedProduct => this.selectedProduct = selectedProduct
     );
 
+    // TODO : Unsubscribe
     this.productService.getProducts().subscribe({
       next: (products: Product[]) => this.products = products,
       error: (err: any) => this.errorMessage = err.error
     });
 
-    // this.stateSubscription = this.store.pipe(select('products')).subscribe(
-    //   products => this.displayCode = products.showProductCode
-    // );
-
-    this.stateSubscription = this.store.pipe(select(showProductCodeSelector))
+    // TODO : Unsubscribe
+    this.store.pipe(select(showProductCodeSelector))
       .subscribe(showProductCode => this.displayCode = showProductCode);
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
-    this.stateSubscription.unsubscribe();
   }
 
   checkChanged(value: boolean): void {
-    // this.displayCode = value;
-
-    this.store.dispatch({
-      type: 'TOGGLE_PRODUCT_CODE',
-      payload: value
-    });
+    this.store.dispatch(ToggleProductCode.create(value));
   }
 
   newProduct(): void {
-    this.productService.changeSelectedProduct(this.productService.newProduct());
+    this.store.dispatch(InitializeCurrentProduct.create());
   }
 
   productSelected(product: Product): void {
-    this.productService.changeSelectedProduct(product);
+    this.store.dispatch(SetCurrentProduct.create(product));
   }
 
 }
