@@ -1,0 +1,15 @@
+<h4>Encoded Image</h4>
+<span>Select Image</span>
+<input type='file' accept='image/*' (change)='imageUrl($event)'>
+
+<div *ngIf="selectedProfilePicture">
+  <div class="image-preview" *ngIf="selectedProfilePicture.imageUrl" [ngStyle]="{'background-image': 'url(' + selectedProfilePicture.imageUrl + ')'}"></div>
+</div>
+
+<h4>URL Path</h4>
+<span>Select Image</span>
+<input type='file' accept='image/*' (change)='encodedImage(file.files)' #file>
+
+<div *ngIf="selectedProfilePicture">
+  <img class="img-fluid" *ngIf="selectedProfilePicture.encodedImage" [src]="selectedProfilePicture.encodedImage" alt="encoded image"/>
+</div>

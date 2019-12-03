@@ -7,10 +7,12 @@ import {ComponentOutletModule} from './component-outlet/component-outlet.module'
 import {TemplateOutletModule} from './template-outlet/template-outlet.module';
 import {DirectiveAttributeModule} from './directive-attribute/directive-attribute.module';
 import {ComponentsModule} from './components/components.module';
+import {ProfilePictureComponent} from './profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfilePictureComponent
   ],
   imports: [
     BrowserModule,
