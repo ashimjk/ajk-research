@@ -8,7 +8,7 @@ import {Product} from '../product';
 @Injectable()
 export class ProductEffects {
 
-  constructor(private actions$: Actions<Load>,
+  constructor(private actions$: Actions,
               private productService: ProductService) {
   }
 

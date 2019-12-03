@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!--      <form novalidate [ngrxFormState]="(formState$ | async)">-->
+
+      <!--        <div class="form-group">-->
+      <!--          <label for="someTextInput">Some Text Input</label>-->
+      <!--          <input type="text" id="someTextInput" class="form-control"-->
+      <!--                 [ngrxFormControlState]="(formState$ | async).controls.someTextInput">-->
+      <!--        </div>-->
+
+      <!--        <div class="form-group">-->
+      <!--          <label for="someCheckbox">Some Checkbox</label>-->
+      <!--          <input type="checkbox" id="someCheckbox" class="form-control"-->
+      <!--                 [ngrxFormControlState]="(formState$ | async).controls.someCheckbox">-->
+      <!--        </div>-->
+
+      <!--        <div class="form-group">-->
+      <!--          <label for="someNumber">Some Number</label>-->
+      <!--          <input type="number" id="someNumber" class="form-control"-->
+      <!--                 [ngrxFormControlState]="(formState$ | async).controls.nested.controls.someNumber">-->
+      <!--        </div>-->
+      <!--      </form>-->
+
+
+      <input [ngrxFormControlState]="formState.controls.stringValue" #stringValue/>
+      <br/>
+      <span>{{ formState.value.stringValue }}</span>
+      <button (click)="changeValue(stringValue)">Change Value</button>
+    </div>
+  </div>
+</div>
