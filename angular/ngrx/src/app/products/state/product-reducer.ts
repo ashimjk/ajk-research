@@ -5,7 +5,6 @@ import {ProductActions, ProductActionTypes} from './product.actions';
 
 export interface ProductState {
   showProductCode: boolean;
-  currentProduct: Product;
   currentProductId: number;
   products: Product[];
   error: string;
@@ -17,19 +16,31 @@ export interface AppState extends fromRoot.AppState {
 
 const initialState: ProductState = {
   showProductCode: false,
-  currentProduct: null,
   currentProductId: 0,
   products: [],
   error: ''
 };
 
-const featureSelector = createFeatureSelector<ProductState>('products');
-export const showProductCodeSelector = createSelector(featureSelector, product => product.showProductCode);
-export const productsSelector = createSelector(featureSelector, product => product.products);
-export const currentProductSelector = createSelector(featureSelector, product => product.currentProduct);
-// export const currentProductSelector = createSelector(featureSelector, currentProductIdSelector,
-//   (state, currentProductId) => state.products.find(value => value.id === currentProductId));
-export const errorSelector = createSelector(featureSelector, state => state.error);
+const productFeatureSelector = createFeatureSelector<ProductState>('products');
+export const showProductCodeSelector = createSelector(productFeatureSelector, product => product.showProductCode);
+export const productsSelector = createSelector(productFeatureSelector, product => product.products);
+export const currentProductIdSelector = createSelector(productFeatureSelector, product => product.currentProductId);
+export const currentProductSelector = createSelector(productFeatureSelector, currentProductIdSelector,
+  (state, currentProductId) => {
+    if (!currentProductId || currentProductId === 0) {
+      return {
+        id: 0,
+        productName: '',
+        productCode: 'New',
+        description: '',
+        starRating: 0
+      };
+    } else {
+      return {...state.products.find(value => value.id === currentProductId)};
+    }
+  });
+
+export const errorSelector = createSelector(productFeatureSelector, state => state.error);
 
 export function reducer(state = initialState, action: ProductActions): ProductState {
   switch (action.type) {
@@ -42,25 +53,19 @@ export function reducer(state = initialState, action: ProductActions): ProductSt
     case ProductActionTypes.SetCurrentProduct:
       return {
         ...state,
-        currentProduct: {...action.payload}
+        currentProductId: action.payload
       };
 
     case ProductActionTypes.ClearCurrentProduct:
       return {
         ...state,
-        currentProduct: null
+        currentProductId: 0
       };
 
     case ProductActionTypes.InitializeCurrentProduct:
       return {
         ...state,
-        currentProduct: {
-          id: 0,
-          productName: '',
-          productCode: 'New',
-          description: '',
-          starRating: 0
-        }
+        currentProductId: 0
       };
 
     case ProductActionTypes.LoadSuccess:

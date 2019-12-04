@@ -55,7 +55,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   productSelected(product: Product): void {
-    this.store.dispatch(SetCurrentProduct.create(product));
+    this.store.dispatch(SetCurrentProduct.create(product.id));
   }
 
 }
