@@ -1,0 +1,13 @@
+<div class="customer-exit">
+  <div>
+    <h2>Edit Customer</h2>
+    <app-customer-edit-form #form
+                            [customer]="customers.current$ | async"
+                            (validated)="canSave = $event"
+    >
+    </app-customer-edit-form>
+  </div>
+  <div>
+    <button [disabled]="canSave" click="form.submit()">Save</button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="customer-detail">
+  <h2>{{customer.name}}</h2>
+  <h3>{{customer.title}}</h3>
+  <a href="mailto:{{customer.email}}">
+    {{customer.email | prettyEmail}}
+  </a>
+
+  <a *ngIf="customer.handles?.twitter"
+     href="https://www.twitter.com/{{customer.handles?.twitter}}">
+    {{customer.handles?.twitter}}
+  </a>
+  <a *ngIf="customer.handles?.facebook"
+     href="https://www.facebook.com/{{customer.handles?.facebook}}">
+    {{customer.handles?.facebook}}
+  </a>
+
+  <button (click)="edited.emit(customer)">Edit</button>
+  <button (click)="deleted.emit(customer)">Delete</button>
+</div>
