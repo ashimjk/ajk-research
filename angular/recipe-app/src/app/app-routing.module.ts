@@ -1,37 +1,40 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {RecipesComponent} from './recipes/recipes.component';
-import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
-import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
-import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
-import {SignupComponent} from './auth/signup/signup.component';
-import {SigninComponent} from './auth/signin/signin.component';
+import {Router, RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './core/home/home.component';
+import {SelectivePreloadingStrategyService} from './selective-preloading-strategy.service';
 import {AuthGuardService} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/recipes'},
+  {path: '', pathMatch: 'full', component: HomeComponent},
   {
-    path: 'recipes', component: RecipesComponent, canActivate: [AuthGuardService], children: [
-      {path: '', component: RecipeStartComponent},
-      {path: 'new', component: RecipeEditComponent},
-      {path: ':id', component: RecipeDetailComponent},
-      {path: ':id/edit', component: RecipeEditComponent}
-    ]
+    path: 'recipes',
+    loadChildren: () => import('./recipes/recipes.module').then(mod => mod.RecipesModule),
+    canLoad: [AuthGuardService]
   },
+  // {path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
   {
-    path: 'shopping-list', component: ShoppingListComponent, children: [
-      {path: ':id/edit', component: ShoppingEditComponent}
-    ]
-  },
-  {path: 'signup', component: SignupComponent},
-  {path: 'signin', component: SigninComponent}
+    path: 'shopping-list',
+    loadChildren: () => import('./shopping-list/shopping-list.module').then(mod => mod.ShoppingListModule),
+    data: {
+      preload: true
+    }
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes, {
+    preloadingStrategy: SelectivePreloadingStrategyService
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    // Use a custom replacer to display function names in the route configs
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
 }
+
