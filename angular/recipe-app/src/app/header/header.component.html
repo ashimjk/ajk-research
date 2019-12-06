@@ -6,17 +6,27 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li *ngIf="authService.isAuthenticated()" routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
         <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer" (click)="onStoreRecipes()">Save Data</a></li>
-            <li><a style="cursor: pointer" (click)="onFetchRecipes()">Fetch Data</a></li>
-          </ul>
-        </li>
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink="signup">Register</a></li>
+          <li><a routerLink="signin">Login</a></li>
+        </ng-template>
+
+        <ng-container *ngIf="authService.isAuthenticated()">
+
+          <li><a style="cursor:pointer;" (click)="onLogOut()">Logout</a></li>
+          <li class="dropdown" appDropdown>
+            <a style="cursor: pointer" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a style="cursor: pointer" (click)="onStoreRecipes()">Save Data</a></li>
+              <li><a style="cursor: pointer" (click)="onFetchRecipes()">Fetch Data</a></li>
+            </ul>
+          </li>
+
+        </ng-container>
       </ul>
     </div>
   </div>
