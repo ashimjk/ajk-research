@@ -70,4 +70,9 @@ export class RecipeService {
   subscribeChanges(next: (recipes: Recipe[]) => void): Subscription {
     return this.recipesChanges.subscribe((recipes: Recipe[]) => next(recipes));
   }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.publishChanges();
+  }
 }
