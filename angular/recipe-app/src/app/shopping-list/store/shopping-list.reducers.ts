@@ -2,33 +2,15 @@ import {
   ADD_INGREDIENT,
   ADD_INGREDIENTS,
   DELETE_INGREDIENT,
-  ShoppingListActions,
+  ShoppingListActionsType,
   START_EDIT,
   STOP_EDIT,
   UPDATE_INGREDIENT
-} from './shopping-list.actions';
-import {Ingredient} from '../../shared/ingredient.model';
+} from './shopping-list-actions.type';
+import {initialShoppingListState, ShoppingListState} from './shopping-list.state';
 
-export interface AppState {
-  shoppingList: State;
-}
 
-export interface State {
-  ingredients: Ingredient[];
-  editedIngredient: Ingredient;
-  editedIngredientIndex: number;
-}
-
-export const initialState: State = {
-  ingredients: [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10)
-  ],
-  editedIngredient: null,
-  editedIngredientIndex: -1
-};
-
-export function shoppingListReducer(state = initialState, action: ShoppingListActions) {
+export function shoppingListReducer(state: ShoppingListState = initialShoppingListState, action: ShoppingListActionsType) {
 
   switch (action.type) {
     case ADD_INGREDIENT:

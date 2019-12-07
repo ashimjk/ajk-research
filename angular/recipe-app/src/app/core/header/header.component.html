@@ -6,16 +6,17 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li *ngIf="authService.isAuthenticated()" routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li *ngIf="(authState$ | async).authenticated" routerLinkActive="active"><a routerLink="/recipes">Recipes</a>
+        </li>
         <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <ng-template [ngIf]="!authService.isAuthenticated()">
+        <ng-template [ngIf]="!(authState$ | async).authenticated">
           <li><a routerLink="signup">Register</a></li>
           <li><a routerLink="signin">Login</a></li>
         </ng-template>
 
-        <ng-container *ngIf="authService.isAuthenticated()">
+        <ng-container *ngIf="(authState$ | async).authenticated">
 
           <li><a style="cursor:pointer;" (click)="onLogOut()">Logout</a></li>
           <li class="dropdown" appDropdown>

@@ -3,8 +3,9 @@ import {Component, OnInit} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {AppState, State} from './store/shopping-list.reducers';
-import {StartEdit} from './store/shopping-list.actions';
+import {StartEdit} from './store/shopping-list-actions.type';
+import {AppState} from '../store/app.state';
+import {ShoppingListState} from './store/shopping-list.state';
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,7 +13,7 @@ import {StartEdit} from './store/shopping-list.actions';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  shoppingList$: Observable<State>;
+  shoppingList$: Observable<ShoppingListState>;
   ingredients$: Observable<Ingredient[]>;
 
   constructor(private store: Store<AppState>) {

@@ -3,8 +3,8 @@ import {Recipe} from '../recipe.model';
 import {RecipeService} from '../recipe.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
-import {AddIngredients} from '../../shopping-list/store/shopping-list.actions';
-import {AppState} from '../../shopping-list/store/shopping-list.reducers';
+import {AddIngredients} from '../../shopping-list/store/shopping-list-actions.type';
+import {AppState} from '../../store/app.state';
 
 @Component({
   selector: 'app-recipe-detail',
