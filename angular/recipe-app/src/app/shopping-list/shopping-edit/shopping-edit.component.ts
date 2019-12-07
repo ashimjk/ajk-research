@@ -15,8 +15,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   @ViewChild('shoppingForm', {static: false}) shoppingForm: NgForm;
   private indexSubscription: Subscription;
-  private editMode: boolean;
   private editedItem: Ingredient;
+  editMode: boolean;
 
   constructor(private store: Store<AppState>) {
   }
