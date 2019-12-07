@@ -3,6 +3,9 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {SharedModule} from '../shared/shared.module';
 import {AppRoutingModule} from '../app-routing.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptorService} from '../shared/auth-interceptor.service';
+import {LoggingInterceptorService} from '../shared/logging-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,10 @@ import {AppRoutingModule} from '../app-routing.module';
   ],
   exports: [
     HeaderComponent
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}
   ]
 })
 export class CoreModule {
