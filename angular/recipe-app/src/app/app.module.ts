@@ -7,6 +7,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {AuthModule} from './auth/auth.module';
 import {CoreModule} from './core/core.module';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
+import {shoppingListReducer} from './shopping-list/store/shopping-list.reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,13 @@ import {CoreModule} from './core/core.module';
 
     CoreModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+
+    StoreModule.forRoot({shoppingList: shoppingListReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
