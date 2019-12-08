@@ -1,5 +1,6 @@
 export interface UserState {
   users: User[];
+  error: string;
 }
 
 export interface User {
@@ -8,10 +9,6 @@ export interface User {
 }
 
 export const initialUserState: UserState = {
-  users: [
-    {
-      username: 'ashim',
-      email: 'ashim.khadka@clusus.com'
-    }
-  ]
+  users: [],
+  error: ''
 };

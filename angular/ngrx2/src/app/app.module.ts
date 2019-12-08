@@ -5,14 +5,16 @@ import {AppComponent} from './app.component';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import {UsersComponent} from './users/users.component';
+import {UserComponent} from './users/component/user.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {reducers} from './store/app.reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {UserEffects} from './users/store/user.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import {reducers} from './store/app.reducers';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot([UserEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
