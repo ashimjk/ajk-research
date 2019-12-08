@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <!--    <div class="col-12" *ngIf="(userState$ | async) as userState">-->
+    <div class="col-12" *ngIf="(users$ | async) as users">
+
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--        <tr *ngFor="let user of userState.users">-->
+        <tr *ngFor="let user of users">
+          <td>{{ user.username}}</td>
+          <td>{{ user.email}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <hr/>
+
+    </div>
+
+    <div class="col-12">
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" formControlName="username">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" class="form-control" formControlName="email">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
