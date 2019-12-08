@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {reducers} from './store/app.reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {UserEffects} from './users/store/user.effects';
+import {BeneficiaryModule} from './beneficiary/beneficiary.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import {UserEffects} from './users/store/user.effects';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+
+    BeneficiaryModule,
 
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
