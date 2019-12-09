@@ -1,9 +1,9 @@
-import {ActionReducerMap, createReducer, on} from '@ngrx/store';
-import {FeatureState, initialBeneficiaryState} from './beneficiary.state';
+import {createReducer, on} from '@ngrx/store';
+import {initialBeneficiaryState} from './beneficiary.state';
 import {createBeneficiaryFail, createBeneficiarySuccess, loadBeneficiariesFail, loadBeneficiariesSuccess} from './beneficiary.actions';
 
 
-export const beneficiaryReducer = createReducer(initialBeneficiaryState,
+export const beneficiaryComponentReducer = createReducer(initialBeneficiaryState,
   on(createBeneficiarySuccess, (state, action) => ({
     ...state, beneficiaries: [...state.beneficiaries, action.beneficiary]
   })),
@@ -16,8 +16,3 @@ export const beneficiaryReducer = createReducer(initialBeneficiaryState,
 
   on(loadBeneficiariesFail, (state, action) => ({...state, error: action.error})),
 );
-
-
-export const reducers: ActionReducerMap<FeatureState> = {
-  beneficiaryState: beneficiaryReducer
-};

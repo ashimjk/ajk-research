@@ -35,12 +35,12 @@ export class UserComponent implements OnInit {
       console.log('App State: ', state);
 
       console.log('User State(1): ', state.userState);
-      console.log('User State(2): ', state['userState']);
+      console.log('User State(2): ', state.userState);
 
       console.log('Users: ', state.userState.users);
-      console.log('Users: ', state['userState'].users);
+      console.log('Users: ', state.userState.users);
 
-      return state['userState'].users;
+      return state.userState.users;
     });
 
     this.userForm = new FormGroup({

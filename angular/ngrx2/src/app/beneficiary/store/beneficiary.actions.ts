@@ -15,7 +15,7 @@ export const createBeneficiary = createAction(BeneficiaryActions.CREATE_BENEFICI
 export const createBeneficiarySuccess = createAction(BeneficiaryActions.CREATE_BENEFICIARY_SUCCESS, props<{ beneficiary: Beneficiary }>());
 export const createBeneficiaryFail = createAction(BeneficiaryActions.CREATE_BENEFICIARY_FAIL, props<{ error: string }>());
 
-export const loadBeneficiaries = createAction(BeneficiaryActions.LOAD_BENEFICIARIES, props<{ beneficiaries: Beneficiary[] }>());
+export const loadBeneficiaries = createAction(BeneficiaryActions.LOAD_BENEFICIARIES);
 export const loadBeneficiariesSuccess = createAction(
   BeneficiaryActions.LOAD_BENEFICIARIES_SUCCESS,
   props<{ beneficiaries: Beneficiary[] }>()
