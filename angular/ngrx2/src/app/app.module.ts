@@ -6,19 +6,23 @@ import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {UserComponent} from './users/component/user.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {reducers} from './store/app.reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {UserEffects} from './users/store/user.effects';
 import {BeneficiaryModule} from './beneficiary/beneficiary.module';
+import {NgrxFormsModule} from 'ngrx-forms';
+import {FormComponent} from './forms/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
 
     BeneficiaryModule,
@@ -28,7 +32,8 @@ import {BeneficiaryModule} from './beneficiary/beneficiary.module';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects]),
+    NgrxFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
