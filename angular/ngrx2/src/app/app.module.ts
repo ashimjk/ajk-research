@@ -13,6 +13,7 @@ import {UserEffects} from './users/store/user.effects';
 import {BeneficiaryModule} from './beneficiary/beneficiary.module';
 import {NgrxFormsModule} from 'ngrx-forms';
 import {FormComponent} from './forms/form/form.component';
+import {SampleModule} from './sample/sample.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {FormComponent} from './forms/form/form.component';
     ReactiveFormsModule,
 
     BeneficiaryModule,
+    SampleModule,
 
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({

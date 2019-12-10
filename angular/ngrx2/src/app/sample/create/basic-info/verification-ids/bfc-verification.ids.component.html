@@ -1,0 +1,109 @@
+<div class="verification-ids">
+  <button type="button" class="btn btn-primary" (click)="onAddIdType()">Add</button>
+
+  <br>
+  <br>
+
+  <div *ngFor="let control of (formState$ | async).controls.idTypes.controls">
+    <div class="row">
+      <div class="col-xl-6">
+        <!--            [ngrxFormControlState]="control['controls']['name']"-->
+        <!--        [ngrxFormControlState]="control.controls.name"-->
+        <label for="idTypeName">Id Type Name</label>
+        <input type="text" id="idTypeName"
+               [ngrxFormControlState]="control['controls']['name']"
+        >
+        <!--        <input type="text" id="idTypeName"-->
+        <!--               [ngrxFormControlState]="control.controls.name"-->
+        <!--        >-->
+
+        <!--        {{ print(control['controls'].name) }}-->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <label for="formControlState">Form Control State</label>
+      <input type="text" id="formControlState" [ngrxFormControlState]="formControlState">
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <label for="groupControlState">Group Control State</label>
+      <input type="text" id="groupControlState" [ngrxFormControlState]="groupState.controls.name">
+
+      <div>
+        <!--            {{ print(groupState) }}-->
+      </div>
+      <br>
+      <button class="btn btn-primary" type="button" (click)="printArrayOfFormState()">Print Group Control State
+        State
+      </button>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <div *ngFor="let control of arrayOfFormState.controls">
+        <label for="arrayOfFormControlState">Array of Form Control State</label><br>
+        <input type="text" id="arrayOfFormControlState" [ngrxFormControlState]="control['controls']['name']">
+
+        <div>
+          <!--              {{ print(control['controls']) }}-->
+        </div>
+
+        <br>
+        <button class="btn btn-primary" type="button" (click)="printArrayOfFormState()">Print Array of Form Control
+          State
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-6">
+      <div *ngFor="let control of idTypesFormArrayState.controls">
+        <label for="arrayOfIdTypes">Array of IdTypes</label><br>
+        <input type="text" id="arrayOfIdTypes"
+               [ngrxFormControlState]="control.controls.idTypes.controls[0].controls.name"
+        >
+
+        <div>
+          <!--          {{ print(idTypesFormArrayState.controls[0].controls.idTypes.controls[0].controls.name) }}-->
+          <!--                    {{ print(control.controls.idTypes.controls[0]) }}-->
+        </div>
+
+        <br>
+        <button class="btn btn-primary" type="button" (click)="printArrayOfIdTypes()">Print Array of Id Types
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-4">
+      <div *ngFor="let control of arrayOfGroupState.controls">
+        <label for="arrayOfGroupControlState">Array of Group Control State</label>
+        <input type="text" id="arrayOfGroupControlState" [ngrxFormControlState]="control.value.controls.name">
+
+        <div>
+          <!--              {{ print(control) }}-->
+        </div>
+        <br>
+
+        <button class="btn btn-primary" type="button" (click)="printArrayOfGroupState()">Print Array of Group
+          Control
+          State
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

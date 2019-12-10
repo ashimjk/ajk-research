@@ -25,10 +25,10 @@ export class FormComponent {
   }
 
   submit() {
-    this.formState$.pipe(
-      take(1),
-      map(fs => new SetSubmittedValueAction(fs.value)),
-    ).subscribe(this.store);
+    // this.formState$.pipe(
+    //   take(1),
+    //   map(fs => new SetSubmittedValueAction(fs.value)),
+    // ).subscribe(this.store);
   }
 
 }
