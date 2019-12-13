@@ -4,20 +4,20 @@
   </div>
 
   <div class='card-body'
-       *ngIf="products">
+       *ngIf="productsWithCategory$ | async as products">
     <div class='list-group'>
       <button type='button'
-              class='list-group-item'
+              class='list-group-item list-group-item-action'
               *ngFor='let product of products'
-              [ngClass]="{'active': product?.id === selectedProductId}"
+              [ngClass]="{'active': product?.id === (selectedProduct$ | async)?.id}"
               (click)='onSelected(product.id)'>
-        {{ product.productName }} ({{ product.categoryId }})
+        {{ product.productName }} ({{ product.category }})
       </button>
     </div>
   </div>
 </div>
 
 <div class="alert alert-danger"
-     *ngIf="errorMessage">
+     *ngIf="errorMessage$ | async as errorMessage">
   {{errorMessage}}
 </div>

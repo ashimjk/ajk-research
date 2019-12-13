@@ -1,5 +1,5 @@
 <div class="card"
-     *ngIf="product">
+     *ngIf="selectedProduct$ | async as selectedProduct">
   <div class="card-header">
     {{pageTitle}}
   </div>
@@ -8,27 +8,27 @@
 
     <div class="row">
       <div class="col-md-2">Name:</div>
-      <div class="col-md-6">{{product.productName}}</div>
+      <div class="col-md-6">{{selectedProduct.productName}}</div>
     </div>
     <div class="row">
       <div class="col-md-2">Code:</div>
-      <div class="col-md-6">{{product.productCode}}</div>
+      <div class="col-md-6">{{selectedProduct.productCode}}</div>
     </div>
     <div class="row">
       <div class="col-md-2">Category:</div>
-      <div class="col-md-6">{{product.category}}</div>
+      <div class="col-md-6">{{selectedProduct.category}}</div>
     </div>
     <div class="row">
       <div class="col-md-2">Description:</div>
-      <div class="col-md-6">{{product.description}}</div>
+      <div class="col-md-6">{{selectedProduct.description}}</div>
     </div>
     <div class="row">
       <div class="col-md-2">Price:</div>
-      <div class="col-md-6">{{product.price|currency:"USD":"symbol"}}</div>
+      <div class="col-md-6">{{selectedProduct.price|currency:"USD":"symbol"}}</div>
     </div>
     <div class="row">
       <div class="col-md-2">In Stock:</div>
-      <div class="col-md-6">{{product.quantityInStock}}</div>
+      <div class="col-md-6">{{selectedProduct.quantityInStock}}</div>
     </div>
 
     <div class="table-responsive">
@@ -55,6 +55,6 @@
 </div>
 
 <div class="alert alert-danger"
-     *ngIf="errorMessage">
+     *ngIf="errorMessage$ | async as errorMessage">
   {{errorMessage}}
 </div>
