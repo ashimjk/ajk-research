@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {ContactRequest, PersonalData} from '../model/contact-request';
 
 @Component({
   selector: 'app-beneficiary-add',
@@ -9,31 +8,27 @@ import {ContactRequest, PersonalData} from '../model/contact-request';
 })
 export class BeneficiaryAddComponent implements OnInit {
 
-  contactForm: FormGroup;
-  countries = ['USA', 'Germany', 'Italy', 'France'];
-  requestTypes = ['Claim', 'Feedback', 'Help Request'];
-  submittedValue: string;
+  beneficiaryForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.contactForm = this.fb.group({
-      personalData: this.fb.group(new PersonalData()),
-      requestType: '',
-      text: ''
+    this.beneficiaryForm = this.fb.group({
+      name: '',
+      address: this.fb.group({})
+      // address: this.fb.group({
+      //   city: new FormControl('', Validators.required),
+      //   country: new FormControl('', Validators.required)
+      // })
     });
   }
 
   onSubmit() {
-    this.submittedValue = JSON.stringify(this.contactForm.value, null, 2);
-
-    const result: ContactRequest = Object.assign({}, this.contactForm.value);
-    result.personalData = Object.assign({}, result.personalData);
-    console.log(result);
+    console.log(this.beneficiaryForm.value);
   }
 
-  revert() {
-    this.contactForm.reset({personalData: new PersonalData(), requestType: '', text: ''});
+  private addFormControl(name: string, formGroup: FormGroup): void {
+    this.beneficiaryForm.addControl(name, formGroup);
   }
 }

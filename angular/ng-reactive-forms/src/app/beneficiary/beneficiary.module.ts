@@ -6,6 +6,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {BeneficiaryListComponent} from './component/beneficiary-list/beneficiary-list.component';
 import {BeneficiaryEditComponent} from './component/beneficiary-edit/beneficiary-edit.component';
 import {BeneficiaryAddComponent} from './component/beneficiary-add/beneficiary-add.component';
+import {AddressFormComponent} from './component/beneficiary-add/address-form/address-form.component';
+import {AddressForm2Component} from './component/beneficiary-add/address-form2/address-form2.component';
+import {AddressForm3Component} from './component/beneficiary-add/address-form3/address-form3.component';
 
 const beneficiaryRoutes: Routes = [
   {
@@ -21,7 +24,10 @@ const beneficiaryRoutes: Routes = [
     BeneficiaryShellComponent,
     BeneficiaryListComponent,
     BeneficiaryEditComponent,
-    BeneficiaryAddComponent
+    BeneficiaryAddComponent,
+    AddressFormComponent,
+    AddressForm2Component,
+    AddressForm3Component
   ],
   imports: [
     CommonModule,

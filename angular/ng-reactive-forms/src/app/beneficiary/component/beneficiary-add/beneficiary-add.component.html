@@ -1,49 +1,46 @@
 <div class="row">
   <div class="col-md-6">
     <h4>Beneficiary Form</h4>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="mt-lg-5">
-
-      <div formGroupName="personalData" novalidate>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" formControlName="email">
-        </div>
-
-        <div class="form-group">
-          <label for="mobile">Mobile</label>
-          <input type="text" class="form-control" id="mobile" formControlName="mobile">
-        </div>
-
-        <div class="form-group">
-          <label for="country">Country</label>
-          <select id="country" class="form-control" formControlName="country">
-            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-          </select>
-        </div>
-      </div>
+    <form [formGroup]="beneficiaryForm" (ngSubmit)="onSubmit()" novalidate class="mt-lg-5">
 
       <div class="form-group">
-        <label for="requestTypes">RequestTypes</label>
-        <select id="requestTypes" class="form-control" formControlName="requestType">
-          <option *ngFor="let requestType of requestTypes" [value]="requestType">{{requestType}}</option>
-        </select>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
       </div>
 
-      <div class="form-group">
-        <label for="text">Text</label>
-        <input type="text" id="text" class="form-control" formControlName="text">
-      </div>
+      <h4>Delivery address</h4>
 
-      <button type="submit" class="btn btn-primary" [disabled]="contactForm.pristine">Save</button>
-      &nbsp;
-      <button type="reset" class="btn btn-danger" (click)="revert()" [disabled]="contactForm.pristine">
-        Revert
-      </button>
+      <!-- Scenario 1 -->
+      <!--      <h5>Default</h5>-->
+      <!--      <div formGroupName="address">-->
+      <!--        <div class="form-group">-->
+      <!--          <label for="city">City</label>-->
+      <!--          <input id="city" class="form-control" type="text" formControlName="city"/>-->
+      <!--        </div>-->
 
+      <!--        <div class="form-group">-->
+      <!--          <label for="country">Country</label>-->
+      <!--          <input id="country" class="form-control" type="text" formControlName="country"/>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!-- Scenario 2 -->
+      <!--      <app-address-form [addressFormGroup]="beneficiaryForm.controls.address"></app-address-form>-->
+
+      <!-- Scenario 3 -->
+      <!--      <app-address-form2 (formGroup)="addFormControl('address', $event)"></app-address-form2>-->
+
+      <!-- Scenario 4 -->
+      <!--      <app-address-form3 [addressGroup]="beneficiaryForm.controls.address"></app-address-form3>-->
+      <app-address-form3 [addressGroup]="beneficiaryForm.get('address')"></app-address-form3>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!beneficiaryForm.valid">Save</button>
     </form>
   </div>
 
   <div class="col-md-6">
-    {{ submittedValue }}
+    Dirty: {{beneficiaryForm.dirty}} <br>
+    Valid: {{beneficiaryForm.valid}} <br>
+    Data: {{ beneficiaryForm.value | json }}
   </div>
 </div>
