@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {BehaviorSubject, combineLatest, merge, Observable, Subject, throwError} from 'rxjs';
-import {catchError, delay, map, scan} from 'rxjs/operators';
+import {catchError, delay, map, scan, shareReplay, tap} from 'rxjs/operators';
 
 import {Product} from './product';
 import {SupplierService} from '../suppliers/supplier.service';
@@ -43,6 +43,7 @@ export class ProductService {
   private loadProducts$() {
     this.products$ = this.http.get<Product[]>(this.productsUrl)
       .pipe(
+        tap(data => console.log('Products: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
@@ -62,7 +63,8 @@ export class ProductService {
               category: categories.find(category => category.id === product.categoryId).name
             }) as Product)
           )
-        )
+        ),
+        shareReplay(1)
       );
   }
 
@@ -75,13 +77,14 @@ export class ProductService {
         map(
           ([products, selectedProductId]) =>
             products.find(product => product.id === selectedProductId)
-        )
+        ),
+        shareReplay(1)
       );
   }
 
   private loadProductsWithAdded$(): void {
     this.productsWithAdded$ = merge(
-      this.productsWithCategory$.pipe(delay(10000)),
+      this.productsWithCategory$,
       this.addProductAction$
     )
       .pipe(
