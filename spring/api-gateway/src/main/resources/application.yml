@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  max-http-header-size: 77777777
+  port: 8090
+
+zuul:
+  ignored-services: '*'
+  routes:
+    service:
+      path: '/**'
+      url: 'http://localhost:8080'
+      sensitive-headers:
+    host:
+      connect-timeout-millis: 60000 # starting the connection
+      socket-timeout-millis: 60000  # monitor the continuous incoming data flow
+
+security:
+  basic:
+    enabled: false
+hystrix:
+  metrics:
+    enabled: false
+ribbon:
+  eureka:
+    enabled: false
+
+
+#debug: true
+#trace: true
+
+
