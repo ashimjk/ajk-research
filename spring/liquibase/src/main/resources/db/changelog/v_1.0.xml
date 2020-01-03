@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="v1.0.0-1" author="ashimjk">
+        <createTable tableName="beneficiary">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="corporate_beneficiary_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v1.0.0-2" author="ashimjk">
+        <createTable tableName="contact_person">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="contact_person_pkey"/>
+            </column>
+            <column name="cp_name" type="VARCHAR(255)"/>
+            <column name="corporate_beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v1.0.0-3" author="ashimjk">
+        <createTable tableName="corporate_beneficiary">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="corporate_beneficiary_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v1.0.0-4" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="corporate_beneficiary_id"
+                                 baseTableName="beneficiary"
+                                 constraintName="beneficiary_corporate_beneficiary_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="corporate_beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet id="v1.0.0-5" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="corporate_beneficiary_id"
+                                 baseTableName="contact_person"
+                                 constraintName="contact_person_corporate_beneficiary_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="corporate_beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+    <!--    <changeSet id="v1.0.0-6" author="ashimjk">-->
+    <!--        <createSequence sequenceName="ben_seq"-->
+    <!--                        incrementBy="1"-->
+    <!--                        startValue="1"/>-->
+    <!--    </changeSet>-->
+
+    <!--    <changeSet id="v1.0.0-7" author="ashimjk">-->
+    <!--        <createSequence sequenceName="ben_seq"-->
+    <!--                        incrementBy="1"-->
+    <!--                        startValue="1"/>-->
+    <!--    </changeSet>-->
+
+    <!--    <changeSet id="v1.0.0-8" author="ashimjk">-->
+    <!--        <createSequence sequenceName="contact_person_seq"-->
+    <!--                        incrementBy="1"-->
+    <!--                        startValue="1"/>-->
+    <!--    </changeSet>-->
+</databaseChangeLog>
