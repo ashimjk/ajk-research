@@ -1,4 +1,4 @@
-package io.ashimjk.liquibase.entity;
+package io.ashimjk.liquibase.entity.correspondentbank;
 
 import io.ashimjk.liquibase.entity.shared.AddressEntity;
 import lombok.Data;
@@ -11,26 +11,25 @@ import java.util.List;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
-@Entity(name = "contact_person")
-public class ContactPersonEntity implements Serializable {
+@Entity(name = "correspondent_bank")
+public class CorrespondentBankEntity implements Serializable {
 
-    private static final long serialVersionUID = 714091872027035973L;
+    private static final long serialVersionUID = -7867870521996314154L;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String jobTitle;
-    private String fullName;
-    private String email;
-    private String phoneNo;
-    private String nationalNumber;
-    private String profile;
-    private Boolean primaryContact;
+    private String name;
+    private String swiftCode;
 
     @Embedded
     private AddressEntity address;
 
     @ElementCollection
     private List<String> services = new ArrayList<>();
+
+    @ElementCollection
+    @OrderColumn(name = "account_order_id")
+    private List<AccountEntity> accounts = new ArrayList<>();
 
 }

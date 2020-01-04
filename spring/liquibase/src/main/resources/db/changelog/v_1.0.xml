@@ -3,72 +3,462 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    <changeSet id="v1.0.0-1" author="ashimjk">
+
+    <changeSet id="v1.0-1" author="ashimjk">
+        <createTable tableName="authorized_signature">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="authorized_signature_pkey"/>
+            </column>
+            <column name="document" type="VARCHAR(255)"/>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="job_title" type="VARCHAR(255)"/>
+            <column name="limit_amount" type="INTEGER"/>
+            <column name="national_number" type="VARCHAR(255)"/>
+            <column name="profile" type="VARCHAR(255)"/>
+            <column name="signature" type="VARCHAR(255)"/>
+            <column name="delegated_person_id" type="BIGINT"/>
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authorized_signature_order_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-2" author="ashimjk">
+        <createTable tableName="authorized_signature_services">
+            <column name="authorized_signature_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="services" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-3" author="ashimjk">
         <createTable tableName="beneficiary">
-            <column autoIncrement="true" name="id" type="BIGINT">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
                 <constraints primaryKey="true" primaryKeyName="beneficiary_pkey"/>
             </column>
-            <column name="name" type="VARCHAR(255)"/>
-            <column name="corporate_beneficiary_id" type="BIGINT"/>
+            <column name="beneficiary_type" type="VARCHAR(255)"/>
+            <column name="amount" type="VARCHAR(255)"/>
+            <column name="balance" type="numeric(19, 2)"/>
+            <column name="detail" type="VARCHAR(255)"/>
+            <column name="fees_and_charges" type="numeric(19, 2)"/>
+            <column name="contract_from" type="date"/>
+            <column name="number" type="INTEGER"/>
+            <column name="terms_of_payment" type="VARCHAR(255)"/>
+            <column name="contract_to" type="date"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="source_system" type="VARCHAR(255)"/>
+            <column name="ending_date" type="date"/>
+            <column name="review_date" type="date"/>
+            <column name="starting_date" type="date"/>
+            <column name="current_process" type="VARCHAR(255)"/>
+            <column name="current_task" type="VARCHAR(255)"/>
+            <column name="process_instance_id" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="v1.0.0-2" author="ashimjk">
+
+    <changeSet id="v1.0-4" author="ashimjk">
+        <createTable tableName="beneficiary_addresses">
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_addresses_pkey"/>
+            </column>
+            <column name="address_line1" type="VARCHAR(255)"/>
+            <column name="address_line2" type="VARCHAR(255)"/>
+            <column name="address_name" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="default_address" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="map_url" type="VARCHAR(255)"/>
+            <column name="po_box" type="VARCHAR(255)"/>
+            <column name="address_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_addresses_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-5" author="ashimjk">
+        <createTable tableName="beneficiary_id_types">
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document" type="VARCHAR(255)"/>
+            <column name="expiry_date" type="date"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="number" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-6" author="ashimjk">
+        <createTable tableName="beneficiary_key_managements">
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="job_title" type="VARCHAR(255)"/>
+            <column name="national_number" type="VARCHAR(255)"/>
+            <column name="profile" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-7" author="ashimjk">
+        <createTable tableName="beneficiary_share_holders">
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="national_number" type="VARCHAR(255)"/>
+            <column name="profile" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-8" author="ashimjk">
         <createTable tableName="contact_person">
-            <column autoIncrement="true" name="id" type="BIGINT">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
                 <constraints primaryKey="true" primaryKeyName="contact_person_pkey"/>
             </column>
-            <column name="cp_name" type="VARCHAR(255)"/>
-            <column name="corporate_beneficiary_id" type="BIGINT">
+            <column name="address_line1" type="VARCHAR(255)"/>
+            <column name="address_line2" type="VARCHAR(255)"/>
+            <column name="address_name" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="default_address" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
-            <column name="contact_person_order_id" type="BIGINT">
+            <column name="map_url" type="VARCHAR(255)"/>
+            <column name="po_box" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="job_title" type="VARCHAR(255)"/>
+            <column name="national_number" type="VARCHAR(255)"/>
+            <column name="phone_no" type="VARCHAR(255)"/>
+            <column name="primary_contact" type="BOOLEAN"/>
+            <column name="profile" type="VARCHAR(255)"/>
+            <column name="beneficiary_id" type="BIGINT">
                 <constraints nullable="false"/>
+            </column>
+            <column name="contact_person_order_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-9" author="ashimjk">
+        <createTable tableName="contact_person_services">
+            <column name="contact_person_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="services" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-10" author="ashimjk">
+        <createTable tableName="correspondent_bank">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="correspondent_bank_pkey"/>
+            </column>
+            <column name="address_line1" type="VARCHAR(255)"/>
+            <column name="address_line2" type="VARCHAR(255)"/>
+            <column name="address_name" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="default_address" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="map_url" type="VARCHAR(255)"/>
+            <column name="po_box" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="swift_code" type="VARCHAR(255)"/>
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="correspondent_bank_order_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-11" author="ashimjk">
+        <createTable tableName="correspondent_bank_accounts">
+            <column name="correspondent_bank_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="correspondent_bank_accounts_pkey"/>
+            </column>
+            <column name="account_alias" type="VARCHAR(255)"/>
+            <column name="account_number" type="VARCHAR(255)"/>
+            <column name="currency" type="VARCHAR(255)"/>
+            <column name="iban" type="VARCHAR(255)"/>
+            <column name="account_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="correspondent_bank_accounts_pkey"/>
             </column>
         </createTable>
     </changeSet>
 
-    <changeSet id="v1.0.0-3" author="ashimjk">
-        <createTable tableName="corporate_beneficiary">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="corporate_beneficiary_pkey"/>
+
+    <changeSet id="v1.0-12" author="ashimjk">
+        <createTable tableName="correspondent_bank_services">
+            <column name="correspondent_bank_id" type="BIGINT">
+                <constraints nullable="false"/>
             </column>
+            <column name="services" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="v1.0.0-4" author="ashimjk">
-        <addForeignKeyConstraint baseColumnNames="corporate_beneficiary_id"
-                                 baseTableName="beneficiary"
-                                 constraintName="beneficiary_corporate_beneficiary_fkey"
+
+    <changeSet id="v1.0-13" author="ashimjk">
+        <createTable tableName="delegated_person">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="delegated_person_pkey"/>
+            </column>
+            <column name="document" type="VARCHAR(255)"/>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="job_title" type="VARCHAR(255)"/>
+            <column name="limit_amount" type="INTEGER"/>
+            <column name="national_number" type="VARCHAR(255)"/>
+            <column name="profile" type="VARCHAR(255)"/>
+            <column name="signature" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-14" author="ashimjk">
+        <createTable tableName="delegated_person_services">
+            <column name="delegated_person_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="services" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-15" author="ashimjk">
+        <createTable tableName="type_of_dealing">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="type_of_dealing_pkey"/>
+            </column>
+            <column name="deal_type" type="VARCHAR(255)"/>
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_of_dealing_order_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-16" author="ashimjk">
+        <createTable tableName="type_of_dealing_services">
+            <column name="type_of_dealing_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="services" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-17" author="ashimjk">
+        <createTable tableName="uploaded_document">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="uploaded_document_pkey"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="creation_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="file_name" type="VARCHAR(255)"/>
+            <column name="file_type" type="VARCHAR(255)"/>
+            <column name="module_parent_reference" type="VARCHAR(255)"/>
+            <column name="module_reference" type="VARCHAR(255)"/>
+            <column name="object_id" type="VARCHAR(255)"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="status" type="INTEGER"/>
+            <column name="updated_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-18" author="ashimjk">
+        <createTable tableName="user_decision_log">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="user_decision_log_pkey"/>
+            </column>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="approval_status" type="VARCHAR(255)"/>
+            <column name="comment" type="VARCHAR(255)"/>
+            <column name="date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_id" type="VARCHAR(255)"/>
+            <column name="beneficiary_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_decision_order_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0-19" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="beneficiary_share_holders"
+                                 constraintName="beneficiary_share_holders_fkey"
                                  referencedColumnNames="id"
-                                 referencedTableName="corporate_beneficiary"
+                                 referencedTableName="beneficiary"
                                  validate="true"/>
     </changeSet>
 
-    <changeSet id="v1.0.0-5" author="ashimjk">
-        <addForeignKeyConstraint baseColumnNames="corporate_beneficiary_id"
+
+    <changeSet id="v1.0-20" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="correspondent_bank_id"
+                                 baseTableName="correspondent_bank_services"
+                                 constraintName="correspondent_bank_services_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="correspondent_bank"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-21" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="correspondent_bank"
+                                 constraintName="correspondent_bank_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-22" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="correspondent_bank_id"
+                                 baseTableName="correspondent_bank_accounts"
+                                 constraintName="correspondent_bank_accounts_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="correspondent_bank"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-23" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="beneficiary_addresses"
+                                 constraintName="beneficiary_addresses_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-24" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="authorized_signature"
+                                 constraintName="authorized_signature_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-25" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="user_decision_log"
+                                 constraintName="user_decision_log_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-26" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="delegated_person_id"
+                                 baseTableName="delegated_person_services"
+                                 constraintName="delegated_person_services_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="delegated_person"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-27" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="authorized_signature_id"
+                                 baseTableName="authorized_signature_services"
+                                 constraintName="authorized_signature_services_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="authorized_signature"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-28" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="beneficiary_key_managements"
+                                 constraintName="beneficiary_key_managements_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-29" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="delegated_person_id"
+                                 baseTableName="authorized_signature"
+                                 constraintName="delegated_authorized_signature_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="delegated_person"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-30" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="beneficiary_id_types"
+                                 constraintName="beneficiary_id_types_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-31" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="contact_person_id"
+                                 baseTableName="contact_person_services"
+                                 constraintName="contact_person_services_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_person"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-32" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="type_of_dealing_id"
+                                 baseTableName="type_of_dealing_services"
+                                 constraintName="type_of_dealing_services_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_of_dealing"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-33" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
+                                 baseTableName="type_of_dealing"
+                                 constraintName="type_of_dealing_fkey"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beneficiary"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0-34" author="ashimjk">
+        <addForeignKeyConstraint baseColumnNames="beneficiary_id"
                                  baseTableName="contact_person"
-                                 constraintName="contact_person_corporate_beneficiary_fkey"
+                                 constraintName="contact_person_fkey"
                                  referencedColumnNames="id"
-                                 referencedTableName="corporate_beneficiary"
+                                 referencedTableName="beneficiary"
                                  validate="true"/>
     </changeSet>
-
-    <!--    <changeSet id="v1.0.0-6" author="ashimjk">-->
-    <!--        <createSequence sequenceName="ben_seq"-->
-    <!--                        incrementBy="1"-->
-    <!--                        startValue="1"/>-->
-    <!--    </changeSet>-->
-
-    <!--    <changeSet id="v1.0.0-7" author="ashimjk">-->
-    <!--        <createSequence sequenceName="ben_seq"-->
-    <!--                        incrementBy="1"-->
-    <!--                        startValue="1"/>-->
-    <!--    </changeSet>-->
-
-    <!--    <changeSet id="v1.0.0-8" author="ashimjk">-->
-    <!--        <createSequence sequenceName="contact_person_seq"-->
-    <!--                        incrementBy="1"-->
-    <!--                        startValue="1"/>-->
-    <!--    </changeSet>-->
 </databaseChangeLog>

@@ -1,20 +1,25 @@
 package io.ashimjk.liquibase.controller;
 
-import io.ashimjk.liquibase.entity.BeneficiaryEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.ashimjk.liquibase.model.Beneficiary;
 import io.ashimjk.liquibase.model.ContactPerson;
-import io.ashimjk.liquibase.model.CorporateBeneficiary;
+import io.ashimjk.liquibase.model.correspondentbank.CorrespondentBank;
 import io.ashimjk.liquibase.repository.BeneficiaryRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
+
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY;
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,69 +27,66 @@ import java.util.stream.Collectors;
 public class BeneficiaryController {
 
     private final BeneficiaryRepository beneficiaryRepository;
-    private final BeneficiaryMapper mapper;
 
     @GetMapping
     public ResponseEntity<List<Beneficiary>> getAll() {
-        List<Beneficiary> beneficiaries = beneficiaryRepository.findAll()
-                .stream()
-                .map(mapper::toBeneficiary)
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(beneficiaries);
+        return ResponseEntity.ok(beneficiaryRepository.findAll());
     }
 
     @GetMapping("insert")
     public ResponseEntity<Beneficiary> insert() {
-        ContactPerson contactPerson = new ContactPerson();
-        contactPerson.setCpName("pabitra");
+        Beneficiary beneficiary = beneficiaryRequest();
+        beneficiary = this.beneficiaryRepository.save(beneficiary);
 
-        ContactPerson contactPerson2 = new ContactPerson();
-        contactPerson2.setCpName("shusila");
-
-        CorporateBeneficiary corporateBeneficiary = new CorporateBeneficiary();
-        corporateBeneficiary.setContactPersons(Arrays.asList(contactPerson, contactPerson2));
-
-        Beneficiary beneficiary = new Beneficiary();
-        beneficiary.setName("ashish");
-        beneficiary.setCorporateBeneficiary(corporateBeneficiary);
-
-        BeneficiaryEntity beneficiaryEntity = this.beneficiaryRepository.save(mapper.toBeneficiaryEntity(beneficiary));
-
-        return ResponseEntity.ok(mapper.toBeneficiary(beneficiaryEntity));
+        return ResponseEntity.ok(beneficiary);
     }
 
     @GetMapping("partialUpdate")
     public ResponseEntity<Beneficiary> partialUpdate() {
-        Beneficiary beneficiary = mapper.toBeneficiary(this.beneficiaryRepository.getOne(1L));
-        beneficiary.setName("ashim");
+        Beneficiary beneficiary = this.beneficiaryRepository.findById(1L);
+        beneficiary.updateFullName("ashim");
 
-        this.beneficiaryRepository.save(mapper.toBeneficiaryEntity(beneficiary));
+        this.beneficiaryRepository.save(beneficiary);
 
         return ResponseEntity.ok(beneficiary);
     }
 
     @GetMapping("fullUpdate")
     public ResponseEntity<Beneficiary> fullUpdate() {
-        Beneficiary beneficiary = mapper.toBeneficiary(this.beneficiaryRepository.getOne(1L));
-        beneficiary.setName("ashim");
+        Beneficiary beneficiary = this.beneficiaryRepository.findById(1L);
+        beneficiary.updateFullName("ashim");
 
-        CorporateBeneficiary corporateBeneficiary = beneficiary.getCorporateBeneficiary();
-        List<ContactPerson> contactPersons = corporateBeneficiary.getContactPersons();
-        contactPersons.get(1).setCpName("ashim");
+        List<ContactPerson> contactPersons = beneficiary.getContactPersons();
+        contactPersons.get(0).updateFullName("ashim");
 
-        corporateBeneficiary.setContactPersons(contactPersons);
+        CorrespondentBank correspondentBank = beneficiary.getCorrespondentBanks().get(0);
+        correspondentBank.updateName("ashim");
 
-        this.beneficiaryRepository.save(mapper.toBeneficiaryEntity(beneficiary));
+        this.beneficiaryRepository.save(beneficiary);
 
         return ResponseEntity.ok(beneficiary);
     }
 
     @GetMapping("delete")
     public ResponseEntity<Void> delete() {
-        this.beneficiaryRepository.deleteById(1L);
+        this.beneficiaryRepository.delete(1L);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @SneakyThrows
+    protected Beneficiary beneficiaryRequest() {
+        String file = Objects.requireNonNull(BeneficiaryController.class.getClassLoader()
+                .getResource("beneficiary.json"))
+                .getFile();
+
+        Path path = Paths.get(file);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(NON_EMPTY);
+        mapper.setSerializationInclusion(NON_NULL);
+
+        return mapper.readValue(path.toFile(), Beneficiary.class);
     }
 
 }
