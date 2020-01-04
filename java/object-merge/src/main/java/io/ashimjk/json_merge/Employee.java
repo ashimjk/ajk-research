@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonMerge;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Employee {
@@ -11,15 +13,15 @@ public class Employee {
     private String dept;
     private int salary;
     private String phone;
-    @JsonMerge private Address address;
+     private List<Address> addresses;
 
-    static Employee of(String name, String dept, int salary, String phone, Address address) {
+    static Employee of(String name, String dept, int salary, String phone, List<Address> addresses) {
         Employee e = new Employee();
         e.name = name;
         e.dept = dept;
         e.salary = salary;
         e.phone = phone;
-        e.address = address;
+        e.addresses = addresses;
         return e;
     }
 
@@ -37,8 +39,8 @@ public class Employee {
             + ", phone='"
             + phone
             + '\''
-            + ", address="
-            + address
+            + ", addresses="
+            + addresses
             + '}';
     }
 }
