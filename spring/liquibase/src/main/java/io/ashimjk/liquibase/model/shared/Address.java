@@ -22,6 +22,6 @@ public class Address implements Serializable {
     private String mapUrl;
     private String country;
     private String poBox;
-    private boolean defaultAddress = true;
+    private boolean defaultAddress;
 
 }

@@ -2,10 +2,7 @@ package io.ashimjk.liquibase.entity.authorizedsignature;
 
 import lombok.Data;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +27,7 @@ public class DelegatedPersonEntity implements Serializable {
     private String document;
 
     @ElementCollection
+    @OrderColumn(name = "services_order_id")
     private List<String> services = new ArrayList<>();
 
 }

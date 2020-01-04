@@ -18,6 +18,7 @@ public class UserDecisionLog implements Serializable {
 
     private static final long serialVersionUID = -5971119962240355952L;
 
+    private Long id;
     private String userId;
     private String action;
     private String comment;

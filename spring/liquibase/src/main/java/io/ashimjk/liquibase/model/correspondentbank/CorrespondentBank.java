@@ -17,6 +17,7 @@ public class CorrespondentBank implements Serializable {
 
     private static final long serialVersionUID = 213942640908917631L;
 
+    private Long id;
     private String name;
     private String swiftCode;
     private Address address;

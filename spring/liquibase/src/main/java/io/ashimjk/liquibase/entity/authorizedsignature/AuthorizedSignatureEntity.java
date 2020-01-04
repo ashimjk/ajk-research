@@ -28,6 +28,7 @@ public class AuthorizedSignatureEntity implements Serializable {
     private String document;
 
     @ElementCollection
+    @OrderColumn(name = "services_order_id")
     private List<String> services = new ArrayList<>();
 
     @OneToOne(cascade = ALL, orphanRemoval = true)

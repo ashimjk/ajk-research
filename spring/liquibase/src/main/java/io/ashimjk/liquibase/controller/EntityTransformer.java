@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
 public class EntityTransformer {
 
     private static TypeOfDealing typeOfDealing(TypeOfDealingEntity entity) {
-        return new TypeOfDealing(entity.getDealType(), entity.getServices());
+        return new TypeOfDealing(entity.getId(), entity.getDealType(), entity.getServices());
     }
 
     private static Workflow workflow(WorkflowEntity entity) {
@@ -75,6 +75,7 @@ public class EntityTransformer {
 
     private static CorrespondentBank correspondentBank(CorrespondentBankEntity entity) {
         return new CorrespondentBank(
+                entity.getId(),
                 entity.getName(),
                 entity.getSwiftCode(),
                 safeObject(entity.getAddress(), EntityTransformer::address),
@@ -89,6 +90,7 @@ public class EntityTransformer {
 
     private static DelegatedPerson delegatedPerson(DelegatedPersonEntity entity) {
         return new DelegatedPerson(
+                entity.getId(),
                 entity.getJobTitle(),
                 entity.getFullName(),
                 entity.getNationalNumber(),
@@ -102,8 +104,8 @@ public class EntityTransformer {
 
     private static KeyManagement keyManagement(KeyManagementEntity entity) {
         return new KeyManagement(
-                entity.getFullName(),
                 entity.getJobTitle(),
+                entity.getFullName(),
                 entity.getNationalNumber(),
                 entity.getProfile()
         );
@@ -119,6 +121,7 @@ public class EntityTransformer {
 
     private static ContactPerson contactPerson(ContactPersonEntity entity) {
         return new ContactPerson(
+                entity.getId(),
                 entity.getJobTitle(),
                 entity.getFullName(),
                 entity.getEmail(),
@@ -186,6 +189,7 @@ public class EntityTransformer {
 
     private static AuthorizedSignature authorizedSignature(AuthorizedSignatureEntity entity) {
         return new AuthorizedSignature(
+                entity.getId(),
                 entity.getJobTitle(),
                 entity.getFullName(),
                 entity.getNationalNumber(),

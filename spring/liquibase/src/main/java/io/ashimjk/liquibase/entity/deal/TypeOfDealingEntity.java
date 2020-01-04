@@ -24,6 +24,7 @@ public class TypeOfDealingEntity implements Serializable {
     private DealType dealType;
 
     @ElementCollection
+    @OrderColumn(name = "services_order_id")
     private List<String> services = new ArrayList<>();
 
 }

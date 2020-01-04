@@ -15,6 +15,7 @@ public class DelegatedPerson implements Serializable {
 
     private static final long serialVersionUID = 1748717632914066708L;
 
+    private Long id;
     private String jobTitle;
     private String fullName;
     private String nationalNumber;

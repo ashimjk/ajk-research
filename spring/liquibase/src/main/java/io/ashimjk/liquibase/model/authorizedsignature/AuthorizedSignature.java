@@ -15,6 +15,7 @@ public class AuthorizedSignature implements Serializable {
 
     private static final long serialVersionUID = 4895934224691399039L;
 
+    private Long id;
     private String jobTitle;
     private String fullName;
     private String nationalNumber;

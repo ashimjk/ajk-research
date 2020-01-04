@@ -1,5 +1,6 @@
 package io.ashimjk.liquibase.controller;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.ashimjk.liquibase.model.Beneficiary;
 import io.ashimjk.liquibase.model.ContactPerson;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.nio.file.Path;
@@ -52,8 +54,9 @@ public class BeneficiaryController {
     }
 
     @GetMapping("fullUpdate")
-    public ResponseEntity<Beneficiary> fullUpdate() {
-        Beneficiary beneficiary = this.beneficiaryRepository.findById(1L);
+    public ResponseEntity<Beneficiary> fullUpdate(@RequestParam long id) {
+        Beneficiary beneficiary = this.beneficiaryRepository.findById(id);
+
         beneficiary.updateFullName("ashim");
 
         List<ContactPerson> contactPersons = beneficiary.getContactPersons();
@@ -61,6 +64,7 @@ public class BeneficiaryController {
 
         CorrespondentBank correspondentBank = beneficiary.getCorrespondentBanks().get(0);
         correspondentBank.updateName("ashim");
+        correspondentBank.getServices().remove(0);
 
         this.beneficiaryRepository.save(beneficiary);
 
@@ -82,7 +86,8 @@ public class BeneficiaryController {
 
         Path path = Paths.get(file);
 
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper()
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.setSerializationInclusion(NON_EMPTY);
         mapper.setSerializationInclusion(NON_NULL);
 

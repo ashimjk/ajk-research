@@ -6,7 +6,7 @@
 
     <changeSet id="v1.0-1" author="ashimjk">
         <createTable tableName="authorized_signature">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="authorized_signature_pkey"/>
             </column>
             <column name="document" type="VARCHAR(255)"/>
@@ -28,16 +28,19 @@
     <changeSet id="v1.0-2" author="ashimjk">
         <createTable tableName="authorized_signature_services">
             <column name="authorized_signature_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="authorized_signature_services_pkey"/>
             </column>
             <column name="services" type="VARCHAR(255)"/>
+            <column name="services_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="authorized_signature_services_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-3" author="ashimjk">
         <createTable tableName="beneficiary">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="beneficiary_pkey"/>
             </column>
             <column name="beneficiary_type" type="VARCHAR(255)"/>
@@ -75,9 +78,7 @@
             <column name="address_name" type="VARCHAR(255)"/>
             <column name="city" type="VARCHAR(255)"/>
             <column name="country" type="VARCHAR(255)"/>
-            <column name="default_address" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
+            <column name="default_address" type="BOOLEAN"/>
             <column name="map_url" type="VARCHAR(255)"/>
             <column name="po_box" type="VARCHAR(255)"/>
             <column name="address_order_id" type="INTEGER">
@@ -90,12 +91,15 @@
     <changeSet id="v1.0-5" author="ashimjk">
         <createTable tableName="beneficiary_id_types">
             <column name="beneficiary_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="beneficiary_id_types_pkey"/>
             </column>
             <column name="document" type="VARCHAR(255)"/>
             <column name="expiry_date" type="date"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="number" type="VARCHAR(255)"/>
+            <column name="id_types_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_id_types_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
@@ -103,12 +107,15 @@
     <changeSet id="v1.0-6" author="ashimjk">
         <createTable tableName="beneficiary_key_managements">
             <column name="beneficiary_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="beneficiary_key_managements_pkey"/>
             </column>
             <column name="full_name" type="VARCHAR(255)"/>
             <column name="job_title" type="VARCHAR(255)"/>
             <column name="national_number" type="VARCHAR(255)"/>
             <column name="profile" type="VARCHAR(255)"/>
+            <column name="key_management_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_key_managements_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
@@ -116,18 +123,21 @@
     <changeSet id="v1.0-7" author="ashimjk">
         <createTable tableName="beneficiary_share_holders">
             <column name="beneficiary_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="beneficiary_share_holders_pkey"/>
             </column>
             <column name="full_name" type="VARCHAR(255)"/>
             <column name="national_number" type="VARCHAR(255)"/>
             <column name="profile" type="VARCHAR(255)"/>
+            <column name="shared_holder_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="beneficiary_share_holders_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-8" author="ashimjk">
         <createTable tableName="contact_person">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="contact_person_pkey"/>
             </column>
             <column name="address_line1" type="VARCHAR(255)"/>
@@ -135,9 +145,7 @@
             <column name="address_name" type="VARCHAR(255)"/>
             <column name="city" type="VARCHAR(255)"/>
             <column name="country" type="VARCHAR(255)"/>
-            <column name="default_address" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
+            <column name="default_address" type="BOOLEAN"/>
             <column name="map_url" type="VARCHAR(255)"/>
             <column name="po_box" type="VARCHAR(255)"/>
             <column name="email" type="VARCHAR(255)"/>
@@ -158,16 +166,19 @@
     <changeSet id="v1.0-9" author="ashimjk">
         <createTable tableName="contact_person_services">
             <column name="contact_person_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="contact_person_services_pkey"/>
             </column>
             <column name="services" type="VARCHAR(255)"/>
+            <column name="services_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="contact_person_services_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-10" author="ashimjk">
         <createTable tableName="correspondent_bank">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="correspondent_bank_pkey"/>
             </column>
             <column name="address_line1" type="VARCHAR(255)"/>
@@ -175,9 +186,7 @@
             <column name="address_name" type="VARCHAR(255)"/>
             <column name="city" type="VARCHAR(255)"/>
             <column name="country" type="VARCHAR(255)"/>
-            <column name="default_address" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
+            <column name="default_address" type="BOOLEAN"/>
             <column name="map_url" type="VARCHAR(255)"/>
             <column name="po_box" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
@@ -209,16 +218,19 @@
     <changeSet id="v1.0-12" author="ashimjk">
         <createTable tableName="correspondent_bank_services">
             <column name="correspondent_bank_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="correspondent_bank_services_pkey"/>
             </column>
             <column name="services" type="VARCHAR(255)"/>
+            <column name="services_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="correspondent_bank_services_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-13" author="ashimjk">
         <createTable tableName="delegated_person">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="delegated_person_pkey"/>
             </column>
             <column name="document" type="VARCHAR(255)"/>
@@ -235,16 +247,19 @@
     <changeSet id="v1.0-14" author="ashimjk">
         <createTable tableName="delegated_person_services">
             <column name="delegated_person_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="delegated_person_services_pkey"/>
             </column>
             <column name="services" type="VARCHAR(255)"/>
+            <column name="services_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="delegated_person_services_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-15" author="ashimjk">
         <createTable tableName="type_of_dealing">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="type_of_dealing_pkey"/>
             </column>
             <column name="deal_type" type="VARCHAR(255)"/>
@@ -259,16 +274,19 @@
     <changeSet id="v1.0-16" author="ashimjk">
         <createTable tableName="type_of_dealing_services">
             <column name="type_of_dealing_id" type="BIGINT">
-                <constraints nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="type_of_dealing_services_pkey"/>
             </column>
             <column name="services" type="VARCHAR(255)"/>
+            <column name="services_order_id" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="type_of_dealing_services_pkey"/>
+            </column>
         </createTable>
     </changeSet>
 
 
     <changeSet id="v1.0-17" author="ashimjk">
         <createTable tableName="uploaded_document">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="uploaded_document_pkey"/>
             </column>
             <column name="category" type="VARCHAR(255)"/>
@@ -287,7 +305,7 @@
 
     <changeSet id="v1.0-18" author="ashimjk">
         <createTable tableName="user_decision_log">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
+            <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="user_decision_log_pkey"/>
             </column>
             <column name="action" type="VARCHAR(255)"/>

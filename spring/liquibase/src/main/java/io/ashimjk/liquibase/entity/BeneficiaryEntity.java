@@ -54,9 +54,11 @@ public class BeneficiaryEntity implements Serializable {
     private List<ContactPersonEntity> contactPersons = new ArrayList<>();
 
     @ElementCollection
+    @OrderColumn(name = "key_management_order_id")
     private List<KeyManagementEntity> keyManagements = new ArrayList<>();
 
     @ElementCollection
+    @OrderColumn(name = "shared_holder_order_id")
     private List<ShareHolderEntity> shareHolders = new ArrayList<>();
 
     @ElementCollection
@@ -74,6 +76,7 @@ public class BeneficiaryEntity implements Serializable {
     private List<CorrespondentBankEntity> correspondentBanks = new ArrayList<>();
 
     @ElementCollection
+    @OrderColumn(name = "idTypes_order_id")
     private List<IdTypeEntity> idTypes = new ArrayList<>();
 
     @OneToMany(cascade = ALL, orphanRemoval = true)

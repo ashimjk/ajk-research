@@ -26,6 +26,7 @@ public class CorrespondentBankEntity implements Serializable {
     private AddressEntity address;
 
     @ElementCollection
+    @OrderColumn(name = "services_order_id")
     private List<String> services = new ArrayList<>();
 
     @ElementCollection

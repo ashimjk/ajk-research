@@ -16,6 +16,7 @@ public class TypeOfDealing implements Serializable {
 
     private static final long serialVersionUID = -2457907793618698935L;
 
+    private Long id;
     private DealType dealType;
     private List<String> services;
 
