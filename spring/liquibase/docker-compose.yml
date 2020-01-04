@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: bendb
+      POSTGRES_DB: liquidb
     command: postgres -c max_connections=300 -c log_min_messages=LOG
     #    volumes:
     #      - ./vol/postgres:/var/lib/postgresql/data

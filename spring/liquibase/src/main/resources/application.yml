@@ -13,7 +13,7 @@ spring:
             non_contextual_creation: true
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/bendb
+    url: jdbc:postgresql://localhost:5432/liquidb
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver

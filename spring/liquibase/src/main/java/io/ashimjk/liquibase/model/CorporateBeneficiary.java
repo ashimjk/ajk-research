@@ -2,12 +2,12 @@ package io.ashimjk.liquibase.model;
 
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class CorporateBeneficiary {
 
     private Long id;
-    private Set<ContactPerson> contactPersons;
+    private List<ContactPerson> contactPersons;
 
 }

@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -40,8 +39,11 @@ public class BeneficiaryController {
         ContactPerson contactPerson = new ContactPerson();
         contactPerson.setCpName("pabitra");
 
+        ContactPerson contactPerson2 = new ContactPerson();
+        contactPerson2.setCpName("shusila");
+
         CorporateBeneficiary corporateBeneficiary = new CorporateBeneficiary();
-        corporateBeneficiary.setContactPersons(Collections.singleton(contactPerson));
+        corporateBeneficiary.setContactPersons(Arrays.asList(contactPerson, contactPerson2));
 
         Beneficiary beneficiary = new Beneficiary();
         beneficiary.setName("ashish");
@@ -68,8 +70,8 @@ public class BeneficiaryController {
         beneficiary.setName("ashim");
 
         CorporateBeneficiary corporateBeneficiary = beneficiary.getCorporateBeneficiary();
-        Set<ContactPerson> contactPersons = corporateBeneficiary.getContactPersons();
-        contactPersons = contactPersons.stream().peek(contactPerson -> contactPerson.setCpName("ashim")).collect(Collectors.toSet());
+        List<ContactPerson> contactPersons = corporateBeneficiary.getContactPersons();
+        contactPersons.get(1).setCpName("ashim");
 
         corporateBeneficiary.setContactPersons(contactPersons);
 
