@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+    http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+    <entity class="com.progressoft.corpay.trade.finance.UploadedDocument" access="FIELD">
+        <attributes>
+            <id name="reference"/>
+
+            <basic name="creationDate">
+                <column updatable="false" nullable="false"/>
+            </basic>
+            <basic name="updatedDate">
+                <column updatable="true" nullable="true"/>
+            </basic>
+
+            <basic name="status">
+                <enumerated>STRING</enumerated>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
