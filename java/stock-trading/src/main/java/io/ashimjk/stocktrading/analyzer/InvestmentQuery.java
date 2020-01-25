@@ -15,7 +15,7 @@ public class InvestmentQuery implements Comparable<InvestmentQuery> {
     private String investor;
 
     /**
-     * Only used with ArrayList needs to prioritized the query
+     * Used to prioritized the query
      */
     @Override
     public int compareTo(InvestmentQuery other) {
