@@ -1,4 +1,4 @@
-package io.ashimjk.java.practice;
+package io.ashimjk.java.practice.bigdecimal;
 
 import java.math.BigDecimal;
 
