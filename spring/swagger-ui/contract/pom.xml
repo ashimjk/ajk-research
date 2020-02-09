@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>contract</artifactId>
+    <groupId>io.ashimjk.swaggerui</groupId>
+    <version>1.0.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <springfox-version>2.9.2</springfox-version>
+        <root-package>io.ashimjk.swaggerui</root-package>
+
+        <swagger-annotations.version>1.5.14</swagger-annotations.version>
+        <jackson-databind-nullable.version>0.1.0</jackson-databind-nullable.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-annotations.version}</version>
+        </dependency>
+
+        <!--SpringFox dependencies -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-version}</version>
+        </dependency>
+
+        <!--        open-api dependency-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
+        <!--            <artifactId>jackson-datatype-jsr310</artifactId>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson-databind-nullable.version}</version>
+        </dependency>
+        <!-- Bean Validation API support -->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.validation</groupId>-->
+        <!--            <artifactId>validation-api</artifactId>-->
+        <!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>4.2.3</version>
+                <executions>
+                    <execution>
+                        <id>spring-boot-api</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+
+                        <configuration>
+                            <inputSpec>${project.basedir}/index.yaml</inputSpec>
+                            <skipValidateSpec>false</skipValidateSpec>
+                            <strictSpec>true</strictSpec>
+                            <generatorName>spring</generatorName>
+                            <library>spring-boot</library>
+                            <configOptions>
+                                <title>beneficiary-contract</title>
+                                <!--                                <basePackage>${root-package}</basePackage>-->
+                                <configPackage>${root-package}.config</configPackage>
+                                <dateLibrary>java8-localdatetime</dateLibrary>
+                                <java8>true</java8>
+                                <serializableModel>true</serializableModel>
+                                <ensureUniqueParams>true</ensureUniqueParams>
+                                <useTags>true</useTags>
+                                <delegatePattern>false</delegatePattern>
+                                <interfaceOnly>true</interfaceOnly>
+                                <useBeanValidation>false</useBeanValidation>
+                                <performBeanValidation>false</performBeanValidation>
+                                <swaggerDocketConfig>true</swaggerDocketConfig>
+                            </configOptions>
+                            <apiPackage>${root-package}.api</apiPackage>
+                            <modelPackage>${root-package}.model</modelPackage>
+                            <generateApiDocumentation>true</generateApiDocumentation>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

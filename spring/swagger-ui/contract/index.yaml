@@ -1,0 +1,1395 @@
+openapi: 3.0.0
+
+info:
+  title: Beneficiary Profiles API
+  description: A restful API to manage corporate beneficiary profiles
+  contact:
+    name: Clusus Nepal
+    url: http://www.clusus.com
+  license:
+    name: CLUSUS
+    url: https://www.clusus.com
+  version: 1.0.1
+
+tags:
+  - name: beneficiaryProfile
+    description: Beneficiary v1 API
+  - name: beneficiary
+    description: Beneficiary v2 API
+  - name: beneficiary-upload
+    description: Beneficiary Upload v2 API
+  - name: beneficiaryLookups
+    description: Lookups API for beneficiary
+
+paths:
+
+  # V1 beneficiaries request-response components
+
+  /api/v1/beneficiaries:
+    get:
+      tags:
+        - beneficiaryProfile
+      operationId: listBeneficiaryProfiles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BeneficiaryProfileV1'
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+  /api/v1/beneficiaries/{profileId}:
+    get:
+      tags:
+        - beneficiaryProfile
+      operationId: getBeneficiaryByProfileId
+      parameters:
+        - name: profileId
+          in: path
+          description: profile id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryProfileV1'
+
+  /api/v1/beneficiary:
+    get:
+      tags:
+        - beneficiaryProfile
+      operationId: getBeneficiaryByAccountNumberAndBicCode
+      parameters:
+        - name: accountNumber
+          in: query
+          description: account number
+          required: true
+          schema:
+            type: string
+        - name: accountBankCode
+          in: query
+          description: account bank code
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryProfileV1'
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+
+  # V2 beneficiaries request-response components
+
+  /api/v2/beneficiaries:
+    get:
+      tags:
+        - beneficiary
+      operationId: getBeneficiaries
+      parameters:
+        - name: reference
+          in: query
+          schema:
+            type: string
+        - name: fullName
+          in: query
+          schema:
+            type: string
+        - name: beneficiaryType
+          in: query
+          schema:
+            type: string
+        - name: startingDate
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            format: int32
+            type: integer
+            default: 0
+        - name: size
+          in: query
+          schema:
+            format: int32
+            type: integer
+            default: 10
+        - name: sortField
+          in: query
+          schema:
+            type: string
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryListResource'
+
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+    post:
+      tags:
+        - beneficiary
+      operationId: createBeneficiary
+      summary: create beneficiary
+      description: create beneficiary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BeneficiaryRequest"
+      responses:
+        '201':
+          description: create beneficiary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+  /api/v2/beneficiaries/onTheFly:
+    post:
+      tags:
+        - beneficiary
+      operationId: createBeneficiaryOnTheFly
+      summary: create beneficiary on the fly
+      description: create beneficiary on the fly
+      parameters:
+        - name: sourceSystem
+          in: query
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BeneficiaryRequest"
+      responses:
+        '201':
+          description: create beneficiary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+  /api/v2/beneficiaries/{reference}/suspend:
+    put:
+      tags:
+        - beneficiary
+      operationId: suspend
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+  /api/v2/beneficiaries/{reference}/unsuspend:
+    put:
+      tags:
+        - beneficiary
+      operationId: unsuspend
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+  /api/v2/beneficiaries/{reference}/cancel:
+    put:
+      tags:
+        - beneficiary
+      operationId: cancel
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+  /api/v2/beneficiaries/{reference}:
+    get:
+      tags:
+        - beneficiary
+      operationId: getByReference
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+    delete:
+      tags:
+        - beneficiary
+      operationId: deleteByReference
+      summary: Delete beneficiary
+      description: Delete beneficiary
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+    put:
+      tags:
+        - beneficiary
+      operationId: editBeneficiary
+
+      parameters:
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BeneficiaryRequest"
+      responses:
+        '200':
+          description: edit beneficiary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+        '400':
+          description: 'Api Error'
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+  /api/v2/beneficiaries/{reference}/tasks:
+    get:
+      tags:
+        - beneficiary
+      operationId: listTasks
+      summary: retrieve beneficiary tasks
+      parameters:
+        - name: reference
+          in: path
+          description: reference
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskDtoListResource'
+
+  /api/v2/beneficiaries/{reference}/tasks/{taskId}:
+    get:
+      tags:
+        - beneficiary
+      operationId: getTaskById
+      summary: retrieve beneficiary task by id
+      parameters:
+        - name: reference
+          in: path
+          description: reference
+          required: true
+          schema:
+            type: string
+        - name: taskId
+          in: path
+          description: taskId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskDtoResource'
+
+  /api/v2/beneficiaries/{reference}/tasks/{taskId}/form-variables:
+    get:
+      tags:
+        - beneficiary
+      operationId: getFormVariables
+      summary: retrieve beneficiary task form variables
+      parameters:
+        - name: reference
+          in: path
+          description: reference
+          required: true
+          schema:
+            type: string
+        - name: taskId
+          in: path
+          description: taskId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskVariablesResource'
+
+  /api/v2/beneficiaries/{reference}/tasks/{taskId}/complete/{action}:
+    post:
+      tags:
+        - beneficiary
+      operationId: completeTask
+      summary: complete task on beneficiary
+      parameters:
+        - name: reference
+          in: path
+          description: reference
+          required: true
+          schema:
+            type: string
+        - name: taskId
+          in: path
+          description: taskId
+          required: true
+          schema:
+            type: string
+        - name: action
+          in: path
+          description: action
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: variables
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryResource'
+
+  ## LOOKUPS API
+  /api/v2/beneficiaries/lookups/idTypes:
+    get:
+      tags:
+        - beneficiaryLookups
+      operationId: getIdTypes
+      description: Get Types
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+
+  /api/v2/beneficiaries/lookups/jobtitles:
+    get:
+      tags:
+        - beneficiaryLookups
+      operationId: getJobTitles
+      description: Get List Of JobTitles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /resources:
+    post:
+      tags:
+        - permission
+      operationId: permissions
+      summary: list of permission
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+
+  /api/v2/beneficiaries/{parentReference}/uploads/{reference}:
+    get:
+      tags:
+        - beneficiary-upload
+      operationId: getDocumentByReference
+      parameters:
+        - name: parentReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: reference
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeneficiaryListDocumentResource'
+
+  /api/v2/beneficiaries/{parentReference}/uploads/{reference}/documents/{documentId}:
+    get:
+      tags:
+        - beneficiary-upload
+      summary: getDocumentById
+      operationId: getDocumentById
+      parameters:
+        - name: parentReference
+          in: path
+          description: parentReference
+          required: true
+          schema:
+            type: string
+        - name: reference
+          in: path
+          description: reference
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          description: documentId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                format: byte
+
+components:
+  schemas:
+
+    # V1 beneficiaries request-response components
+
+    CorpayAbstractEntityV1:
+      type: object
+      properties:
+        id:
+          type: string
+        processInstanceId:
+          type: string
+        tenantId:
+          type: string
+        createdDate:
+          type: string
+        createdBy:
+          type: string
+        updatedDate:
+          type: string
+        updatedBy:
+          type: string
+
+    BeneficiaryProfileV1:
+      allOf:
+        - $ref: "#/components/schemas/CorpayAbstractEntityV1"
+        - type: object
+          properties:
+            name:
+              type: string
+            profileType:
+              type: string
+            description:
+              type: string
+            email:
+              type: string
+            poBox:
+              type: string
+            phone:
+              type: string
+            fax:
+              type: string
+            startingDate:
+              type: string
+            expiryDate:
+              type: string
+            state:
+              type: string
+              enum: [ACTIVE, SUSPENDED, TERMINATED, DRAFT]
+            contactPerson:
+              $ref: '#/components/schemas/PersonV1'
+            address:
+              $ref: '#/components/schemas/AddressRequestV1'
+            accounts:
+              type: array
+              items:
+                $ref: '#/components/schemas/BeneficiaryAccountV1'
+            agreements:
+              type: array
+              items:
+                $ref: '#/components/schemas/BeneficiaryAgreementV1'
+          required:
+            - name
+            - startingDate
+            - expiryDate
+
+    AddressRequestV1:
+      allOf:
+        - $ref: "#/components/schemas/CorpayAbstractEntityV1"
+        - type: object
+          properties:
+            addressName:
+              type: string
+            addressLine1:
+              type: string
+            addressLine2:
+              type: string
+            city:
+              type: string
+            country:
+              type: string
+            poBox:
+              type: string
+
+    BeneficiaryAccountV1:
+      allOf:
+        - $ref: "#/components/schemas/CorpayAbstractEntityV1"
+        - type: object
+          properties:
+            iban:
+              type: string
+            accountAlias:
+              type: string
+            accountNumber:
+              type: string
+            country:
+              type: string
+            bank:
+              type: string
+            bicCode:
+              type: string
+            currency:
+              type: string
+            accountState:
+              type: string
+              enum: [ACTIVE, SUSPENDED, TERMINATED, DRAFT]
+            beneficiaryProfile:
+              $ref: '#/components/schemas/BeneficiaryProfileV1'
+            intermediateBank:
+              type: string
+            intermediateBranch:
+              type: string
+            intermediateBankAddress:
+              type: string
+            intermediateBankCountry:
+              type: string
+            intermediateBankCity:
+              type: string
+            intermediateBankAccount:
+              type: string
+          required:
+            - iban
+            - accountAlias
+            - accountNumber
+            - country
+            - bank
+            - bicCode
+            - currency
+
+    BeneficiaryAgreementV1:
+      allOf:
+        - $ref: "#/components/schemas/CorpayAbstractEntityV1"
+        - type: object
+          properties:
+            fromDate:
+              type: string
+            toDate:
+              type: string
+            code:
+              type: string
+            reference:
+              type: string
+            _amount:
+              type: string
+            currency:
+              type: string
+            remainingBalance:
+              type: string
+            description:
+              type: string
+            profileId:
+              type: string
+          required:
+            - fromDate
+            - toDate
+            - code
+            - reference
+            - _amount
+            - currency
+
+    PersonV1:
+      allOf:
+        - $ref: "#/components/schemas/CorpayAbstractEntityV1"
+        - type: object
+          properties:
+            name:
+              type: string
+            mobileNumber:
+              type: string
+            title:
+              type: string
+            email:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressRequestV1'
+
+    # V2 beneficiaries request-response components
+
+    BeneficiaryListResource:
+      type: object
+      title: BeneficiaryListResource
+      properties:
+        resourcesList:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeneficiaryResource'
+        page:
+          $ref: '#/components/schemas/PageResource'
+
+    BeneficiaryResource:
+      type: object
+      properties:
+        reference:
+          type: string
+        fullName:
+          type: string
+          description: Full Name of the beneficiary
+        beneficiaryType:
+          type: string
+          enum: [CORPORATE, INDIVIDUAL]
+          description: Identification of beneficiary if it's an individual or corporate
+        idType:
+          type: string
+          description: Primary id type
+        idTypes:
+          type: array
+          description: Type of ID used for corporate(registration certificate, ministry of industry certificate) or individual(passport or license)
+          items:
+            $ref: '#/components/schemas/IdTypeRequest'
+        contactPersons:
+          type: array
+          description: Contact person for corporate and individual
+          items:
+            $ref: '#/components/schemas/ContactPersonRequest'
+        keyManagements:
+          type: array
+          description: Key management team for corporate (only for corporate)
+          items:
+            $ref: '#/components/schemas/KeyManagementRequest'
+        shareHolders:
+          type: array
+          description: Shareholders of the company (only for corporate)
+          items:
+            $ref: '#/components/schemas/ShareHolderRequest'
+        addresses:
+          type: array
+          description: Address of the corporate or individual
+          items:
+            $ref: '#/components/schemas/AddressRequest'
+        authorizedSignatories:
+          type: array
+          description: Authorized signatures of individual or corporate
+          items:
+            $ref: '#/components/schemas/AuthorizedSignatureRequest'
+        delegatedPersons:
+          type: array
+          description: List of delegated persons of authorized-signotories
+          items:
+            $ref: '#/components/schemas/DelegatedPersonRequest'
+        correspondentBanks:
+          type: array
+          description: Advising bank in the transaction or through which bank it is generated
+          items:
+            $ref: '#/components/schemas/CorrespondentBankRequest'
+        typeOfDealings:
+          type: array
+          description: Type of dealings
+          items:
+            $ref: '#/components/schemas/TypeOfDealingRequest'
+        startingDate:
+          type: string
+          description: First transaction date of the customer
+        reviewDate:
+          type: string
+          description: Date when the beneficiary was reviewed, usually between starting and ending date
+        endingDate:
+          type: string
+          description: Date when the contract is ended
+        contractDetail:
+          $ref: '#/components/schemas/ContractDetailRequest'
+        processInstanceId:
+          type: string
+          description: business process instance id
+        currentTask:
+          type: string
+        currentProcess:
+          type: string
+        sourceSystem:
+          type: string
+        status:
+          type: string
+          description: Status of Beneficiary
+          enum: [INITIAL, ACTIVE, DELETED, REJECTED, ONTHEFLY, CANCELLED, SUSPENDED]
+        userDecisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDecisionResource'
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LinksItem'
+
+    BeneficiaryRequest:
+      type: object
+      properties:
+        fullName:
+          type: string
+          description: Full Name of beneficiary(corporate or individual)
+        beneficiaryType:
+          type: string
+          description: Identification of beneficiary if it's an individual or corporate
+          enum: [CORPORATE, INDIVIDUAL]
+        idType:
+          type: string
+          description: Primary id type
+        idTypes:
+          type: array
+          description: Type of ID used for corporate(registration certificate, ministry of industry certificate) or individual(passport or license)
+          items:
+            $ref: '#/components/schemas/IdTypeRequest'
+        contactPersons:
+          type: array
+          description: Contact person for corporate and individual
+          items:
+            $ref: '#/components/schemas/ContactPersonRequest'
+        keyManagements:
+          type: array
+          description: Key management team for corporate (only for corporate)
+          items:
+            $ref: '#/components/schemas/KeyManagementRequest'
+        shareHolders:
+          type: array
+          description: Shareholders of the company (only for corporate)
+          items:
+            $ref: '#/components/schemas/ShareHolderRequest'
+        addresses:
+          type: array
+          description: Address of the corporate or individual
+          items:
+            $ref: '#/components/schemas/AddressRequest'
+        authorizedSignatories:
+          type: array
+          description: Authorized signatures of individual or corporate
+          items:
+            $ref: '#/components/schemas/AuthorizedSignatureRequest'
+        delegatedPersons:
+          type: array
+          description: List of delegated persons of authorized-signotories
+          items:
+            $ref: '#/components/schemas/DelegatedPersonRequest'
+        correspondentBanks:
+          type: array
+          description: Advising bank in the transaction or through which bank it is generated
+          items:
+            $ref: '#/components/schemas/CorrespondentBankRequest'
+        typeOfDealings:
+          type: array
+          description: Type of dealings
+          items:
+            $ref: '#/components/schemas/TypeOfDealingRequest'
+        startingDate:
+          type: string
+          description: First transaction date of the customer
+        reviewDate:
+          type: string
+          description: Date when the beneficiary was reviewed, usually between starting and ending date
+        endingDate:
+          type: string
+          description: Date when the contract is ended
+        contractDetail:
+          $ref: '#/components/schemas/ContractDetailRequest'
+      required:
+        - fullName
+
+    IdTypeRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of ID used for corporate(registration certificate, ministry of industry certificate) or individual(passport or license)
+        number:
+          type: string
+          description: ID number for the ID type mentioned in the name
+        document:
+          type: string
+          description: Attach ID document here
+        expiryDate:
+          type: string
+          description: Expiry date of the ID card presented
+
+    AddressRequest:
+      type: object
+      properties:
+        addressName:
+          type: string
+          description: Post and street address/location of corporate or individual
+        mapUrl:
+          type: string
+          description: Google map url
+        addressLine1:
+          type: string
+          description: Address line 1 of corporate or individual
+        addressLine2:
+          type: string
+          description: Address line 2 of corporate or individual
+        city:
+          type: string
+          description: Residing city for corporate or individual
+        country:
+          type: string
+          description: Name of country in which corporate or individual reside
+        poBox:
+          type: string
+          description: PO box number of corporate or individual
+        defaultAddress:
+          type: boolean
+          description: Default address
+
+    KeyManagementRequest:
+      type: object
+      properties:
+        fullName:
+          type: string
+          description: Full name of key management
+        jobTitle:
+          type: string
+          description: Job title of key management in the company
+        nationalNumber:
+          type: string
+          description: National number of key management
+        profile:
+          type: string
+          description: Profile image
+
+    ShareHolderRequest:
+      type: object
+      properties:
+        fullName:
+          type: string
+          description: Full name of shareholder of the company
+        nationalNumber:
+          type: string
+          description: National number of all the shareholders
+        profile:
+          type: string
+          description: Profile Image name of shareholder
+
+    AuthorizedSignatureRequest:
+      type: object
+      description: Description and details of authorized signatories
+      properties:
+        jobTitle:
+          type: string
+          description: Job title of authorized person
+        fullName:
+          type: string
+          description: Full Name of the authorized person for corporate or individual
+        nationalNumber:
+          type: string
+          description: National number of authorized person
+        signature:
+          type: string
+          description: Authorized signature of authorized personnel
+        limitAmount:
+          type: integer
+          description: Service limit
+        profile:
+          type: string
+          description: Profile image
+        document:
+          type: string
+          description: Attach document proving the post and designation of authorized person
+        services:
+          type: array
+          description: Authorized signatories may vary for different type of services
+          items:
+            type: string
+
+    DelegatedPersonRequest:
+      type: object
+      description: Description and details of delegated person in absence of authorized signatories
+      properties:
+        jobTitle:
+          type: string
+          description: Job title of the delegated person
+        fullName:
+          type: string
+          description: Full Name of the delegated person
+        nationalNumber:
+          type: string
+          description: National number of the delegated person
+        signature:
+          type: string
+          description: Authorized signature of the delegated person
+        limitAmount:
+          type: integer
+          description: Service limit
+        profile:
+          type: string
+          description: Profile image
+        document:
+          type: string
+          description: Attach document proving the post and designation of delegated person
+        relationKey:
+          type: string
+          description: Relation key to map with authorized signature
+        services:
+          type: array
+          description: Delegated person may vary for different type of services
+          items:
+            type: string
+
+    ContactPersonRequest:
+      type: object
+      description: Description and details of contact person
+      properties:
+        jobTitle:
+          type: string
+          description: Job title of the contact person
+        fullName:
+          type: string
+          description: Full Name of the contact person
+        email:
+          type: string
+          description: Email addredd of the contact person
+        phoneNo:
+          type: string
+          description: Phone number of the contact person
+        address:
+          $ref: '#/components/schemas/AddressRequest'
+        nationalNumber:
+          type: string
+          description: National number of the contact person
+        profile:
+          type: string
+          description: Profile image
+        primaryContact:
+          type: boolean
+          description: Default contact
+        services:
+          type: array
+          description: For different services contat person may have different access/permissions
+          items:
+            type: string
+
+    CorrespondentBankRequest:
+      type: object
+      description: Advising bank in the transaction or through which bank it is generated
+      properties:
+        name:
+          type: string
+          description: Name of the bank
+        swiftCode:
+          type: string
+          description: Swift code for the bank
+        address:
+          $ref: '#/components/schemas/AddressRequest'
+        services:
+          type: array
+          description: Bank/s can be for a service or for whole
+          items:
+            type: string
+        accounts:
+          type: array
+          description: IBAN and currency of IBAN for the bank
+          items:
+            $ref: '#/components/schemas/AccountRequest'
+
+    AccountRequest:
+      type: object
+      description: IBAN and currency of IBAN
+      properties:
+        iban:
+          type: string
+          description: International Bank Account Number for the bank
+        currency:
+          type: string
+          description: Currency used in the IBAN
+        accountNumber:
+          type: string
+          description: Account number
+        accountAlias:
+          type: string
+          description: Account Alias
+
+    TypeOfDealingRequest:
+      type: object
+      properties:
+        dealType:
+          type: string
+          description: "The deal type"
+          enum: [PAY, RECEIVE, BOTH, ONLY_CORRESPONDENCE]
+        services:
+          type: array
+          description: For a service or whole as a service
+          items:
+            type: string
+
+    ContractDetailRequest:
+      type: object
+      description: Contract detail (can be generated from contract management)
+      properties:
+        number:
+          type: integer
+          description: Number of contract
+        from:
+          type: string
+          description: Starting date
+        to:
+          type: string
+          description: Ending date
+        detail:
+          type: string
+          description: Detail about the contract
+        amount:
+          type: string
+          description: Amount limit for the contract
+        balance:
+          type: string
+          description: Balance available
+        feesAndCharges:
+          type: string
+          description: Fees and Charges available
+        termsOfPayment:
+          type: string
+          description: Payment terms
+          enum: [SIGHT, DEFERRED_AT_DAYS_FROM_DELIVERY, INVOICE_DATE]
+      required:
+        - number
+        - from
+        - to
+        - details
+        - amount
+        - balance
+        - feesAndCharges
+        - termsOfPayment
+
+    LinksItem:
+      type: object
+      title: LinksItem
+      properties:
+        href:
+          type: string
+        rel:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+
+    UserDecisionResource:
+      type: object
+      title: UserDecisionResource
+      properties:
+        approvalStatus:
+          type: string
+        comment:
+          type: string
+        date:
+          type: string
+        userId:
+          type: string
+
+    TaskDtoListResource:
+      type: object
+      title: TaskDtoListResource
+      properties:
+        resourcesList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskDtoResource'
+
+    TaskDtoResource:
+      type: object
+      title: TaskDtoResource
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        assignee:
+          type: string
+        created:
+          type: string
+        due:
+          type: string
+        followUp:
+          type: string
+        delegationState:
+          type: string
+        description:
+          type: string
+        executionId:
+          type: string
+        owner:
+          type: string
+        parentTaskId:
+          type: string
+        processDefinitionId:
+          type: string
+        processInstanceId:
+          type: string
+        taskDefinitionKey:
+          type: string
+        caseExecutionId:
+          type: string
+        caseInstanceId:
+          type: string
+        caseDefinitionId:
+          type: string
+        formKey:
+          type: string
+        tenantId:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LinksItem'
+
+    TaskVariablesResource:
+      type: object
+      title: TaskVariablesResource
+      properties:
+        variables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TaskVariableValueResource'
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LinksItem'
+
+    TaskVariableValueResource:
+      type: object
+      title: LinksItem
+      properties:
+        type:
+          type: string
+        value:
+          type: object
+        label:
+          type: string
+        valueInfo:
+          type: object
+          additionalProperties:
+            type: object
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        constraints:
+          type: object
+          additionalProperties:
+            type: string
+
+    PageResource:
+      type: object
+      title: PageResource
+      properties:
+        number:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+
+    BeneficiaryListDocumentResource:
+      type: object
+      title: BeneficiaryListDocumentResource
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: BeneficiaryDocumentResource
+
+    BeneficiaryDocumentResource:
+      type: object
+      title: BeneficiaryDocumentResource
+      properties:
+        reference:
+          type: string
+        category:
+          type: string
+        fileResources:
+          type: array
+          description: Document file resource
+          items:
+            $ref: '#/components/schemas/FileResource'
+      required:
+        - reference
+        - category
+        - fileResources
+
+    FileResource:
+      type: object
+      title: FileResource
+      properties:
+        fileId:
+          type: string
+        fileName:
+          type: string
+        link:
+          $ref: '#/components/schemas/LinksItem'
+      required:
+        - fileId
+        - fileName
+        - link
+
+    ApiError:
+      type: object
+      properties:
+        violator:
+          type: string
+          description: 'The field name that cause an error'
+        message:
+          type: string
+          description: 'The violation message for the error'
+
+    ApiErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiError'
+
+
