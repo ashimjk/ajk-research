@@ -1,11 +1,11 @@
-package io.ashimjk.java.practice.queue;
+package io.ashimjk.java.practice.collection.queue;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import static io.ashimjk.java.practice.queue.Category.*;
-import static io.ashimjk.java.practice.queue.Customer.*;
+import static io.ashimjk.java.practice.collection.queue.Category.*;
+import static io.ashimjk.java.practice.collection.queue.Customer.*;
 
 public class PriorityHelpDesk {
 

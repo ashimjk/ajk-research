@@ -1,4 +1,4 @@
-package io.ashimjk.java.practice.queue;
+package io.ashimjk.java.practice.collection.queue;
 
 public class Enquiry {
 

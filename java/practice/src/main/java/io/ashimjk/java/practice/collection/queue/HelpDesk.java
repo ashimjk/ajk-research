@@ -1,10 +1,10 @@
-package io.ashimjk.java.practice.queue;
+package io.ashimjk.java.practice.collection.queue;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.function.Predicate;
 
-import static io.ashimjk.java.practice.queue.Category.PRINTER;
+import static io.ashimjk.java.practice.collection.queue.Category.PRINTER;
 
 public class HelpDesk {
 
