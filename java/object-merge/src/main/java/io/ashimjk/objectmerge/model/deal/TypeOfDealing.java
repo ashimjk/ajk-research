@@ -15,5 +15,6 @@ public class TypeOfDealing implements Serializable {
 
     private Long id;
     private String reference;
+    private DealType dealType;
 
 }
