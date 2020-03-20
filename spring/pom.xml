@@ -18,6 +18,23 @@
     </properties>
 
     <modules>
+        <module>api-gateway</module>
+        <module>auto-configuration</module>
+        <module>chat-demo</module>
+        <module>ddd-practice</module>
+        <module>document-upload</module>
+        <module>entity-relationship</module>
+        <module>feign</module>
+        <module>jacoco</module>
+        <module>kafka-poc</module>
+        <module>keycloak-example</module>
+        <module>lazy-init</module>
+        <module>liquibase</module>
+        <module>spring-bdd-integration</module>
+        <module>spring-integration-poc</module>
+        <module>swagger-ui</module>
+        <module>web-param-test</module>
+        <module>websocket-stomp</module>
         <module>message-driven-microservices</module>
         <module>testing-sample</module>
         <module>dirty-context</module>
