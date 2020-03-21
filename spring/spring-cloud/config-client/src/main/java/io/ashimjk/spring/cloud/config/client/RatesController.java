@@ -20,11 +20,15 @@ public class RatesController {
     @Value("${environment}")
     private String environment;
 
+    @Value("${connstring}")
+    private String connstring;
+
     @RequestMapping("/rate")
     public String getRates(Model model) {
         model.addAttribute("rateAmount", rate);
         model.addAttribute("lanes", laneCount);
         model.addAttribute("tollStart", tollStart);
+        model.addAttribute("connstring", connstring);
         model.addAttribute("environment", environment);
 
         return "rateView";

@@ -54,3 +54,17 @@ GET http://localhost:8888/s1rates-perf-default.json
 Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
+POST http://localhost:8888/encrypt
+Authorization: Basic YXNoaW06YXNoaW0=
+Content-Type: text/plain
+
+connectionstring=server123;user=root;password=password1
+
+###
+POST http://localhost:8888/decrypt
+Authorization: Basic YXNoaW06YXNoaW0=
+Content-Type: text/plain
+
+57596475f34e724c34cddcb57fb772288a8b2096adaa573cf7978995529189a2ebb94056f77c2f0bbb2fa0b271facd23d58f9a91cb641b86edb5a94746ea1ed3f3bdf9b50448ba10f25cfe4985fc9833
+
+###
