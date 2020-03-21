@@ -1,42 +1,42 @@
-GET http://localhost:8080/s1rates/default
+GET http://localhost:8888/s1rates/default
 
 ###
-GET http://localhost:8080/s1rates/master
+GET http://localhost:8888/s1rates/master
 
 ###
-GET http://localhost:8080/s100/master
+GET http://localhost:8888/s100/master
 
 ###
-GET http://localhost:8080/s1rates/dev
+GET http://localhost:8888/s1rates/dev
 
 ###
-GET http://localhost:8080/s2rates/qa
+GET http://localhost:8888/s2rates/qa
 
 ###
-GET http://localhost:8080/s2rates-default.properties
+GET http://localhost:8888/s2rates-default.properties
 
 ###
-GET http://localhost:8080/s2rates-default.yml
+GET http://localhost:8888/s2rates-default.yml
 
 ###
-GET http://localhost:8080/s2rates-default.json
+GET http://localhost:8888/s2rates-default.json
 
 ###
-GET http://localhost:8080/s2rates-dev.json
+GET http://localhost:8888/s2rates-dev.json
 
 ###
-GET http://localhost:8080/s2rates-ashim.json
+GET http://localhost:8888/s2rates-ashim.json
 
 ###
-GET http://localhost:8080/s1rates/perf
+GET http://localhost:8888/s1rates/perf
 
 ###
-GET http://localhost:8080/s3rates/perf
+GET http://localhost:8888/s3rates/perf
 
 ###
-GET http://localhost:8080/s1rates-perf.json
+GET http://localhost:8888/s1rates-perf.json
 
 ###
-GET http://localhost:8080/s1rates-perf-default.json
+GET http://localhost:8888/s1rates-perf-default.json
 
 ###
