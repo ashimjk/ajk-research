@@ -16,6 +16,7 @@
 
     <modules>
         <module>local-config</module>
+        <module>git-config</module>
     </modules>
 
 </project>
