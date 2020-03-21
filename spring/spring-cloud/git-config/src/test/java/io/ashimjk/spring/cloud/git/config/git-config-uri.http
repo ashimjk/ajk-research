@@ -14,6 +14,10 @@ GET http://localhost:8888/s1rates/dev
 Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
+GET http://localhost:8888/s1rates-dev.json
+Authorization: Basic YXNoaW06YXNoaW0=
+
+###
 GET http://localhost:8888/s2rates/qa
 Authorization: Basic YXNoaW06YXNoaW0=
 
