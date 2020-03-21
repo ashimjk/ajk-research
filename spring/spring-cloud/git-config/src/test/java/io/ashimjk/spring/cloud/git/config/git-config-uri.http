@@ -1,42 +1,56 @@
 GET http://localhost:8888/s1rates/default
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s1rates/master
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s100/master
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s1rates/dev
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates/qa
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates-default.properties
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates-default.yml
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates-default.json
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates-dev.json
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s2rates-ashim.json
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s1rates/perf
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s3rates/perf
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s1rates-perf.json
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
 GET http://localhost:8888/s1rates-perf-default.json
+Authorization: Basic YXNoaW06YXNoaW0=
 
 ###
