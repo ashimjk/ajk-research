@@ -15,4 +15,10 @@
     <name>cloud-config</name>
     <description>Spring Cloud Config</description>
 
+    <modules>
+        <module>config-server</module>
+        <module>order-service</module>
+        <module>product-service</module>
+    </modules>
+
 </project>

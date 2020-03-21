@@ -50,6 +50,7 @@
         <module>configuration</module>
         <module>cucumber</module>
         <module>edge-services-routing</module>
+        <module>spring-cloud</module>
     </modules>
 
 </project>
