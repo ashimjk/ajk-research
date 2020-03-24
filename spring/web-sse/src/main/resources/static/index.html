@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Hello</h1>
+
+<script type="text/javascript">
+
+    srb();
+
+
+    function srb() {
+        // const getAction = async () => {
+        //     const response = await fetch('http://localhost:8080/srb');
+        //     console.log('response', response);
+        //     // const myJson = await response.json(); //extract JSON from the http response
+        //     // do something with myJson
+        // };
+        // getAction();
+
+        var xhr = function (url) {
+            return new Promise(function (resolve, reject) {
+                var xmhr = new XMLHttpRequest();
+                //...
+                xmhr.open("GET", url, true);
+                xmhr.send();
+                //...
+            });
+        };
+
+        xhr('http://localhost:8080/srb')
+            .then(function (success) {
+                console.log('success');
+            });
+    }
+
+
+    function sse() {
+        let eventSource = new EventSource('http://localhost:8080/sse');
+        eventSource.onmessage = evt => console.log('evt.data', evt.data);
+    }
+
+
+    function rbe() {
+
+        const getAction = async () => {
+            const response = await fetch('http://localhost:8080/rbe');
+            console.log('response', response);
+            // const myJson = await response.json(); //extract JSON from the http response
+            // do something with myJson
+        };
+
+        const postAction = async () => {
+            const myBody = {};
+            const response = await fetch('http://localhost:8080', {
+                method: 'POST',
+                body: myBody, // string or object
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const myJson = await response.json(); //extract JSON from the http response
+            // do something with myJson
+        };
+
+        getAction();
+
+        // let response = await fetch('http://localhost:8080/rbe');
+        // response.then(d => console.log('d', d));
+        // var xhr = function (url) {
+        //     return new Promise(function (resolve, reject) {
+        //         var xmhr = new XMLHttpRequest();
+        //         ...
+        // xmhr.open("GET", url, true);
+        // xmhr.send();
+        // ...
+        // });
+        // };
+        //
+        // xhr('http://localhost:8080/rbe')
+        //     .then(function (success) {
+        //         console.log(success);
+        //         console.log("success");
+        //     });
+
+
+    }
+</script>
+</body>
+</html>
