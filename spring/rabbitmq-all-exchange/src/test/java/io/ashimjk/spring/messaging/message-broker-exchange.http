@@ -1,0 +1,19 @@
+GET http://localhost:8080/direct-exchange
+Accept: application/json
+
+###
+
+GET http://localhost:8080/fanout-exchange
+Accept: application/json
+
+###
+
+GET http://localhost:8080/topic-exchange
+Accept: application/json
+
+###
+
+GET http://localhost:8080/header-exchange
+Accept: application/json
+
+###
