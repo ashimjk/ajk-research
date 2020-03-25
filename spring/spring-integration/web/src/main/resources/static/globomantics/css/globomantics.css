@@ -1,0 +1,30 @@
+.jumbotron {
+    /*background-color: #28415b;*/
+    background-image: url("/globomantics/images/banner.png");
+}
+
+.card .card-header h4 {
+    font-weight: bold;
+}
+
+.card.mouse .card-header {
+    background-color: #6a8db2;
+}
+
+.card.mouse .card-body {
+    background-color: #5b748e;
+}
+
+.card.selected .card-header {
+    background-color: #375a7f;
+    box-shadow: 0 0.5rem 1rem rgba(240, 240, 240, 0.25);
+}
+
+.card.selected .card-body {
+    background-color: #28415b;
+    box-shadow: 0 0.5rem 1rem rgba(240, 240, 240, 0.25);
+}
+
+footer hr {
+    border-top: 1px solid #444;
+}

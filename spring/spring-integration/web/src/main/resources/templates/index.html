@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/globomantics/css/globomantics.css">
+    <title>Welcome to Globomantics</title>
+</head>
+<body>
+<header class="jumbotron">
+    <div class="container">
+        <img src="/globomantics/images/logo.png">
+        <p class="lead">Register for the Globomantics Tech Conference to learn all about the latest technology
+            developments from the experts!</p>
+    </div>
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Globomantics Tech Conference Registration</h1>
+            <form action="#" th:action="@{/}" th:object="${registration}" method="post">
+                <h2 class="my-4">Select your ticket type</h2>
+                <p class="lead">Early bird prices are still available!</p>
+                <div th:if="${#fields.hasErrors('ticketType')}" class="alert alert-danger" role="alert">Please select a
+                    ticket type.
+                </div>
+                <div class="card-deck mb-3 text-center" data-toggle="buttons">
+                    <input id="ticketType" type="hidden" th:field="*{ticketType}">
+                    <div id="ticketTypePremium" class="card mb-4 shadow"
+                         th:classappend="${registration.ticketType == 'P' ? 'selected' : ''}">
+                        <div class="card-header">
+                            <h4>Premium</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title">$ 800</h1>
+                            <p class="card-text">Access to all conference events plus attend the workshop of your
+                                choice.</p>
+                        </div>
+                    </div>
+                    <div id="ticketTypeStandard" class="card mb-4 shadow"
+                         th:classappend="${registration.ticketType == 'S' ? 'selected' : ''}">
+                        <div class="card-header">
+                            <h4>Standard</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title">$ 500</h1>
+                            <p class="card-text">Access to all conference keynotes, sessions, community open spaces and
+                                the exhibition hall.</p>
+                        </div>
+                    </div>
+                    <div id="ticketTypeCommunity" class="card mb-4 shadow"
+                         th:classappend="${registration.ticketType == 'C' ? 'selected' : ''}">
+                        <div class="card-header">
+                            <h4>Community</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title">$ 100</h1>
+                            <p class="card-text">Access to keynotes, community open spaces and the exhibition hall.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="discountCode">If you have a discount code, enter it here.</label>
+                    <input id="discountCode" type="text" class="form-control" placeholder="Discount code"
+                           th:field="*{discountCode}">
+                </div>
+                <h2 class="my-4">Attendee information</h2>
+                <div class="form-group row">
+                    <label for="firstName" class="col-form-label col-form-label-lg col-sm-2">First name *</label>
+                    <div class="col-sm-10">
+                        <input id="firstName" type="text" class="form-control form-control-lg" placeholder="First name"
+                               th:field="*{firstName}">
+                        <div th:if="${#fields.hasErrors('firstName')}" class="text-danger">Please enter your first name
+                            (up to 30 characters).
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastName" class="col-form-label col-form-label-lg col-sm-2">Last name *</label>
+                    <div class="col-sm-10">
+                        <input id="lastName" type="text" class="form-control form-control-lg" placeholder="Last name"
+                               th:field="*{lastName}">
+                        <div th:if="${#fields.hasErrors('lastName')}" class="text-danger">Please enter your last name
+                            (up to 30 characters).
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-form-label-lg col-sm-2">Email *</label>
+                    <div class="col-sm-10">
+                        <input id="email" type="email" class="form-control form-control-lg" placeholder="Email"
+                               th:field="*{email}">
+                        <div th:if="${#fields.hasErrors('lastName')}" class="text-danger">Please enter a valid e-mail
+                            address.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="phoneNumber" class="col-form-label col-sm-2">Phone number</label>
+                    <div class="col-sm-10">
+                        <input id="phoneNumber" type="tel" class="form-control" placeholder="Phone number"
+                               th:field="*{phoneNumber}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-form-label col-sm-2">Title</label>
+                    <div class="col-sm-10">
+                        <input id="title" type="text" class="form-control" placeholder="Title" th:field="*{title}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="company" class="col-form-label col-sm-2">Company</label>
+                    <div class="col-sm-10">
+                        <input id="company" type="text" class="form-control" placeholder="Company"
+                               th:field="*{company}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button class="btn btn-primary btn-lg" type="submit">Register &raquo;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer class="container text-right">
+    <hr>
+    <a href="https://www.pluralsight.com">Pluralsight</a> - Spring Integration: Getting Started
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/globomantics/js/globomantics.js"></script>
+</body>
+</html>

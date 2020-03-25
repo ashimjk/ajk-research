@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/globomantics/css/globomantics.css">
+    <title>Welcome to Globomantics</title>
+</head>
+<body>
+<header class="jumbotron">
+    <div class="container">
+        <img src="/globomantics/images/logo.png">
+        <p class="lead">Register for the Globomantics Tech Conference to learn all about the latest technology
+            developments from the experts!</p>
+    </div>
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Thanks for registering, <span th:text="${registration.firstName}"></span>!</h1>
+            <p class="lead">We are looking forward to meeting you at the Globomantics Tech Conference.</p>
+
+            <h2>Registration information</h2>
+            <div class="row">
+                <div class="col-2">Ticket type:</div>
+                <div class="col-10">
+                    <span th:if="${registration.ticketType == 'P'}">Premium</span>
+                    <span th:if="${registration.ticketType == 'S'}">Standard</span>
+                    <span th:if="${registration.ticketType == 'C'}">Community</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Name:</div>
+                <div class="col-10"><span th:text="${registration.firstName}"></span> <span
+                        th:text="${registration.lastName}"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Email:</div>
+                <div class="col-10"><span th:text="${registration.email}"></span></div>
+            </div>
+            <div class="row" th:if="${registration.phoneNumber != ''}">
+                <div class="col-2">Phone number:</div>
+                <div class="col-10"><span th:text="${registration.phoneNumber}"></span></div>
+            </div>
+            <div class="row" th:if="${registration.title != ''}">
+                <div class="col-2">Title:</div>
+                <div class="col-10"><span th:text="${registration.title}"></span></div>
+            </div>
+            <div class="row" th:if="${registration.company != ''}">
+                <div class="col-2">Company:</div>
+                <div class="col-10"><span th:text="${registration.company}"></span></div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="container text-right">
+    <hr>
+    <a href="https://www.pluralsight.com">Pluralsight</a> - Spring Integration: Getting Started
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/globomantics/js/globomantics.js"></script>
+</body>
+</html>
