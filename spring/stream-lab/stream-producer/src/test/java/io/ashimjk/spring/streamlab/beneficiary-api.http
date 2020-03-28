@@ -1,0 +1,9 @@
+POST http://localhost:8080/beneficiary
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "address": "dhapasi"
+}
+
+###
