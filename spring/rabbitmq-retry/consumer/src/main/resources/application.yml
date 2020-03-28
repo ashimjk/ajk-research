@@ -1,0 +1,12 @@
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-interval: 10s
+          multiplier: 2
+          max-attempts: 6
+server:
+  port: 8081

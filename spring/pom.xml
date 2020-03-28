@@ -54,6 +54,10 @@
         <!--        <module>event-source/event-source-api</module>-->
         <module>web-sse</module>
         <module>sse</module>
+        <module>spring-integration</module>
+        <!--        <module>rabbitmq-all-exchange</module>-->
+        <!--        <module>rabbitmq-messaging</module>-->
+        <!--        <module>rabbitmq-retry</module>-->
     </modules>
 
 </project>

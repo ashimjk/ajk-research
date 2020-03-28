@@ -1,0 +1,88 @@
+GET http://localhost:8080/gateway/Ashim Khadka
+Accept: application/json
+
+###
+POST http://localhost:8080/transformer
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "address": "ktm"
+}
+
+###
+
+POST http://localhost:8080/router/payload/student
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "gender": "male"
+}
+
+###
+
+POST http://localhost:8080/router/payload/address
+Content-Type: application/json
+
+{
+  "city": "ktm",
+  "country": "nepal"
+}
+
+###
+
+POST http://localhost:8080/router/recipient/student
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "gender": "male"
+}
+
+###
+
+POST http://localhost:8080/router/header/student
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "gender": "male"
+}
+
+###
+
+POST http://localhost:8080/router/header/address
+Content-Type: application/json
+
+{
+  "city": "ktm",
+  "country": "nepal"
+}
+
+###
+
+POST http://localhost:8080/router/filter/student
+Content-Type: application/json
+
+{
+  "name": "ashim",
+  "gender": "male"
+}
+
+###
+
+POST http://localhost:8080/router/filter/address
+Content-Type: application/json
+
+{
+  "city": "ktm",
+  "country": "nepal"
+}
+
+###
+
+GET http://localhost:8080/sample
+Accept: application/json
+
+###
