@@ -1,0 +1,15 @@
+<h1>Gateway Lab</h1>
+
+<p><strong>Beneficiary Service : </strong> {{ (beneficiaryService$ | async)?.name }}</p>
+<p><strong>Notification Service : </strong> {{ (notificationService$ | async)?.name }}</p>
+
+
+<div>
+  <h3>Subscribed Notification</h3>
+
+  <ng-container *ngFor="let sub of subscribedNotification">
+    <p>{{ sub }}</p>
+  </ng-container>
+
+
+</div>
