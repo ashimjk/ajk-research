@@ -28,6 +28,7 @@
         <module>notification-service</module>
         <module>gateway-service</module>
         <module>war-test</module>
+        <module>webflux-war</module>
     </modules>
 
     <dependencies>
