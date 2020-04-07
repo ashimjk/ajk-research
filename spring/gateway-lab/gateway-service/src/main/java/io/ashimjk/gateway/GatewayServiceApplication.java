@@ -7,6 +7,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -21,6 +22,11 @@ public class GatewayServiceApplication {
     public GlobalFilter customFilter() {
         return new GatewayServiceFilter();
     }
+
+    //@Bean
+    //public ServerCodecConfigurer serverCodecConfigurer() {
+    //    return ServerCodecConfigurer.create();
+    //}
 
     public static class GatewayServiceFilter implements GlobalFilter, Ordered {
 

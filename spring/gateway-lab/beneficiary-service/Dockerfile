@@ -11,5 +11,5 @@ RUN apk add --update ttf-dejavu && rm -rf /var/cache/apk/*
 ARG version=123
 RUN echo service version: $version >> /version.info
 EXPOSE 8080
-COPY notification-service/target/notification-service-*.jar /myapp/app.jar
+COPY beneficiary-service/target/beneficiary-service-*.jar /myapp/app.jar
 CMD cat /version.info && java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar

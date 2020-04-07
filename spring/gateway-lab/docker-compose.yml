@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  gateway:
+    image: gateway-service:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.cloud.gateway.routes[0].id=beneficiary
+      - spring.cloud.gateway.routes[0].uri=http://beneficiary:8081
+      - spring.cloud.gateway.routes[0].predicates[0]=Path=/beneficiary/**
+      - spring.cloud.gateway.routes[0].filters[0]=StripPrefix=1
+      - spring.cloud.gateway.routes[1].id=notification
+      - spring.cloud.gateway.routes[1].uri=http://notification:8082
+      - spring.cloud.gateway.routes[1].predicates[0]=Path=/notification/**
+      - spring.cloud.gateway.routes[1].filters[0]=StripPrefix=1
+
+  beneficiary:
+    image: beneficiary-service:1.0
+    ports:
+      - "8081:8081"
+
+  notification:
+    image: notification-service:1.0
+    ports:
+      - "8082:8082"

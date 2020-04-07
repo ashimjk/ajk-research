@@ -17,6 +17,8 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/notification/**
+          filters:
+            - StripPrefix=1
 
         - id: alert
           uri: http://localhost:9090
