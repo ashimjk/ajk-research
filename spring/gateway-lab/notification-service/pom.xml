@@ -4,71 +4,59 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!--    <parent>-->
+    <!--        <groupId>io.ashimjk.gateway</groupId>-->
+    <!--        <artifactId>gateway-lab</artifactId>-->
+    <!--        <version>1.0.0</version>-->
+    <!--    </parent>-->
+
     <parent>
-        <groupId>io.ashimjk.gateway</groupId>
-        <artifactId>gateway-lab</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/>
     </parent>
 
+    <groupId>io.ashimjk.gateway</groupId>
     <artifactId>notification-service</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>war</packaging>
+
     <name>notification-service</name>
     <description>Notification Service</description>
 
-    <packaging>${packaging.type}</packaging>
+    <dependencies>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--        </dependency>-->
 
-    <properties>
-        <packaging.type>jar</packaging.type>
-    </properties>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
 
-    <profiles>
-        <profile>
-            <id>war</id>
-            <properties>
-                <packaging.type>war</packaging.type>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.8</version>
-                        <executions>
-                            <execution>
-                                <id>copy-war-to-artifacts</id>
-                                <phase>install</phase>
-                                <configuration>
-                                    <target>
-                                        <copy file="target/notification-service-${project.version}.war"
-                                              tofile="notification.war"/>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
 </project>
