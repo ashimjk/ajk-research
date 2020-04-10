@@ -1,0 +1,57 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: beneficiary
+          uri: http://beneficiary:8081
+          predicates:
+            - Path=/beneficiary/**
+          filters:
+            - StripPrefix=1
+
+        - id: notification
+          uri: http://notification:8082
+          predicates:
+            - Path=/notification/**
+          filters:
+            - StripPrefix=1
+      actuator:
+        verbose:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Origin
+              - Accept
+              - X-Requested-With
+              - Content-Type
+              - Access-Control-Request-Method
+              - Access-Control-Request-Headers
+              - Authorization
+            allowCredentials: true
+            maxAge: 3600
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          server:
+            adapter: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
